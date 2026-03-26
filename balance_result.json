@@ -1,36 +1,55 @@
 {
-  "updated_at": "2026-03-26 17:20:21",
+  "updated_at": "2026-03-26 17:39:55",
   "threshold": 10,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 45314001,
-      "balance": 90.63,
+      "quota": 44351578,
+      "balance": 88.7,
       "low": false
     },
     {
       "name": "云雾",
-      "quota": 563267691,
-      "balance": 563.27,
+      "quota": 562858321,
+      "balance": 562.86,
       "low": false
     },
     {
       "name": "哈基米",
-      "quota": 28710781582,
-      "balance": 287.11,
+      "quota": 28519281582,
+      "balance": 285.19,
       "low": false
     },
     {
       "name": "MNAPI",
-      "quota": 159559594,
-      "balance": 319.12,
+      "quota": 159286450,
+      "balance": 318.57,
       "low": false
     },
     {
       "name": "FoxCode",
-      "quota": 1901164731,
-      "balance": 444.87,
+      "quota": 1870136471,
+      "balance": 437.61,
       "low": false
     }
-  ]
+  ],
+  "recharge": {
+    "billing_period": {
+      "start": "2026-03-26",
+      "end": "2026-04-25",
+      "label": "2026年4月账单"
+    },
+    "total": 489.65,
+    "by_account": {
+      "FoxCode": 489.65
+    },
+    "records": [
+      {
+        "account": "FoxCode",
+        "amount": 489.65,
+        "time": "2026-03-26 17:00:00",
+        "note": "初始记录"
+      }
+    ]
+  }
 }

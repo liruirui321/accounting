@@ -203,6 +203,19 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .bal-card .bc-quota{font-size:13px;color:var(--gray-500)}
 .bal-loading{text-align:center;padding:60px;color:var(--gray-500);font-size:15px}
 .bal-error{text-align:center;padding:40px;color:var(--red);font-size:14px}
+.recharge-section{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-top:24px}
+.recharge-section h3{font-size:16px;font-weight:600;color:var(--gray-700);margin-bottom:16px}
+.recharge-summary{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.recharge-summary .rs-item{text-align:center;padding:12px;border:1px solid var(--gray-200);border-radius:var(--radius)}
+.recharge-summary .rs-item .rs-name{font-size:13px;color:var(--gray-500);margin-bottom:4px}
+.recharge-summary .rs-item .rs-amt{font-size:20px;font-weight:700;color:var(--red)}
+.recharge-total{font-size:28px;font-weight:700;color:var(--red);text-align:center;padding:16px;background:var(--red-bg);border-radius:var(--radius);margin-bottom:16px}
+.recharge-total .rt-label{font-size:13px;color:var(--gray-500);font-weight:400;display:block;margin-bottom:4px}
+.recharge-total .rt-period{font-size:12px;color:var(--gray-500);font-weight:400;margin-top:4px}
+.recharge-log{font-size:13px;color:var(--gray-500);max-height:200px;overflow-y:auto}
+.recharge-log table{width:100%}
+.recharge-log th{font-weight:600;text-align:left;padding:6px 10px;border-bottom:1px solid var(--gray-200)}
+.recharge-log td{padding:6px 10px;border-bottom:1px solid var(--gray-100)}
 .gate-box{background:#fff;border-radius:16px;padding:40px 36px;box-shadow:0 8px 32px rgba(0,0,0,.25);width:360px;max-width:90vw;text-align:center}
 .gate-box h2{font-size:20px;margin-bottom:6px;color:var(--gray-900)}
 .gate-box p{font-size:13px;color:var(--gray-500);margin-bottom:24px}
@@ -474,6 +487,32 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
             </div>
             <div class="bc-balance">{{ fmt(acc.balance) }}</div>
             <div class="bc-quota">原始额度: {{ acc.quota.toLocaleString() }}</div>
+          </div>
+        </div>
+
+        <!-- 充值统计 -->
+        <div v-if="bal.data.recharge" class="recharge-section">
+          <h3>{{ bal.data.recharge.billing_period.label || '账单周期充值统计' }}</h3>
+          <div class="recharge-total">
+            <span class="rt-label">账单周期总充值（= 下月API成本）</span>
+            {{ fmt(bal.data.recharge.total) }}
+            <div class="rt-period">{{ bal.data.recharge.billing_period.start }} ~ {{ bal.data.recharge.billing_period.end }}</div>
+          </div>
+          <div class="recharge-summary">
+            <div v-for="(amt, name) in bal.data.recharge.by_account" :key="name" class="rs-item">
+              <div class="rs-name">{{ name }}</div>
+              <div class="rs-amt">{{ fmt(amt) }}</div>
+            </div>
+          </div>
+          <div class="recharge-log">
+            <table>
+              <thead><tr><th>时间</th><th>账号</th><th>金额</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr v-for="(r,i) in bal.data.recharge.records.slice().reverse()" :key="i">
+                  <td>{{ r.time }}</td><td>{{ r.account }}</td><td style="color:var(--red);font-weight:600">{{ fmt(r.amount) }}</td><td>{{ r.note }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </template>
