@@ -185,6 +185,24 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 }
 /* Token gate */
 .gate-mask{position:fixed;inset:0;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);display:flex;align-items:center;justify-content:center;z-index:999}
+
+/* Balance page */
+.bal-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.bal-summary .card .value.low{color:var(--red)}
+.bal-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.bal-card{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border-left:4px solid var(--green);transition:box-shadow .2s}
+.bal-card:hover{box-shadow:var(--shadow-lg)}
+.bal-card.low{border-left-color:var(--red);background:#fffbfb}
+.bal-card .bc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.bal-card .bc-name{font-size:16px;font-weight:600;color:var(--gray-900)}
+.bal-card .bc-badge{font-size:12px;padding:2px 10px;border-radius:12px;font-weight:500}
+.bal-card .bc-badge.ok{background:var(--green-bg);color:var(--green)}
+.bal-card .bc-badge.warn{background:var(--red-bg);color:var(--red)}
+.bal-card .bc-balance{font-size:28px;font-weight:700;color:var(--green);margin-bottom:4px}
+.bal-card.low .bc-balance{color:var(--red)}
+.bal-card .bc-quota{font-size:13px;color:var(--gray-500)}
+.bal-loading{text-align:center;padding:60px;color:var(--gray-500);font-size:15px}
+.bal-error{text-align:center;padding:40px;color:var(--red);font-size:14px}
 .gate-box{background:#fff;border-radius:16px;padding:40px 36px;box-shadow:0 8px 32px rgba(0,0,0,.25);width:360px;max-width:90vw;text-align:center}
 .gate-box h2{font-size:20px;margin-bottom:6px;color:var(--gray-900)}
 .gate-box p{font-size:13px;color:var(--gray-500);margin-bottom:24px}
@@ -245,6 +263,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <a :class="{active:tab==='revenue'}" @click="tab='revenue'"><span class="icon">&#9650;</span><span>收 入</span></a>
       <a :class="{active:tab==='cost'}" @click="tab='cost'"><span class="icon">&#9660;</span><span>成 本</span></a>
       <a :class="{active:tab==='dist'}" @click="tab='dist'"><span class="icon">&#9733;</span><span>利润分配</span></a>
+      <a :class="{active:tab==='balance'}" @click="tab='balance';loadBalance()"><span class="icon">&#9670;</span><span>API余额</span></a>
     </nav>
     <div class="sidebar-footer">
       <button @click="printPage"><span>打印月报</span></button>
@@ -436,6 +455,30 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       </div>
     </template>
 
+    <!-- ===== API Balance ===== -->
+    <template v-if="tab==='balance'">
+      <div class="page-header"><h2>API 余额监控</h2><button class="btn btn-ghost" @click="loadBalance()">刷新</button></div>
+      <div v-if="bal.loading" class="bal-loading">正在加载余额数据...</div>
+      <div v-else-if="bal.error" class="bal-error">{{ bal.error }}</div>
+      <template v-else-if="bal.data">
+        <div class="bal-summary">
+          <div class="card c-revenue"><div class="label">总余额</div><div class="value">{{ fmt(bal.totalBalance) }}</div></div>
+          <div class="card c-gross"><div class="label">账号数量</div><div class="value" style="color:var(--primary)">{{ bal.data.accounts.length }}</div></div>
+          <div class="card" :class="bal.lowCount?'c-cost':'c-cashflow'"><div class="label">最后更新</div><div class="value" style="font-size:16px" :style="{color: bal.lowCount ? 'var(--red)' : 'var(--cyan)'}">{{ bal.data.updated_at }}<span v-if="bal.lowCount" style="display:block;font-size:14px;margin-top:4px">{{ bal.lowCount }} 个账号余额不足</span></div></div>
+        </div>
+        <div class="bal-cards">
+          <div v-for="acc in bal.data.accounts" :key="acc.name" class="bal-card" :class="{low:acc.low}">
+            <div class="bc-header">
+              <span class="bc-name">{{ acc.name }}</span>
+              <span class="bc-badge" :class="acc.low?'warn':'ok'">{{ acc.low?'余额不足':'正常' }}</span>
+            </div>
+            <div class="bc-balance">{{ fmt(acc.balance) }}</div>
+            <div class="bc-quota">原始额度: {{ acc.quota.toLocaleString() }}</div>
+          </div>
+        </div>
+      </template>
+    </template>
+
   </main>
 
   <!-- Modal -->
@@ -557,6 +600,7 @@ createApp({
       tab: 'dashboard', currentMonth: cm, allData: loadAll(),
       modal: { show:false, type:'revenue', editing:null, form:{date:'',desc:'',category:'',amount:0} },
       delConfirm: { show:false, type:'', id:null },
+      bal: { loading:false, error:null, data:null, totalBalance:0, lowCount:0 },
     };
   },
   computed: {
@@ -618,6 +662,18 @@ createApp({
     exportJSON(){const b=new Blob([JSON.stringify(this.allData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='记账数据_'+this.currentMonth+'.json';a.click();URL.revokeObjectURL(a.href);},
     importJSON(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=(ev)=>{try{this.allData=JSON.parse(ev.target.result);this.save();alert('导入成功！');}catch{alert('文件格式错误');}};r.readAsText(f);e.target.value='';},
     printPage(){window.print();},
+    loadBalance(){
+      this.bal.loading=true;this.bal.error=null;
+      fetch('balance_result.json?t='+Date.now())
+        .then(r=>{if(!r.ok)throw new Error('数据文件不存在');return r.json();})
+        .then(d=>{
+          this.bal.data=d;
+          this.bal.totalBalance=d.accounts.reduce((s,a)=>s+a.balance,0);
+          this.bal.lowCount=d.accounts.filter(a=>a.low).length;
+          this.bal.loading=false;
+        })
+        .catch(e=>{this.bal.error='加载失败: '+e.message;this.bal.loading=false;});
+    },
   },
 }).mount('#app');
 </script>
