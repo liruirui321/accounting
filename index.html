@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>记账管理系统</title>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -260,7 +260,7 @@ async function checkToken(){
   }
 }
 document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkToken();});
-(async function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);if(saved===TOKEN_HASH){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='';}else{document.getElementById('app').style.display='none';}})();
+(async function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);const gate=document.getElementById('gate');const app=document.getElementById('app');if(saved===TOKEN_HASH){if(gate)gate.style.display='none';if(app)app.style.display='';}else{if(app)app.style.display='none';}})();
 </script>
 
 <div id="app" class="app" style="display:none">
