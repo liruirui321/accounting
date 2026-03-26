@@ -168,11 +168,53 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .modal-foot{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid var(--gray-200)}
 .confirm-text{font-size:15px;color:var(--gray-700);margin-bottom:8px}
 
+/* Report tabs */
+.rpt-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid var(--gray-200)}
+.rpt-tabs a{padding:10px 20px;font-size:14px;font-weight:500;color:var(--gray-500);cursor:pointer;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.rpt-tabs a:hover{color:var(--gray-700)}
+.rpt-tabs a.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:600}
+
+/* Segment control */
+.seg-ctrl{display:inline-flex;border:1px solid var(--gray-300);border-radius:6px;overflow:hidden;margin-right:16px}
+.seg-ctrl button{padding:6px 16px;font-size:13px;background:#fff;border:none;cursor:pointer;color:var(--gray-700);transition:all .15s;border-right:1px solid var(--gray-200)}
+.seg-ctrl button:last-child{border-right:none}
+.seg-ctrl button:hover{background:var(--gray-100)}
+.seg-ctrl button.active{background:var(--primary);color:#fff}
+
+/* Financial statement table */
+.fs-table{width:100%;border-collapse:collapse;font-size:14px}
+.fs-table th{text-align:left;padding:8px 16px;font-size:13px;color:var(--gray-500);border-bottom:2px solid var(--gray-200);background:var(--gray-50)}
+.fs-table th.text-right{text-align:right}
+.fs-table td{padding:8px 16px;border-bottom:1px solid var(--gray-100)}
+.fs-table td.text-right{text-align:right;font-variant-numeric:tabular-nums}
+.fs-table tr.indent1 td:first-child{padding-left:32px}
+.fs-table tr.indent2 td:first-child{padding-left:48px}
+.fs-table tr.subtotal td{border-top:1px solid var(--gray-300);font-weight:600}
+.fs-table tr.grand-total td{border-top:3px double var(--gray-700);font-weight:700;font-size:15px;background:var(--gray-50)}
+.fs-table tr.section-header td{font-weight:700;font-size:15px;color:var(--gray-900);padding-top:16px;background:transparent;border-bottom:none}
+.fs-table tr.section-sub td{font-weight:600;color:var(--gray-700);background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+.fs-table tr.empty-row td{border-bottom:none;padding:4px 16px}
+
+/* Report period badge */
+.rpt-period-badge{display:inline-block;background:var(--primary-light);color:var(--primary);font-size:13px;font-weight:500;padding:4px 12px;border-radius:12px;margin-left:12px}
+
+/* Report toolbar */
+.rpt-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.rpt-toolbar-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rpt-toolbar select{padding:6px 10px;border:1px solid var(--gray-300);border-radius:6px;font-size:13px;outline:none}
+.rpt-toolbar select:focus{border-color:var(--primary)}
+
+/* Balance check */
+.balance-check{text-align:right;font-size:13px;padding:8px 16px;color:var(--green);font-weight:500}
+.balance-check.unbalanced{color:var(--red)}
+
 /* Print */
 @media print{
-  .sidebar,.btn,.month-nav,.sidebar-footer,.modal-mask{display:none!important}
+  .sidebar,.btn,.month-nav,.sidebar-footer,.modal-mask,.seg-ctrl,.rpt-toolbar,.rpt-tabs{display:none!important}
   .main{margin-left:0!important;padding:10px!important}
   .card,.section-card,.waterfall,.dist-section,.pie-wrap{box-shadow:none!important;break-inside:avoid}
+  .fs-table{font-size:12px}
+  .rpt-period-badge{display:inline-block!important}
 }
 @media(max-width:768px){
   .sidebar{width:60px}.sidebar-logo span,.nav-links a span,.sidebar-footer span{display:none}
@@ -275,6 +317,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <a :class="{active:tab==='revenue'}" @click="tab='revenue'"><span class="icon">&#9650;</span><span>收 入</span></a>
       <a :class="{active:tab==='cost'}" @click="tab='cost'"><span class="icon">&#9660;</span><span>成 本</span></a>
       <a :class="{active:tab==='dist'}" @click="tab='dist'"><span class="icon">&#9733;</span><span>利润分配</span></a>
+      <a :class="{active:tab==='reports'}" @click="tab='reports'"><span class="icon">&#9776;</span><span>财 报</span></a>
       <a :class="{active:tab==='balance'}" @click="tab='balance';loadBalance()"><span class="icon">&#9670;</span><span>API余额</span></a>
     </nav>
     <div class="sidebar-footer">
@@ -467,6 +510,144 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       </div>
     </template>
 
+    <!-- ===== Financial Reports ===== -->
+    <template v-if="tab==='reports'">
+      <div class="page-header"><h2>财务报表<span class="rpt-period-badge">{{ rptPeriodLabel }}</span></h2></div>
+
+      <!-- Toolbar: period type + selector -->
+      <div class="rpt-toolbar">
+        <div class="rpt-toolbar-left">
+          <div class="seg-ctrl">
+            <button :class="{active:rptPeriodType==='month'}" @click="rptPeriodType='month'">月度</button>
+            <button :class="{active:rptPeriodType==='quarter'}" @click="rptPeriodType='quarter'">季度</button>
+            <button :class="{active:rptPeriodType==='year'}" @click="rptPeriodType='year'">年度</button>
+          </div>
+          <select v-if="rptPeriodType==='month'" v-model="rptMonth">
+            <option v-for="m in availableMonths" :key="m" :value="m">{{ m }}</option>
+          </select>
+          <select v-if="rptPeriodType==='quarter'" v-model="rptQuarter">
+            <option v-for="q in availableQuarters" :key="q" :value="q">{{ q }}</option>
+          </select>
+          <select v-if="rptPeriodType==='year'" v-model.number="rptYear">
+            <option v-for="y in availableYears" :key="y" :value="y">{{ y }}年</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost" @click="exportReport">导出 CSV</button>
+      </div>
+
+      <!-- Sub tabs -->
+      <div class="rpt-tabs">
+        <a :class="{active:rptTab==='income'}" @click="rptTab='income'">利润表</a>
+        <a :class="{active:rptTab==='balance_sheet'}" @click="rptTab='balance_sheet'">资产负债表</a>
+        <a :class="{active:rptTab==='cashflow'}" @click="rptTab='cashflow'">现金流量表</a>
+      </div>
+
+      <!-- Income Statement -->
+      <div v-if="rptTab==='income'" class="section-card" style="padding:16px">
+        <h3 style="margin-bottom:12px;font-size:16px">利润表（{{ rptPeriodLabel }}）</h3>
+        <table class="fs-table">
+          <thead><tr><th>项目</th><th class="text-right" style="width:160px">金额</th></tr></thead>
+          <tbody>
+            <tr class="section-header"><td>收入</td><td></td></tr>
+            <tr class="indent1" v-for="(amt, cat) in rptAgg.revByCategory" :key="'rv'+cat">
+              <td>{{ cat }}</td><td class="text-right text-green">{{ fmt(amt) }}</td>
+            </tr>
+            <tr class="subtotal"><td style="padding-left:32px">收入合计</td><td class="text-right text-green">{{ fmt(rptAgg.totalRevenue) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>成本</td><td></td></tr>
+            <tr class="indent1" v-for="(amt, cat) in rptAgg.costByCategory" :key="'ct'+cat">
+              <td>{{ cat }}</td><td class="text-right text-red">{{ fmt(amt) }}</td>
+            </tr>
+            <tr class="subtotal"><td style="padding-left:32px">成本合计</td><td class="text-right text-red">{{ fmt(rptAgg.totalCost) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="grand-total"><td>毛利润</td><td class="text-right" style="color:var(--primary)">{{ fmt(rptAgg.grossProfit) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>营业费用</td><td></td></tr>
+            <tr class="section-sub"><td style="padding-left:16px">人员薪资</td><td></td></tr>
+            <tr class="indent2" v-for="m in rptAgg.memberTotals" :key="'ms'+m.name">
+              <td>{{ m.name }}（{{ m.role }}）</td><td class="text-right" style="color:var(--amber)">{{ fmt(m.amount) }}</td>
+            </tr>
+            <tr class="subtotal"><td style="padding-left:48px">薪资小计</td><td class="text-right" style="color:var(--amber)">{{ fmt(rptAgg.totalSalary) }}</td></tr>
+
+            <tr class="section-sub"><td style="padding-left:16px">奖金/其他</td><td></td></tr>
+            <tr class="indent2" v-for="b in rptAgg.bonuses" :key="'bn'+b.name">
+              <td>{{ b.name }}<span v-if="b.note" class="text-muted" style="margin-left:8px;font-size:12px">{{ b.note }}</span></td>
+              <td class="text-right" style="color:var(--purple)">{{ fmt(b.amount) }}</td>
+            </tr>
+            <tr class="subtotal"><td style="padding-left:48px">奖金小计</td><td class="text-right" style="color:var(--purple)">{{ fmt(rptAgg.totalBonuses) }}</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">营业费用合计</td><td class="text-right text-red">{{ fmt(rptAgg.operatingExpenses) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="grand-total"><td>净利润</td><td class="text-right" :style="{color: rptAgg.netProfit>=0 ? 'var(--green)' : 'var(--red)'}">{{ fmt(rptAgg.netProfit) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>利润分配</td><td></td></tr>
+            <tr class="indent1"><td>现金流留存</td><td class="text-right" style="color:var(--cyan)">{{ fmt(rptAgg.totalCashFlow) }}</td></tr>
+            <tr class="indent1"><td>待分配余额</td><td class="text-right" style="color:var(--purple)">{{ fmt(rptAgg.poolRemaining) }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Balance Sheet -->
+      <div v-if="rptTab==='balance_sheet'" class="section-card" style="padding:16px">
+        <h3 style="margin-bottom:12px;font-size:16px">资产负债表（截至{{ rptPeriodLabel }}末）</h3>
+        <table class="fs-table">
+          <thead><tr><th>项目</th><th class="text-right" style="width:160px">金额</th></tr></thead>
+          <tbody>
+            <tr class="section-header"><td>资产</td><td></td></tr>
+            <tr class="indent1"><td>现金流留存（累计）</td><td class="text-right" style="color:var(--cyan)">{{ fmt(rptBalanceSheet.cashFlow) }}</td></tr>
+            <tr class="indent1"><td>未分配利润池（累计）</td><td class="text-right" style="color:var(--purple)">{{ fmt(rptBalanceSheet.poolRemaining) }}</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">资产合计</td><td class="text-right" style="color:var(--primary);font-size:16px">{{ fmt(rptBalanceSheet.totalAssets) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>负债</td><td></td></tr>
+            <tr class="indent1"><td>暂无</td><td class="text-right text-muted">¥0.00</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">负债合计</td><td class="text-right text-muted">¥0.00</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>所有者权益</td><td></td></tr>
+            <tr class="indent1"><td>累计留存收益</td><td class="text-right" style="color:var(--primary)">{{ fmt(rptBalanceSheet.equity) }}</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">所有者权益合计</td><td class="text-right" style="color:var(--primary);font-size:16px">{{ fmt(rptBalanceSheet.equity) }}</td></tr>
+          </tbody>
+        </table>
+        <div class="balance-check" :class="{unbalanced: !rptBalanceSheet.balanced}">
+          验证：资产 {{ fmt(rptBalanceSheet.totalAssets) }} = 负债 ¥0.00 + 所有者权益 {{ fmt(rptBalanceSheet.equity) }}
+          {{ rptBalanceSheet.balanced ? '✓ 平衡' : '✗ 不平衡' }}
+        </div>
+      </div>
+
+      <!-- Cash Flow Statement -->
+      <div v-if="rptTab==='cashflow'" class="section-card" style="padding:16px">
+        <h3 style="margin-bottom:12px;font-size:16px">现金流量表（{{ rptPeriodLabel }}）</h3>
+        <table class="fs-table">
+          <thead><tr><th>项目</th><th class="text-right" style="width:160px">金额</th></tr></thead>
+          <tbody>
+            <tr class="section-header"><td>一、经营活动产生的现金流量</td><td></td></tr>
+            <tr class="indent1"><td>收到客户款项</td><td class="text-right text-green">{{ fmt(rptCashFlowStatement.customerReceipts) }}</td></tr>
+            <tr class="indent1"><td>支付供应商（API等）</td><td class="text-right text-red">{{ fmt(rptCashFlowStatement.supplierPayments) }}</td></tr>
+            <tr class="indent1"><td>支付员工薪资/奖金</td><td class="text-right text-red">{{ fmt(rptCashFlowStatement.salaryPayments) }}</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">经营活动净现金流</td><td class="text-right" :style="{color: rptCashFlowStatement.operatingNet>=0 ? 'var(--green)' : 'var(--red)'}">{{ fmt(rptCashFlowStatement.operatingNet) }}</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>二、投资活动产生的现金流量</td><td></td></tr>
+            <tr class="indent1 text-muted"><td>暂无</td><td class="text-right">¥0.00</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">投资活动净现金流</td><td class="text-right text-muted">¥0.00</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="section-header"><td>三、筹资活动产生的现金流量</td><td></td></tr>
+            <tr class="indent1 text-muted"><td>暂无</td><td class="text-right">¥0.00</td></tr>
+            <tr class="subtotal"><td style="padding-left:32px">筹资活动净现金流</td><td class="text-right text-muted">¥0.00</td></tr>
+            <tr class="empty-row"><td></td><td></td></tr>
+
+            <tr class="grand-total"><td>现金净变动</td><td class="text-right" :style="{color: rptCashFlowStatement.netChange>=0 ? 'var(--green)' : 'var(--red)'}">{{ fmt(rptCashFlowStatement.netChange) }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+
     <!-- ===== API Balance ===== -->
     <template v-if="tab==='balance'">
       <div class="page-header"><h2>API 余额监控</h2><button class="btn btn-ghost" @click="loadBalance()">刷新</button></div>
@@ -641,6 +822,7 @@ createApp({
     const cm = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
     return {
       tab: 'dashboard', currentMonth: cm, allData: loadAll(),
+      rptTab: 'income', rptPeriodType: 'month', rptMonth: cm, rptQuarter: '2026-Q1', rptYear: 2026,
       modal: { show:false, type:'revenue', editing:null, form:{date:'',desc:'',category:'',amount:0} },
       delConfirm: { show:false, type:'', id:null },
       bal: { loading:false, error:null, data:null, totalBalance:0, lowCount:0 },
@@ -678,6 +860,152 @@ createApp({
       let offset = 0;
       return pcts.map((p,i)=>{ const d = CIRC*p/100; const o = -offset; offset += d; return {color:PIE_COLORS[i], dash:d+' '+CIRC, offset:o}; });
     },
+    /* --- Financial Reports computed --- */
+    availableMonths() {
+      const months = Object.keys(this.allData).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
+      if (months.length === 0) return [this.currentMonth];
+      return months;
+    },
+    availableQuarters() {
+      const qSet = new Set();
+      this.availableMonths.forEach(m => {
+        const [y, mo] = m.split('-').map(Number);
+        const q = Math.ceil(mo / 3);
+        qSet.add(y + '-Q' + q);
+      });
+      return Array.from(qSet).sort();
+    },
+    availableYears() {
+      const ySet = new Set();
+      this.availableMonths.forEach(m => ySet.add(Number(m.split('-')[0])));
+      return Array.from(ySet).sort();
+    },
+    rptMonthKeys() {
+      if (this.rptPeriodType === 'month') return [this.rptMonth];
+      if (this.rptPeriodType === 'quarter') {
+        const [y, qStr] = this.rptQuarter.split('-Q');
+        const q = Number(qStr);
+        const startM = (q - 1) * 3 + 1;
+        return [1,2,3].map(i => y + '-' + String(startM + i - 1).padStart(2, '0'));
+      }
+      // year
+      return Array.from({length:12}, (_,i) => this.rptYear + '-' + String(i+1).padStart(2,'0'));
+    },
+    rptPeriodLabel() {
+      if (this.rptPeriodType === 'month') {
+        const [y, m] = this.rptMonth.split('-');
+        return y + '年' + parseInt(m) + '月';
+      }
+      if (this.rptPeriodType === 'quarter') {
+        const [y, qStr] = this.rptQuarter.split('-Q');
+        return y + '年第' + qStr + '季度';
+      }
+      return this.rptYear + '年度';
+    },
+    rptAgg() {
+      const revByCategory = {};
+      const costByCategory = {};
+      const memberTotals = {};
+      let totalRevenue = 0, totalCost = 0;
+      let totalCashFlow = 0, totalSalary = 0, totalBossPool = 0;
+      let totalBonuses = 0;
+      const bonusAgg = {};
+
+      this.rptMonthKeys.forEach(mk => {
+        const d = this.allData[mk];
+        if (!d) return;
+
+        // revenue by category
+        (d.revenues || []).forEach(r => {
+          revByCategory[r.category] = (revByCategory[r.category] || 0) + (r.amount || 0);
+          totalRevenue += (r.amount || 0);
+        });
+        // cost by category
+        (d.costs || []).forEach(c => {
+          costByCategory[c.category] = (costByCategory[c.category] || 0) + (c.amount || 0);
+          totalCost += (c.amount || 0);
+        });
+
+        // per-month profit distribution (avoid cross-month ratio issues)
+        const mRev = (d.revenues || []).reduce((s, r) => s + (r.amount || 0), 0);
+        const mCost = (d.costs || []).reduce((s, c) => s + (c.amount || 0), 0);
+        const mGross = mRev - mCost;
+        if (mGross > 0) {
+          const mCF = Math.round(mGross * (d.cashFlowPct || 0) / 100 * 100) / 100;
+          totalCashFlow += mCF;
+          const mBP = Math.round(mGross * (d.bossPoolPct || 0) / 100 * 100) / 100;
+          totalBossPool += mBP;
+          (d.members || []).forEach(m => {
+            const amt = Math.round(mGross * m.pct / 100 * 100) / 100;
+            memberTotals[m.name] = memberTotals[m.name] || { name: m.name, role: m.role, amount: 0 };
+            memberTotals[m.name].amount += amt;
+            totalSalary += amt;
+          });
+        }
+        (d.bonuses || []).forEach(b => {
+          if (b.amount) {
+            bonusAgg[b.name] = bonusAgg[b.name] || { name: b.name, amount: 0, note: b.note || '' };
+            bonusAgg[b.name].amount += b.amount;
+            totalBonuses += b.amount;
+          }
+        });
+      });
+
+      const grossProfit = totalRevenue - totalCost;
+      const operatingExpenses = totalSalary + totalBonuses;
+      const netProfit = grossProfit - operatingExpenses;
+      const poolRemaining = totalBossPool - totalBonuses;
+
+      return {
+        revByCategory, costByCategory, totalRevenue, totalCost, grossProfit,
+        memberTotals: Object.values(memberTotals),
+        bonuses: Object.values(bonusAgg),
+        totalCashFlow, totalSalary, totalBossPool, totalBonuses,
+        operatingExpenses, netProfit, poolRemaining,
+      };
+    },
+    rptBalanceSheet() {
+      // Cumulative data up to selected period end
+      const allMonths = this.availableMonths.filter(m => m <= this.rptMonthKeys[this.rptMonthKeys.length - 1]).sort();
+      let cumulativeCashFlow = 0;
+      let cumulativePoolRemaining = 0;
+
+      allMonths.forEach(mk => {
+        const d = this.allData[mk];
+        if (!d) return;
+        const mRev = (d.revenues || []).reduce((s, r) => s + (r.amount || 0), 0);
+        const mCost = (d.costs || []).reduce((s, c) => s + (c.amount || 0), 0);
+        const mGross = mRev - mCost;
+        if (mGross > 0) {
+          cumulativeCashFlow += Math.round(mGross * (d.cashFlowPct || 0) / 100 * 100) / 100;
+          const mBP = Math.round(mGross * (d.bossPoolPct || 0) / 100 * 100) / 100;
+          const mBonuses = (d.bonuses || []).reduce((s, b) => s + (b.amount || 0), 0);
+          cumulativePoolRemaining += (mBP - mBonuses);
+        }
+      });
+
+      const totalAssets = Math.round((cumulativeCashFlow + cumulativePoolRemaining) * 100) / 100;
+      return {
+        cashFlow: Math.round(cumulativeCashFlow * 100) / 100,
+        poolRemaining: Math.round(cumulativePoolRemaining * 100) / 100,
+        totalAssets,
+        totalLiabilities: 0,
+        equity: totalAssets,
+        balanced: Math.abs(totalAssets - 0 - totalAssets) < 0.01,
+      };
+    },
+    rptCashFlowStatement() {
+      const agg = this.rptAgg;
+      const customerReceipts = agg.totalRevenue;
+      const supplierPayments = agg.totalCost;
+      const salaryPayments = agg.totalSalary + agg.totalBonuses;
+      const operatingNet = customerReceipts - supplierPayments - salaryPayments;
+      return {
+        customerReceipts, supplierPayments, salaryPayments,
+        operatingNet, investingNet: 0, financingNet: 0,
+        netChange: operatingNet,
+      };
+    },
   },
   methods: {
     fmt(n) { if(n==null||isNaN(n))return'¥0.00'; return'¥'+Number(n).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); },
@@ -705,6 +1033,67 @@ createApp({
     exportJSON(){const b=new Blob([JSON.stringify(this.allData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='记账数据_'+this.currentMonth+'.json';a.click();URL.revokeObjectURL(a.href);},
     importJSON(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=(ev)=>{try{this.allData=JSON.parse(ev.target.result);this.save();alert('导入成功！');}catch{alert('文件格式错误');}};r.readAsText(f);e.target.value='';},
     printPage(){window.print();},
+    exportReport() {
+      const BOM = '\uFEFF';
+      let csv = '';
+      const label = this.rptPeriodLabel;
+      const fmtN = n => (n == null || isNaN(n)) ? '0.00' : Number(n).toFixed(2);
+
+      if (this.rptTab === 'income') {
+        csv += '利润表,' + label + '\n项目,金额\n';
+        csv += '收入,\n';
+        for (const [cat, amt] of Object.entries(this.rptAgg.revByCategory)) csv += '  ' + cat + ',' + fmtN(amt) + '\n';
+        csv += '收入合计,' + fmtN(this.rptAgg.totalRevenue) + '\n';
+        csv += '成本,\n';
+        for (const [cat, amt] of Object.entries(this.rptAgg.costByCategory)) csv += '  ' + cat + ',' + fmtN(amt) + '\n';
+        csv += '成本合计,' + fmtN(this.rptAgg.totalCost) + '\n';
+        csv += '毛利润,' + fmtN(this.rptAgg.grossProfit) + '\n';
+        csv += '营业费用,\n';
+        csv += '  人员薪资,\n';
+        this.rptAgg.memberTotals.forEach(m => csv += '    ' + m.name + '(' + m.role + '),' + fmtN(m.amount) + '\n');
+        csv += '  薪资小计,' + fmtN(this.rptAgg.totalSalary) + '\n';
+        csv += '  奖金/其他,\n';
+        this.rptAgg.bonuses.forEach(b => csv += '    ' + b.name + ',' + fmtN(b.amount) + '\n');
+        csv += '  奖金小计,' + fmtN(this.rptAgg.totalBonuses) + '\n';
+        csv += '营业费用合计,' + fmtN(this.rptAgg.operatingExpenses) + '\n';
+        csv += '净利润,' + fmtN(this.rptAgg.netProfit) + '\n';
+        csv += '利润分配,\n';
+        csv += '  现金流留存,' + fmtN(this.rptAgg.totalCashFlow) + '\n';
+        csv += '  待分配余额,' + fmtN(this.rptAgg.poolRemaining) + '\n';
+      } else if (this.rptTab === 'balance_sheet') {
+        csv += '资产负债表,截至' + label + '末\n项目,金额\n';
+        csv += '资产,\n';
+        csv += '  现金流留存（累计）,' + fmtN(this.rptBalanceSheet.cashFlow) + '\n';
+        csv += '  未分配利润池（累计）,' + fmtN(this.rptBalanceSheet.poolRemaining) + '\n';
+        csv += '资产合计,' + fmtN(this.rptBalanceSheet.totalAssets) + '\n';
+        csv += '负债,\n';
+        csv += '  暂无,0.00\n';
+        csv += '负债合计,0.00\n';
+        csv += '所有者权益,\n';
+        csv += '  累计留存收益,' + fmtN(this.rptBalanceSheet.equity) + '\n';
+        csv += '所有者权益合计,' + fmtN(this.rptBalanceSheet.equity) + '\n';
+      } else {
+        const cf = this.rptCashFlowStatement;
+        csv += '现金流量表,' + label + '\n项目,金额\n';
+        csv += '经营活动,\n';
+        csv += '  收到客户款项,' + fmtN(cf.customerReceipts) + '\n';
+        csv += '  支付供应商（API等）,' + fmtN(cf.supplierPayments) + '\n';
+        csv += '  支付员工薪资/奖金,' + fmtN(cf.salaryPayments) + '\n';
+        csv += '经营活动净现金流,' + fmtN(cf.operatingNet) + '\n';
+        csv += '投资活动净现金流,0.00\n';
+        csv += '筹资活动净现金流,0.00\n';
+        csv += '现金净变动,' + fmtN(cf.netChange) + '\n';
+      }
+
+      const tabNames = { income: '利润表', balance_sheet: '资产负债表', cashflow: '现金流量表' };
+      const fileName = tabNames[this.rptTab] + '_' + label + '.csv';
+      const blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = fileName;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    },
     loadBalance(){
       this.bal.loading=true;this.bal.error=null;
       fetch('balance_result.json?t='+Date.now())
