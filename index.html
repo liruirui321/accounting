@@ -250,6 +250,9 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .bal-card .bc-balance{font-size:28px;font-weight:700;color:var(--green);margin-bottom:4px}
 .bal-card.low .bc-balance{color:var(--red)}
 .bal-card .bc-quota{font-size:13px;color:var(--gray-500)}
+.bal-card .bc-burn{font-size:13px;margin-top:6px;padding-top:6px;border-top:1px dashed var(--gray-200);color:var(--gray-700)}
+.bal-card .bc-burn .burn-rate{font-weight:600;color:var(--red)}
+.bal-card .bc-burn .burn-days{font-weight:600;color:var(--amber)}
 .bal-loading{text-align:center;padding:60px;color:var(--gray-500);font-size:15px}
 .bal-error{text-align:center;padding:40px;color:var(--red);font-size:14px}
 .recharge-section{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-top:24px}
@@ -713,6 +716,13 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
             </div>
             <div class="bc-balance">{{ fmt(acc.balance) }}</div>
             <div class="bc-quota">原始额度: {{ acc.quota.toLocaleString() }}</div>
+            <div class="bc-burn" v-if="acc.daily_cost > 0">
+              <span>日用速: <span class="burn-rate">{{ fmt(acc.daily_cost) }}/天</span></span>
+              <span style="margin-left:12px">预计可用: <span class="burn-days">{{ acc.days_left > 0 ? acc.days_left + '天' : '-' }}</span></span>
+            </div>
+            <div class="bc-burn" v-else>
+              <span style="color:var(--gray-500)">日用速: 数据积累中...</span>
+            </div>
           </div>
         </div>
 
