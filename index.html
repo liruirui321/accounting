@@ -14,6 +14,7 @@
   --amber:#d97706;--amber-bg:#fef3c7;
   --cyan:#0891b2;--cyan-bg:#cffafe;
   --purple:#7c3aed;--purple-bg:#ede9fe;
+  --orange:#ea580c;--orange-bg:#fff7ed;
   --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
   --gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;
   --sidebar-bg:#1e293b;--sidebar-text:#94a3b8;
@@ -53,29 +54,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .card.c-revenue{border-left-color:var(--green)}.card.c-revenue .value{color:var(--green)}
 .card.c-cost{border-left-color:var(--red)}.card.c-cost .value{color:var(--red)}
 .card.c-gross{border-left-color:var(--primary)}.card.c-gross .value{color:var(--primary)}
-.card.c-payroll{border-left-color:var(--amber)}.card.c-payroll .value{color:var(--amber)}
-.card.c-reserve{border-left-color:var(--cyan)}.card.c-reserve .value{color:var(--cyan)}
+.card.c-cashflow{border-left-color:var(--cyan)}.card.c-cashflow .value{color:var(--cyan)}
+.card.c-salary{border-left-color:var(--amber)}.card.c-salary .value{color:var(--amber)}
 .card.c-boss{border-left-color:var(--purple)}.card.c-boss .value{color:var(--purple)}
 
+/* Pie chart */
+.chart-row{display:flex;gap:24px;margin-bottom:28px}
+.pie-wrap{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);flex:1;display:flex;flex-direction:column;align-items:center}
+.pie-wrap h3{font-size:16px;margin-bottom:16px;align-self:flex-start}
+.pie-box{position:relative;width:200px;height:200px}
+.pie-svg{width:200px;height:200px;transform:rotate(-90deg)}
+.pie-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pie-center .big{font-size:20px;font-weight:700;color:var(--gray-900)}
+.pie-center .small{font-size:12px;color:var(--gray-500)}
+.pie-legend{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px}
+.pie-legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+
 /* Waterfall */
-.waterfall{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:28px}
+.waterfall{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);flex:1}
 .waterfall h3{font-size:16px;margin-bottom:16px;color:var(--gray-700)}
 .wf-row{display:flex;align-items:center;margin-bottom:10px;font-size:14px}
-.wf-label{width:120px;color:var(--gray-700);font-weight:500}
+.wf-label{width:140px;color:var(--gray-700);font-weight:500}
 .wf-bar-wrap{flex:1;height:28px;background:var(--gray-100);border-radius:4px;overflow:hidden;margin:0 12px;position:relative}
 .wf-bar{height:100%;border-radius:4px;transition:width .5s ease;min-width:2px}
 .wf-amount{width:120px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
 .wf-row.positive .wf-bar{background:var(--green)}.wf-row.positive .wf-amount{color:var(--green)}
 .wf-row.negative .wf-bar{background:var(--red)}.wf-row.negative .wf-amount{color:var(--red)}
 .wf-row.result .wf-bar{background:var(--primary)}.wf-row.result .wf-amount{color:var(--primary)}
-.wf-row.boss .wf-bar{background:var(--purple)}.wf-row.boss .wf-amount{color:var(--purple)}
+.wf-row.person .wf-bar{background:var(--amber)}.wf-row.person .wf-amount{color:var(--amber)}
 .wf-row.reserve .wf-bar{background:var(--cyan)}.wf-row.reserve .wf-amount{color:var(--cyan)}
+.wf-row.boss .wf-bar{background:var(--purple)}.wf-row.boss .wf-amount{color:var(--purple)}
 .wf-divider{border-top:1px dashed var(--gray-300);margin:8px 0}
 
 /* Table */
 .section-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:24px}
-.section-card .header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--gray-200)}
-.section-card .header h3{font-size:16px;font-weight:600}
 table{width:100%;border-collapse:collapse}
 thead{background:var(--gray-50)}
 th{padding:10px 16px;text-align:left;font-size:13px;font-weight:600;color:var(--gray-500);text-transform:uppercase;border-bottom:2px solid var(--gray-200)}
@@ -91,7 +103,6 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:4px;padding:7px 14px;border:none;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
 .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}
-.btn-success{background:var(--green);color:#fff}.btn-success:hover{opacity:.9}
 .btn-danger{background:var(--red);color:#fff}.btn-danger:hover{opacity:.9}
 .btn-ghost{background:transparent;color:var(--gray-500);border:1px solid var(--gray-300)}.btn-ghost:hover{background:var(--gray-100);color:var(--gray-700)}
 .btn-sm{padding:4px 10px;font-size:12px}
@@ -100,40 +111,42 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .form-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-end}
 .form-group{display:flex;flex-direction:column;flex:1}
 .form-group label{font-size:12px;color:var(--gray-500);margin-bottom:4px;font-weight:500}
-.form-group input,.form-group select,.form-group textarea{padding:8px 10px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;outline:none;transition:border .2s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
-.form-group.w-auto{flex:none}
+.form-group input,.form-group select{padding:8px 10px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;outline:none;transition:border .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
 
-/* Payroll */
-.payroll-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:20px}
-.payroll-card{border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px;transition:box-shadow .2s}
-.payroll-card:hover{box-shadow:var(--shadow)}
-.payroll-card .name{font-size:16px;font-weight:600;margin-bottom:2px}
-.payroll-card .role{font-size:12px;color:var(--gray-500);margin-bottom:12px}
-.payroll-card .salary-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.payroll-card .salary-row label{font-size:13px;color:var(--gray-700);width:50px}
-.payroll-card .salary-row input{flex:1;padding:6px 8px;border:1px solid var(--gray-300);border-radius:4px;font-size:14px;outline:none}
-.payroll-card .salary-row input:focus{border-color:var(--primary)}
-.payroll-card .net{margin-top:8px;padding-top:8px;border-top:1px solid var(--gray-200);font-size:15px;font-weight:600;color:var(--primary);text-align:right}
+/* Distribution page */
+.dist-section{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:24px}
+.dist-section h3{margin-bottom:16px;font-size:16px;font-weight:600;color:var(--gray-700)}
+.dist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.dist-card{border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px;text-align:center;transition:box-shadow .2s}
+.dist-card:hover{box-shadow:var(--shadow)}
+.dist-card .dc-label{font-size:13px;color:var(--gray-500);margin-bottom:4px}
+.dist-card .dc-pct{font-size:28px;font-weight:700;margin-bottom:2px}
+.dist-card .dc-amount{font-size:15px;font-weight:600}
+.dist-card.dc-cashflow{border-color:var(--cyan)}.dist-card.dc-cashflow .dc-pct{color:var(--cyan)}.dist-card.dc-cashflow .dc-amount{color:var(--cyan)}
+.dist-card.dc-salary{border-color:var(--amber)}.dist-card.dc-salary .dc-pct{color:var(--amber)}.dist-card.dc-salary .dc-amount{color:var(--amber)}
+.dist-card.dc-pool{border-color:var(--purple)}.dist-card.dc-pool .dc-pct{color:var(--purple)}.dist-card.dc-pool .dc-amount{color:var(--purple)}
 
-/* Profit distribution */
-.profit-section{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:24px}
-.profit-section h3{margin-bottom:16px;font-size:16px}
-.cashflow-slider{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:var(--cyan-bg);border-radius:var(--radius)}
-.cashflow-slider label{font-size:14px;color:var(--gray-700);font-weight:500}
-.cashflow-slider input[type=range]{flex:1;accent-color:var(--cyan)}
-.cashflow-slider .pct{font-size:18px;font-weight:700;color:var(--cyan);min-width:50px;text-align:center}
-.profit-breakdown{display:flex;flex-direction:column;gap:12px}
-.pb-row{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:6px;font-size:15px}
-.pb-row .pb-label{font-weight:500}
-.pb-row .pb-value{font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
-.pb-row.income{background:var(--green-bg)}.pb-row.income .pb-value{color:var(--green)}
-.pb-row.expense{background:var(--red-bg)}.pb-row.expense .pb-value{color:var(--red)}
-.pb-row.subtotal{background:var(--primary-light)}.pb-row.subtotal .pb-value{color:var(--primary)}
-.pb-row.cashflow{background:var(--cyan-bg)}.pb-row.cashflow .pb-value{color:var(--cyan)}
-.pb-row.boss-income{background:var(--purple-bg)}.pb-row.boss-income .pb-value{color:var(--purple)}
-.pb-row.warning{background:var(--amber-bg)}.pb-row.warning .pb-value{color:var(--amber)}
-.pb-arrow{text-align:center;color:var(--gray-300);font-size:18px}
+/* Profit breakdown rows */
+.pb-table{width:100%}
+.pb-table td{padding:12px 16px;font-size:15px}
+.pb-table .pb-name{font-weight:500}
+.pb-table .pb-pct{color:var(--gray-500);width:80px}
+.pb-table .pb-amt{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;width:140px}
+.pb-table .pb-note{color:var(--gray-500);font-size:13px;width:120px}
+.pb-table tr.cat-header td{background:var(--gray-50);font-weight:600;font-size:14px;color:var(--gray-700);padding:8px 16px}
+.pb-table tr.sub-total td{border-top:2px solid var(--gray-200);font-weight:700;background:var(--gray-50)}
+.pb-table tr.highlight-cyan td{background:var(--cyan-bg)}
+.pb-table tr.highlight-amber td{background:var(--amber-bg)}
+.pb-table tr.highlight-purple td{background:var(--purple-bg)}
+.pb-table tr.highlight-green td{background:var(--green-bg)}
+.pb-table tr.highlight-red td{background:var(--red-bg)}
+
+/* Bonus edit */
+.bonus-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.bonus-row input{padding:6px 8px;border:1px solid var(--gray-300);border-radius:4px;font-size:14px;outline:none}
+.bonus-row input:focus{border-color:var(--primary)}
+.bonus-row .bn{flex:1}.bonus-row .ba{width:100px}.bonus-row .bm{flex:1}
 
 /* Modal */
 .modal-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:100}
@@ -143,29 +156,27 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .modal-head button{background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray-500);line-height:1}
 .modal-body{padding:20px}
 .modal-foot{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid var(--gray-200)}
-
-/* Confirm */
 .confirm-text{font-size:15px;color:var(--gray-700);margin-bottom:8px}
 
 /* Print */
 @media print{
   .sidebar,.btn,.month-nav,.sidebar-footer,.modal-mask{display:none!important}
   .main{margin-left:0!important;padding:10px!important}
-  .card,.section-card,.waterfall,.profit-section{box-shadow:none!important;break-inside:avoid}
+  .card,.section-card,.waterfall,.dist-section,.pie-wrap{box-shadow:none!important;break-inside:avoid}
 }
 @media(max-width:768px){
   .sidebar{width:60px}.sidebar-logo span,.nav-links a span,.sidebar-footer span{display:none}
   .nav-links a .icon{margin:0}
   .main{margin-left:60px;padding:16px}
   .cards{grid-template-columns:1fr 1fr}
-  .payroll-grid{grid-template-columns:1fr}
+  .dist-grid{grid-template-columns:1fr}
+  .chart-row{flex-direction:column}
   .form-row{flex-direction:column}
 }
 </style>
 </head>
 <body>
 <div id="app" class="app">
-  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-logo">记账管理系统</div>
     <div class="month-nav">
@@ -177,8 +188,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
       <a :class="{active:tab==='dashboard'}" @click="tab='dashboard'"><span class="icon">&#9632;</span><span>总 览</span></a>
       <a :class="{active:tab==='revenue'}" @click="tab='revenue'"><span class="icon">&#9650;</span><span>收 入</span></a>
       <a :class="{active:tab==='cost'}" @click="tab='cost'"><span class="icon">&#9660;</span><span>成 本</span></a>
-      <a :class="{active:tab==='payroll'}" @click="tab='payroll'"><span class="icon">&#9679;</span><span>工 资</span></a>
-      <a :class="{active:tab==='profit'}" @click="tab='profit'"><span class="icon">&#9733;</span><span>利润分配</span></a>
+      <a :class="{active:tab==='dist'}" @click="tab='dist'"><span class="icon">&#9733;</span><span>利润分配</span></a>
     </nav>
     <div class="sidebar-footer">
       <button @click="printPage"><span>打印月报</span></button>
@@ -188,7 +198,6 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
     </div>
   </aside>
 
-  <!-- Main Content -->
   <main class="main">
 
     <!-- ===== Dashboard ===== -->
@@ -198,22 +207,45 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
         <div class="card c-revenue"><div class="label">总收入</div><div class="value">{{ fmt(totalRevenue) }}</div></div>
         <div class="card c-cost"><div class="label">总成本</div><div class="value">{{ fmt(totalCost) }}</div></div>
         <div class="card c-gross"><div class="label">毛利润</div><div class="value">{{ fmt(grossProfit) }}</div></div>
-        <div class="card c-payroll"><div class="label">工资支出</div><div class="value">{{ fmt(totalPayroll) }}</div></div>
-        <div class="card c-reserve"><div class="label">现金流留存 ({{ md.cashFlowPct }}%)</div><div class="value">{{ fmt(cashFlowReserve) }}</div></div>
-        <div class="card c-boss"><div class="label">老板所得</div><div class="value">{{ fmt(bossIncome) }}</div></div>
+        <div class="card c-cashflow"><div class="label">现金流留存 (50%)</div><div class="value">{{ fmt(cashFlowAmt) }}</div></div>
+        <div class="card c-salary"><div class="label">人员薪资 (30%)</div><div class="value">{{ fmt(salaryTotal) }}</div></div>
+        <div class="card c-boss"><div class="label">老板分配池 (20%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
       </div>
-      <div class="waterfall">
-        <h3>利润分配流程</h3>
-        <div class="wf-row positive"><span class="wf-label">总收入</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(totalRevenue)}"></div></div><span class="wf-amount">{{ fmt(totalRevenue) }}</span></div>
-        <div class="wf-row negative"><span class="wf-label">- 总成本</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(totalCost)}"></div></div><span class="wf-amount">{{ fmt(totalCost) }}</span></div>
-        <div class="wf-divider"></div>
-        <div class="wf-row result"><span class="wf-label">= 毛利润</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(grossProfit)}"></div></div><span class="wf-amount">{{ fmt(grossProfit) }}</span></div>
-        <div class="wf-row negative"><span class="wf-label">- 工资</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(totalPayroll)}"></div></div><span class="wf-amount">{{ fmt(totalPayroll) }}</span></div>
-        <div class="wf-divider"></div>
-        <div class="wf-row result"><span class="wf-label">= 可分配利润</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(distributable)}"></div></div><span class="wf-amount">{{ fmt(distributable) }}</span></div>
-        <div class="wf-row reserve"><span class="wf-label">- 现金流留存</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(cashFlowReserve)}"></div></div><span class="wf-amount">{{ fmt(cashFlowReserve) }}</span></div>
-        <div class="wf-divider"></div>
-        <div class="wf-row boss"><span class="wf-label">= 老板所得</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(bossIncome)}"></div></div><span class="wf-amount">{{ fmt(bossIncome) }}</span></div>
+      <div class="chart-row">
+        <!-- Pie Chart -->
+        <div class="pie-wrap">
+          <h3>利润分配结构</h3>
+          <div class="pie-box">
+            <svg class="pie-svg" viewBox="0 0 100 100">
+              <circle v-for="(seg,i) in pieSegments" :key="i" cx="50" cy="50" r="40"
+                fill="none" :stroke="seg.color" stroke-width="20"
+                :stroke-dasharray="seg.dash" :stroke-dashoffset="seg.offset"/>
+            </svg>
+            <div class="pie-center">
+              <span class="big">{{ fmt(grossProfit) }}</span>
+              <span class="small">毛利润</span>
+            </div>
+          </div>
+          <div class="pie-legend">
+            <span><span class="dot" style="background:var(--cyan)"></span>现金流 50%</span>
+            <span><span class="dot" style="background:var(--amber)"></span>薪资 30%</span>
+            <span><span class="dot" style="background:var(--purple)"></span>分配池 20%</span>
+          </div>
+        </div>
+        <!-- Waterfall -->
+        <div class="waterfall">
+          <h3>利润分配流程</h3>
+          <div class="wf-row positive"><span class="wf-label">总收入</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(totalRevenue)}"></div></div><span class="wf-amount">{{ fmt(totalRevenue) }}</span></div>
+          <div class="wf-row negative"><span class="wf-label">- 总成本</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(totalCost)}"></div></div><span class="wf-amount">{{ fmt(totalCost) }}</span></div>
+          <div class="wf-divider"></div>
+          <div class="wf-row result"><span class="wf-label">= 毛利润</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(grossProfit)}"></div></div><span class="wf-amount">{{ fmt(grossProfit) }}</span></div>
+          <div class="wf-divider"></div>
+          <div class="wf-row reserve"><span class="wf-label">现金流 (50%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(cashFlowAmt)}"></div></div><span class="wf-amount">{{ fmt(cashFlowAmt) }}</span></div>
+          <div class="wf-row person" v-for="m in md.members" :key="m.name"><span class="wf-label">{{ m.name }} ({{ m.pct }}%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(memberAmt(m))}"></div></div><span class="wf-amount">{{ fmt(memberAmt(m)) }}</span></div>
+          <div class="wf-row boss" v-for="b in md.bonuses" :key="b.name"><span class="wf-label">{{ b.name }}</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(b.amount)}"></div></div><span class="wf-amount">{{ fmt(b.amount) }}</span></div>
+          <div class="wf-divider"></div>
+          <div class="wf-row boss"><span class="wf-label">= 待分配余额</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(poolRemaining)}"></div></div><span class="wf-amount">{{ fmt(poolRemaining) }}</span></div>
+        </div>
       </div>
     </template>
 
@@ -245,7 +277,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
           <tbody>
             <tr v-for="c in md.costs" :key="c.id">
               <td>{{ c.date }}</td><td>{{ c.desc }}</td><td>{{ c.category }}</td>
-              <td class="text-right text-red">{{ fmt(c.amount) }}</td>
+              <td class="text-right" :class="c.amount>=0?'text-red':'text-green'">{{ fmt(c.amount) }}</td>
               <td><button class="btn btn-ghost btn-sm" @click="openModal('cost',c)">编辑</button> <button class="btn btn-danger btn-sm" @click="confirmDel('cost',c.id)">删除</button></td>
             </tr>
             <tr v-if="!md.costs.length"><td colspan="5" class="empty-msg">暂无成本记录，点击右上角添加</td></tr>
@@ -255,52 +287,74 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
       </div>
     </template>
 
-    <!-- ===== Payroll ===== -->
-    <template v-if="tab==='payroll'">
-      <div class="page-header"><h2>{{ monthLabel }} - 工资管理</h2></div>
-      <div class="section-card">
-        <div class="payroll-grid">
-          <div class="payroll-card" v-for="e in md.payroll" :key="e.id">
-            <div class="salary-row"><label>姓名</label><input v-model="e.name" @change="save" placeholder="姓名"></div>
-            <div class="role">{{ e.role }}</div>
-            <div class="salary-row"><label>底薪</label><input type="number" v-model.number="e.salary" @change="save" min="0"></div>
-            <div class="salary-row"><label>奖金</label><input type="number" v-model.number="e.bonus" @change="save" min="0"></div>
-            <div class="salary-row"><label>扣除</label><input type="number" v-model.number="e.deduction" @change="save" min="0"></div>
-            <div class="net">实发: {{ fmt(e.salary + e.bonus - e.deduction) }}</div>
-          </div>
+    <!-- ===== Distribution ===== -->
+    <template v-if="tab==='dist'">
+      <div class="page-header"><h2>{{ monthLabel }} - 利润分配</h2></div>
+
+      <!-- 三大块概览 -->
+      <div class="dist-grid">
+        <div class="dist-card dc-cashflow">
+          <div class="dc-label">现金流留存</div>
+          <div class="dc-pct">50%</div>
+          <div class="dc-amount">{{ fmt(cashFlowAmt) }}</div>
         </div>
-        <table>
-          <tfoot><tr><td colspan="3" style="padding:12px 20px;font-weight:600">工资合计</td><td class="text-right" style="padding:12px 20px;font-weight:700;color:var(--amber)">{{ fmt(totalPayroll) }}</td></tr></tfoot>
+        <div class="dist-card dc-salary">
+          <div class="dc-label">基本薪资</div>
+          <div class="dc-pct">30%</div>
+          <div class="dc-amount">{{ fmt(salaryTotal) }}</div>
+        </div>
+        <div class="dist-card dc-pool">
+          <div class="dc-label">老板分配池</div>
+          <div class="dc-pct">20%</div>
+          <div class="dc-amount">{{ fmt(bossPool) }}</div>
+        </div>
+      </div>
+
+      <!-- 分配明细表 -->
+      <div class="dist-section">
+        <h3>分配明细</h3>
+        <table class="pb-table">
+          <tbody>
+            <tr class="highlight-green"><td class="pb-name">总收入</td><td class="pb-pct"></td><td class="pb-amt text-green">{{ fmt(totalRevenue) }}</td><td class="pb-note"></td></tr>
+            <tr class="highlight-red"><td class="pb-name">- 总成本</td><td class="pb-pct"></td><td class="pb-amt text-red">{{ fmt(totalCost) }}</td><td class="pb-note"></td></tr>
+            <tr class="sub-total"><td class="pb-name">= 毛利润</td><td class="pb-pct">100%</td><td class="pb-amt" style="color:var(--primary)">{{ fmt(grossProfit) }}</td><td class="pb-note"></td></tr>
+
+            <tr class="cat-header"><td colspan="4">现金流留存</td></tr>
+            <tr class="highlight-cyan"><td class="pb-name">公司现金流</td><td class="pb-pct">50%</td><td class="pb-amt" style="color:var(--cyan)">{{ fmt(cashFlowAmt) }}</td><td class="pb-note">不动</td></tr>
+
+            <tr class="cat-header"><td colspan="4">基本薪资 (按利润比例)</td></tr>
+            <tr v-for="m in md.members" :key="'s'+m.name" class="highlight-amber">
+              <td class="pb-name">{{ m.name }}</td>
+              <td class="pb-pct">{{ m.pct }}%</td>
+              <td class="pb-amt" style="color:var(--amber)">{{ fmt(memberAmt(m)) }}</td>
+              <td class="pb-note">{{ m.role }}</td>
+            </tr>
+            <tr style="background:var(--amber-bg)"><td class="pb-name" style="font-weight:600">薪资小计</td><td class="pb-pct">30%</td><td class="pb-amt" style="color:var(--amber);font-weight:700">{{ fmt(salaryTotal) }}</td><td></td></tr>
+
+            <tr class="cat-header"><td colspan="4">老板分配池</td></tr>
+            <tr v-for="b in md.bonuses" :key="'b'+b.name" class="highlight-purple">
+              <td class="pb-name">{{ b.name }}</td>
+              <td class="pb-pct">{{ b.pctLabel || '' }}</td>
+              <td class="pb-amt" style="color:var(--purple)">{{ fmt(b.amount) }}</td>
+              <td class="pb-note">{{ b.note || '' }}</td>
+            </tr>
+            <tr style="background:var(--purple-bg)"><td class="pb-name" style="font-weight:600">已分配</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-weight:700">{{ fmt(poolUsed) }}</td><td></td></tr>
+            <tr class="sub-total"><td class="pb-name">= 待分配余额</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-size:20px">{{ fmt(poolRemaining) }}</td><td class="pb-note">老板决定</td></tr>
+          </tbody>
         </table>
       </div>
-    </template>
 
-    <!-- ===== Profit Distribution ===== -->
-    <template v-if="tab==='profit'">
-      <div class="page-header"><h2>{{ monthLabel }} - 利润分配</h2></div>
-      <div class="profit-section">
-        <h3>现金流留存比例</h3>
-        <div class="cashflow-slider">
-          <label>留存比例</label>
-          <input type="range" min="0" max="100" v-model.number="md.cashFlowPct" @change="save">
-          <span class="pct">{{ md.cashFlowPct }}%</span>
+      <!-- 分配池编辑 -->
+      <div class="dist-section">
+        <h3>老板分配池 - 编辑</h3>
+        <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">分配池总额 {{ fmt(bossPool) }}，可添加奖金或其他劳务人员费用</p>
+        <div v-for="(b,i) in md.bonuses" :key="i" class="bonus-row">
+          <input class="bn" v-model="b.name" placeholder="姓名" @change="save">
+          <input class="ba" type="number" v-model.number="b.amount" placeholder="金额" @change="save">
+          <input class="bm" v-model="b.note" placeholder="备注" @change="save">
+          <button class="btn btn-danger btn-sm" @click="removeBonus(i)">删除</button>
         </div>
-        <h3>分配明细</h3>
-        <div class="profit-breakdown">
-          <div class="pb-row income"><span class="pb-label">总收入</span><span class="pb-value">{{ fmt(totalRevenue) }}</span></div>
-          <div class="pb-arrow">-</div>
-          <div class="pb-row expense"><span class="pb-label">总成本</span><span class="pb-value">{{ fmt(totalCost) }}</span></div>
-          <div class="pb-arrow">=</div>
-          <div class="pb-row subtotal"><span class="pb-label">毛利润</span><span class="pb-value">{{ fmt(grossProfit) }}</span></div>
-          <div class="pb-arrow">-</div>
-          <div class="pb-row expense"><span class="pb-label">工资支出</span><span class="pb-value">{{ fmt(totalPayroll) }}</span></div>
-          <div class="pb-arrow">=</div>
-          <div :class="['pb-row', distributable>=0?'subtotal':'warning']"><span class="pb-label">可分配利润</span><span class="pb-value">{{ fmt(distributable) }}</span></div>
-          <div class="pb-arrow">-</div>
-          <div class="pb-row cashflow"><span class="pb-label">现金流留存 ({{ md.cashFlowPct }}%)</span><span class="pb-value">{{ fmt(cashFlowReserve) }}</span></div>
-          <div class="pb-arrow">=</div>
-          <div :class="['pb-row','boss-income']"><span class="pb-label">老板所得</span><span class="pb-value">{{ fmt(bossIncome) }}</span></div>
-        </div>
+        <button class="btn btn-ghost" @click="addBonus" style="margin-top:8px">+ 添加分配项</button>
       </div>
     </template>
 
@@ -316,16 +370,16 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
           <div class="form-group"><label>分类</label>
             <select v-model="modal.form.category">
               <template v-if="modal.type==='revenue'">
-                <option>项目收入</option><option>服务收入</option><option>其他收入</option>
+                <option>项目收入</option><option>小红书</option><option>支付宝</option><option>其他收入</option>
               </template>
               <template v-else>
-                <option>材料成本</option><option>租金</option><option>水电费</option><option>交通费</option><option>办公用品</option><option>其他</option>
+                <option>API成本</option><option>报销</option><option>租金</option><option>水电费</option><option>交通费</option><option>API退款</option><option>其他</option>
               </template>
             </select>
           </div>
         </div>
         <div class="form-row"><div class="form-group"><label>描述</label><input v-model="modal.form.desc" placeholder="输入描述"></div></div>
-        <div class="form-row"><div class="form-group"><label>金额 (元)</label><input type="number" v-model.number="modal.form.amount" min="0" step="0.01" placeholder="0.00"></div></div>
+        <div class="form-row"><div class="form-group"><label>金额 (元)</label><input type="number" v-model.number="modal.form.amount" step="0.01" placeholder="0.00"></div></div>
       </div>
       <div class="modal-foot"><button class="btn btn-ghost" @click="modal.show=false">取消</button><button class="btn btn-primary" @click="saveEntry">确认保存</button></div>
     </div>
@@ -342,172 +396,149 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 </div>
 
 <script>
-const STORAGE_KEY = 'accounting_app_data';
+const STORAGE_KEY = 'accounting_app_data_v2';
+const PIE_COLORS = ['#0891b2','#d97706','#7c3aed'];
+const CIRC = 2 * Math.PI * 40; // SVG circle circumference
 
-// 2026年3月预置成本数据
-const MARCH_2026_COSTS = [
-  { id: 100801, date: '2026-03-08', desc: '日常支出', category: '材料成本', amount: 504.06 },
-  { id: 100802, date: '2026-03-10', desc: '日常支出', category: '材料成本', amount: 502.64 },
-  { id: 100803, date: '2026-03-11', desc: '日常支出', category: '材料成本', amount: 1005.64 },
-  { id: 100804, date: '2026-03-14', desc: '日常支出', category: '材料成本', amount: 502.89 },
-  { id: 100805, date: '2026-03-15', desc: '日常支出', category: '材料成本', amount: 985.77 },
-  { id: 100806, date: '2026-03-16', desc: '日常支出', category: '材料成本', amount: 502.83 },
-  { id: 100807, date: '2026-03-17', desc: '日常支出', category: '材料成本', amount: 879.83 },
-  { id: 100808, date: '2026-03-19', desc: '日常支出', category: '材料成本', amount: 502.38 },
-  { id: 100809, date: '2026-03-20', desc: '日常支出', category: '材料成本', amount: 489.85 },
-  { id: 100810, date: '2026-03-21', desc: '日常支出', category: '材料成本', amount: 634.86 },
-  { id: 100811, date: '2026-03-22', desc: '日常支出', category: '材料成本', amount: 503.67 },
-  { id: 100812, date: '2026-03-23', desc: '日常支出', category: '材料成本', amount: 947.88 },
-  { id: 100813, date: '2026-03-25', desc: '日常支出', category: '材料成本', amount: 467.90 },
-];
+// 2026年3月预置数据
+const MARCH_DATA = {
+  revenues: [
+    { id: 200001, date: '2026-03-25', desc: '小红书渠道收款', category: '小红书', amount: 12100 },
+    { id: 200002, date: '2026-03-25', desc: '支付宝渠道收款（余额宝倒推）', category: '支付宝', amount: 16734.31 },
+  ],
+  costs: [
+    { id: 100801, date: '2026-03-08', desc: 'API消耗', category: 'API成本', amount: 504.06 },
+    { id: 100802, date: '2026-03-10', desc: 'API消耗', category: 'API成本', amount: 502.64 },
+    { id: 100803, date: '2026-03-11', desc: 'API消耗', category: 'API成本', amount: 1005.64 },
+    { id: 100804, date: '2026-03-14', desc: 'API消耗', category: 'API成本', amount: 502.89 },
+    { id: 100805, date: '2026-03-15', desc: 'API消耗', category: 'API成本', amount: 985.77 },
+    { id: 100806, date: '2026-03-16', desc: 'API消耗', category: 'API成本', amount: 502.83 },
+    { id: 100807, date: '2026-03-17', desc: 'API消耗', category: 'API成本', amount: 879.83 },
+    { id: 100808, date: '2026-03-19', desc: 'API消耗', category: 'API成本', amount: 502.38 },
+    { id: 100809, date: '2026-03-20', desc: 'API消耗', category: 'API成本', amount: 489.85 },
+    { id: 100810, date: '2026-03-21', desc: 'API消耗', category: 'API成本', amount: 634.86 },
+    { id: 100811, date: '2026-03-22', desc: 'API消耗', category: 'API成本', amount: 503.67 },
+    { id: 100812, date: '2026-03-23', desc: 'API消耗', category: 'API成本', amount: 947.88 },
+    { id: 100813, date: '2026-03-25', desc: 'API消耗', category: 'API成本', amount: 467.90 },
+    { id: 100901, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 1185.03 },
+    { id: 100902, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 96.0 },
+    { id: 100903, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 822.02 },
+    { id: 100904, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 503.94 },
+    { id: 100905, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 880 },
+    { id: 100906, date: '2026-03-25', desc: 'API消耗（补录）', category: 'API成本', amount: 1475.77 },
+    { id: 100907, date: '2026-03-25', desc: 'API退款', category: 'API退款', amount: -319.05 },
+    { id: 100908, date: '2026-03-25', desc: 'API退款', category: 'API退款', amount: -99 },
+    { id: 100909, date: '2026-03-25', desc: 'API退款', category: 'API退款', amount: -862 },
+    { id: 100910, date: '2026-03-25', desc: 'API退款', category: 'API退款', amount: -10.45 },
+    { id: 101001, date: '2026-03-25', desc: '报销', category: '报销', amount: 30 },
+    { id: 101002, date: '2026-03-25', desc: '报销', category: '报销', amount: 211.2 },
+    { id: 101003, date: '2026-03-25', desc: '报销', category: '报销', amount: 135 },
+    { id: 101004, date: '2026-03-25', desc: '报销', category: '报销', amount: 265 },
+  ],
+  members: [
+    { name: '欧', role: '技术工', pct: 10 },
+    { name: '曾', role: '技术工', pct: 10 },
+    { name: '刘', role: '老板', pct: 10 },
+  ],
+  bonuses: [
+    { name: '李', amount: 804.53, pctLabel: '5%', note: '会计' },
+    { name: '姚', amount: 200, pctLabel: '', note: '本周贡献' },
+  ],
+  cashFlowPct: 50,
+  bossPoolPct: 20,
+};
 
 function newMonthData(month) {
-  const today = month + '-01';
-  const data = {
-    revenues: [],
-    costs: [],
-    payroll: [
-      { id: 1, name: '会计',   role: '会计',  salary: 0, bonus: 0, deduction: 0 },
-      { id: 2, name: '老板',   role: '老板',  salary: 0, bonus: 0, deduction: 0 },
-      { id: 3, name: '技术工A', role: '技术工', salary: 0, bonus: 0, deduction: 0 },
-      { id: 4, name: '技术工B', role: '技术工', salary: 0, bonus: 0, deduction: 0 },
-    ],
-    cashFlowPct: 20,
-  };
-  // 预填3月数据
   if (month === '2026-03') {
-    data.costs = JSON.parse(JSON.stringify(MARCH_2026_COSTS));
+    return JSON.parse(JSON.stringify(MARCH_DATA));
   }
-  return data;
+  return {
+    revenues: [], costs: [],
+    members: [
+      { name: '欧', role: '技术工', pct: 10 },
+      { name: '曾', role: '技术工', pct: 10 },
+      { name: '刘', role: '老板', pct: 10 },
+    ],
+    bonuses: [
+      { name: '李', amount: 0, pctLabel: '5%', note: '会计' },
+    ],
+    cashFlowPct: 50,
+    bossPoolPct: 20,
+  };
 }
 
-function loadAll() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
-}
-function saveAll(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+function loadAll() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } }
+function saveAll(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
 
 const { createApp } = Vue;
 createApp({
   data() {
     const now = new Date();
     const cm = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
-    const all = loadAll();
     return {
-      tab: 'dashboard',
-      currentMonth: cm,
-      allData: all,
-      modal: { show: false, type: 'revenue', editing: null, form: { date:'', desc:'', category:'', amount:0 } },
-      delConfirm: { show: false, type:'', id: null },
+      tab: 'dashboard', currentMonth: cm, allData: loadAll(),
+      modal: { show:false, type:'revenue', editing:null, form:{date:'',desc:'',category:'',amount:0} },
+      delConfirm: { show:false, type:'', id:null },
     };
   },
   computed: {
     md() {
       if (!this.allData[this.currentMonth]) {
-        // try to carry over payroll from most recent previous month
         const months = Object.keys(this.allData).sort();
         const prev = months.filter(m => m < this.currentMonth).pop();
         const d = newMonthData(this.currentMonth);
-        if (prev && this.allData[prev]) {
-          d.payroll = JSON.parse(JSON.stringify(this.allData[prev].payroll));
+        if (prev && this.allData[prev] && this.currentMonth !== '2026-03') {
+          d.members = JSON.parse(JSON.stringify(this.allData[prev].members));
           d.cashFlowPct = this.allData[prev].cashFlowPct;
+          d.bossPoolPct = this.allData[prev].bossPoolPct;
         }
         this.allData[this.currentMonth] = d;
       }
       return this.allData[this.currentMonth];
     },
-    monthLabel() {
-      const [y,m] = this.currentMonth.split('-');
-      return y + '年' + parseInt(m) + '月';
-    },
-    totalRevenue() { return this.md.revenues.reduce((s,r) => s + (r.amount||0), 0); },
-    totalCost() { return this.md.costs.reduce((s,c) => s + (c.amount||0), 0); },
+    monthLabel() { const [y,m]=this.currentMonth.split('-'); return y+'年'+parseInt(m)+'月'; },
+    totalRevenue() { return this.md.revenues.reduce((s,r)=>s+(r.amount||0),0); },
+    totalCost() { return this.md.costs.reduce((s,c)=>s+(c.amount||0),0); },
     grossProfit() { return this.totalRevenue - this.totalCost; },
-    totalPayroll() { return this.md.payroll.reduce((s,e) => s + (e.salary||0) + (e.bonus||0) - (e.deduction||0), 0); },
-    distributable() { return this.grossProfit - this.totalPayroll; },
-    cashFlowReserve() { return this.distributable > 0 ? Math.round(this.distributable * this.md.cashFlowPct / 100 * 100) / 100 : 0; },
-    bossIncome() { return this.distributable > 0 ? this.distributable - this.cashFlowReserve : this.distributable; },
+    cashFlowAmt() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.cashFlowPct / 100 * 100)/100 : 0; },
+    salaryTotal() { return this.grossProfit > 0 ? this.md.members.reduce((s,m)=>s+Math.round(this.grossProfit*m.pct/100*100)/100,0) : 0; },
+    bossPool() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.bossPoolPct / 100 * 100)/100 : 0; },
+    poolUsed() { return this.md.bonuses.reduce((s,b)=>s+(b.amount||0),0); },
+    poolRemaining() { return Math.round((this.bossPool - this.poolUsed)*100)/100; },
     maxBar() { return Math.max(this.totalRevenue, 1); },
+    pieSegments() {
+      if (this.grossProfit <= 0) return [];
+      const pcts = [this.md.cashFlowPct, this.md.members.reduce((s,m)=>s+m.pct,0), this.md.bossPoolPct];
+      let offset = 0;
+      return pcts.map((p,i)=>{ const d = CIRC*p/100; const o = -offset; offset += d; return {color:PIE_COLORS[i], dash:d+' '+CIRC, offset:o}; });
+    },
   },
   methods: {
-    fmt(n) {
-      if (n == null || isNaN(n)) return '¥0.00';
-      return '¥' + Number(n).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    },
-    barW(v) {
-      const pct = Math.max(0, Math.min(100, Math.abs(v) / this.maxBar * 100));
-      return pct + '%';
-    },
-    changeMonth(dir) {
-      const [y,m] = this.currentMonth.split('-').map(Number);
-      const d = new Date(y, m - 1 + dir, 1);
-      this.currentMonth = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
-    },
+    fmt(n) { if(n==null||isNaN(n))return'¥0.00'; return'¥'+Number(n).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); },
+    barW(v) { return Math.max(0,Math.min(100,Math.abs(v)/this.maxBar*100))+'%'; },
+    memberAmt(m) { return this.grossProfit>0?Math.round(this.grossProfit*m.pct/100*100)/100:0; },
+    changeMonth(dir) { const[y,m]=this.currentMonth.split('-').map(Number); const d=new Date(y,m-1+dir,1); this.currentMonth=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); },
     save() { saveAll(this.allData); },
+    addBonus() { this.md.bonuses.push({name:'',amount:0,pctLabel:'',note:''}); this.save(); },
+    removeBonus(i) { this.md.bonuses.splice(i,1); this.save(); },
     openModal(type, item) {
-      this.modal.type = type;
-      if (item) {
-        this.modal.editing = item.id;
-        this.modal.form = { date: item.date, desc: item.desc, category: item.category, amount: item.amount };
-      } else {
-        this.modal.editing = null;
-        const defCat = type === 'revenue' ? '项目收入' : '材料成本';
-        this.modal.form = { date: this.currentMonth + '-01', desc: '', category: defCat, amount: 0 };
-      }
-      this.modal.show = true;
+      this.modal.type=type;
+      if(item){this.modal.editing=item.id;this.modal.form={date:item.date,desc:item.desc,category:item.category,amount:item.amount};}
+      else{this.modal.editing=null;const dc=type==='revenue'?'项目收入':'API成本';this.modal.form={date:this.currentMonth+'-01',desc:'',category:dc,amount:0};}
+      this.modal.show=true;
     },
     saveEntry() {
-      const f = this.modal.form;
-      if (!f.date || !f.desc || !f.amount) { alert('请填写完整信息'); return; }
-      const list = this.modal.type === 'revenue' ? this.md.revenues : this.md.costs;
-      if (this.modal.editing) {
-        const idx = list.findIndex(x => x.id === this.modal.editing);
-        if (idx >= 0) { Object.assign(list[idx], { date:f.date, desc:f.desc, category:f.category, amount:Number(f.amount) }); }
-      } else {
-        list.push({ id: Date.now(), date: f.date, desc: f.desc, category: f.category, amount: Number(f.amount) });
-      }
-      list.sort((a,b) => a.date.localeCompare(b.date));
-      this.save();
-      this.modal.show = false;
+      const f=this.modal.form;if(!f.date||!f.desc||f.amount===''||f.amount===null){alert('请填写完整信息');return;}
+      const list=this.modal.type==='revenue'?this.md.revenues:this.md.costs;
+      if(this.modal.editing){const idx=list.findIndex(x=>x.id===this.modal.editing);if(idx>=0)Object.assign(list[idx],{date:f.date,desc:f.desc,category:f.category,amount:Number(f.amount)});}
+      else{list.push({id:Date.now(),date:f.date,desc:f.desc,category:f.category,amount:Number(f.amount)});}
+      list.sort((a,b)=>a.date.localeCompare(b.date));this.save();this.modal.show=false;
     },
-    confirmDel(type, id) {
-      this.delConfirm = { show: true, type, id };
-    },
-    doDelete() {
-      const list = this.delConfirm.type === 'revenue' ? this.md.revenues : this.md.costs;
-      const idx = list.findIndex(x => x.id === this.delConfirm.id);
-      if (idx >= 0) list.splice(idx, 1);
-      this.save();
-      this.delConfirm.show = false;
-    },
-    exportJSON() {
-      const blob = new Blob([JSON.stringify(this.allData, null, 2)], { type:'application/json' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = '记账数据_' + this.currentMonth + '.json';
-      a.click();
-      URL.revokeObjectURL(a.href);
-    },
-    importJSON(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        try {
-          const data = JSON.parse(ev.target.result);
-          this.allData = data;
-          this.save();
-          alert('导入成功！');
-        } catch { alert('文件格式错误'); }
-      };
-      reader.readAsText(file);
-      e.target.value = '';
-    },
-    printPage() { window.print(); },
-  },
-  watch: {
-    currentMonth() { /* md computed will auto-init */ }
+    confirmDel(type,id){this.delConfirm={show:true,type,id};},
+    doDelete(){const list=this.delConfirm.type==='revenue'?this.md.revenues:this.md.costs;const idx=list.findIndex(x=>x.id===this.delConfirm.id);if(idx>=0)list.splice(idx,1);this.save();this.delConfirm.show=false;},
+    exportJSON(){const b=new Blob([JSON.stringify(this.allData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='记账数据_'+this.currentMonth+'.json';a.click();URL.revokeObjectURL(a.href);},
+    importJSON(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=(ev)=>{try{this.allData=JSON.parse(ev.target.result);this.save();alert('导入成功！');}catch{alert('文件格式错误');}};r.readAsText(f);e.target.value='';},
+    printPage(){window.print();},
   },
 }).mount('#app');
 </script>
