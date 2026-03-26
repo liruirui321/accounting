@@ -151,6 +151,10 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .ratio-row.rb .ratio-val{color:var(--purple)}
 .ratio-row.rs .ratio-val{color:var(--amber)}
 .ratio-warn{color:var(--red);font-size:13px;margin-bottom:8px}
+.locked-badge{display:inline-block;background:var(--gray-200);color:var(--gray-500);font-size:12px;padding:2px 10px;border-radius:12px;margin-left:8px;font-weight:500}
+.dist-section.locked{opacity:.75;pointer-events:none;position:relative}
+.dist-section .lock-overlay{display:none;position:absolute;inset:0;background:rgba(255,255,255,.5);z-index:2;border-radius:var(--radius);cursor:not-allowed}
+.dist-section.locked .lock-overlay{display:block}
 
 /* Bonus edit */
 .bonus-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
@@ -342,7 +346,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
         <div class="card c-gross"><div class="label">毛利润</div><div class="value">{{ fmt(grossProfit) }}</div></div>
         <div class="card c-cashflow"><div class="label">现金流留存 ({{ md.cashFlowPct }}%)</div><div class="value">{{ fmt(cashFlowAmt) }}</div></div>
         <div class="card c-salary"><div class="label">人员薪资 ({{ salaryPct }}%)</div><div class="value">{{ fmt(salaryTotal) }}</div></div>
-        <div class="card c-boss"><div class="label">老板分配池 ({{ md.bossPoolPct }}%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
+        <div class="card c-boss"><div class="label">董事长分配池 ({{ md.bossPoolPct }}%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
       </div>
       <div class="chart-row">
         <!-- Pie Chart -->
@@ -437,7 +441,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           <div class="dc-amount">{{ fmt(salaryTotal) }}</div>
         </div>
         <div class="dist-card dc-pool">
-          <div class="dc-label">老板分配池</div>
+          <div class="dc-label">董事长分配池</div>
           <div class="dc-pct">{{ md.bossPoolPct }}%</div>
           <div class="dc-amount">{{ fmt(bossPool) }}</div>
         </div>
@@ -464,7 +468,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
             </tr>
             <tr style="background:var(--amber-bg)"><td class="pb-name" style="font-weight:600">薪资小计</td><td class="pb-pct">{{ salaryPct }}%</td><td class="pb-amt" style="color:var(--amber);font-weight:700">{{ fmt(salaryTotal) }}</td><td></td></tr>
 
-            <tr class="cat-header"><td colspan="4">老板分配池</td></tr>
+            <tr class="cat-header"><td colspan="4">董事长分配池</td></tr>
             <tr v-for="b in md.bonuses" :key="'b'+b.name" class="highlight-purple">
               <td class="pb-name">{{ b.name }}</td>
               <td class="pb-pct">{{ b.pctLabel || '' }}</td>
@@ -472,15 +476,17 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
               <td class="pb-note">{{ b.note || '' }}</td>
             </tr>
             <tr style="background:var(--purple-bg)"><td class="pb-name" style="font-weight:600">已分配</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-weight:700">{{ fmt(poolUsed) }}</td><td></td></tr>
-            <tr class="sub-total"><td class="pb-name">= 待分配余额</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-size:20px">{{ fmt(poolRemaining) }}</td><td class="pb-note">老板决定</td></tr>
+            <tr class="sub-total"><td class="pb-name">= 待分配余额</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-size:20px">{{ fmt(poolRemaining) }}</td><td class="pb-note">董事长决定</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- 比例调节 -->
-      <div class="dist-section">
-        <h3>分配比例调节</h3>
-        <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">三项比例之和须为 100%，调整现金流或分配池后，薪资比例自动计算</p>
+      <div class="dist-section" :class="{locked:monthLocked}">
+        <div class="lock-overlay"></div>
+        <h3>分配比例调节<span v-if="monthLocked" class="locked-badge">已锁定</span></h3>
+        <p v-if="!monthLocked" style="font-size:13px;color:var(--gray-500);margin-bottom:12px">三项比例之和须为 100%，调整现金流或分配池后，薪资比例自动计算</p>
+        <p v-else style="font-size:13px;color:var(--gray-500);margin-bottom:12px">本月已过结算日（次月1号），分配比例已锁定，仅供查看</p>
         <p v-if="salaryPct<0" class="ratio-warn">警告：薪资比例为负数，请调整现金流和分配池比例！</p>
         <div class="ratio-row rc">
           <label>现金流留存</label>
@@ -488,7 +494,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           <span class="ratio-val">{{ md.cashFlowPct }}%</span>
         </div>
         <div class="ratio-row rb">
-          <label>老板分配池</label>
+          <label>董事长分配池</label>
           <input type="range" min="0" :max="100-md.cashFlowPct" v-model.number="md.bossPoolPct" @input="save">
           <span class="ratio-val">{{ md.bossPoolPct }}%</span>
         </div>
@@ -500,8 +506,9 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       </div>
 
       <!-- 分配池编辑 -->
-      <div class="dist-section">
-        <h3>老板分配池 - 编辑</h3>
+      <div class="dist-section" :class="{locked:monthLocked}">
+        <div class="lock-overlay"></div>
+        <h3>董事长分配池 - 编辑<span v-if="monthLocked" class="locked-badge">已锁定</span></h3>
         <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">分配池总额 {{ fmt(bossPool) }}，可添加奖金或其他劳务人员费用</p>
         <div v-for="(b,i) in md.bonuses" :key="i" class="bonus-row">
           <input class="bn" v-model="b.name" placeholder="姓名" @change="save">
@@ -788,9 +795,9 @@ const MARCH_DATA = {
     { id: 101004, date: '2026-03-25', desc: '报销', category: '报销', amount: 265 },
   ],
   members: [
-    { name: '欧', role: '老板', pct: 10 },
-    { name: '曾', role: '技术工', pct: 10 },
-    { name: '刘', role: '技术工', pct: 10 },
+    { name: '欧', role: '董事长', pct: 10 },
+    { name: '曾', role: '董事会成员', pct: 10 },
+    { name: '刘', role: '董事会成员', pct: 10 },
   ],
   bonuses: [
     { name: '李', amount: 804.53, pctLabel: '5%', note: '会计' },
@@ -807,9 +814,9 @@ function newMonthData(month) {
   return {
     revenues: [], costs: [],
     members: [
-      { name: '欧', role: '老板', pct: 10 },
-      { name: '曾', role: '技术工', pct: 10 },
-      { name: '刘', role: '技术工', pct: 10 },
+      { name: '欧', role: '董事长', pct: 10 },
+      { name: '曾', role: '董事会成员', pct: 10 },
+      { name: '刘', role: '董事会成员', pct: 10 },
     ],
     bonuses: [
       { name: '李', amount: 0, pctLabel: '5%', note: '会计' },
@@ -851,6 +858,12 @@ createApp({
       return this.allData[this.currentMonth];
     },
     monthLabel() { const [y,m]=this.currentMonth.split('-'); return y+'年'+parseInt(m)+'月'; },
+    monthLocked() {
+      // 每月1号发工资后，上月数据锁定不可编辑
+      const [y,m] = this.currentMonth.split('-').map(Number);
+      const nextMonth1st = new Date(y, m, 1); // m is already 0-indexed+1, so this is 1st of next month
+      return new Date() >= nextMonth1st;
+    },
     totalRevenue() { return this.md.revenues.reduce((s,r)=>s+(r.amount||0),0); },
     totalCost() { return this.md.costs.reduce((s,c)=>s+(c.amount||0),0); },
     grossProfit() { return this.totalRevenue - this.totalCost; },
