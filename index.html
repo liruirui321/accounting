@@ -260,7 +260,7 @@ async function checkToken(){
   }
 }
 document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkToken();});
-(async function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);const gate=document.getElementById('gate');const app=document.getElementById('app');if(saved===TOKEN_HASH){if(gate)gate.style.display='none';if(app)app.style.display='';}else{if(app)app.style.display='none';}})();
+document.addEventListener('DOMContentLoaded',function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);if(saved===TOKEN_HASH){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='';}else{document.getElementById('app').style.display='none';}});
 </script>
 
 <div id="app" class="app" style="display:none">
