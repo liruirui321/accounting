@@ -1,29 +1,35 @@
 {
-  "updated_at": "2026-03-26 21:00:08",
+  "updated_at": "2026-03-26 21:31:28",
   "threshold": 10,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 291447619,
-      "balance": 582.9,
+      "quota": 291428516,
+      "balance": 582.86,
       "low": false
     },
     {
       "name": "云雾",
-      "quota": 559269946,
-      "balance": 559.27,
+      "quota": 559117076,
+      "balance": 559.12,
       "low": false
     },
     {
       "name": "哈基米",
-      "quota": 77773281582,
-      "balance": 777.73,
+      "quota": 77541281582,
+      "balance": 775.41,
       "low": false
     },
     {
       "name": "MNAPI",
-      "quota": 157521175,
-      "balance": 315.04,
+      "quota": 156978572,
+      "balance": 313.96,
+      "low": false
+    },
+    {
+      "name": "FoxCode",
+      "quota": 3107037924,
+      "balance": 727.05,
       "low": false
     }
   ],
