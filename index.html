@@ -260,7 +260,6 @@ async function checkToken(){
   }
 }
 document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkToken();});
-document.addEventListener('DOMContentLoaded',function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);if(saved===TOKEN_HASH){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='';}else{document.getElementById('app').style.display='none';}});
 </script>
 
 <div id="app" class="app" style="display:none">
@@ -554,6 +553,11 @@ document.addEventListener('DOMContentLoaded',function(){const saved=localStorage
     </div>
   </div>
 </div>
+
+<script>
+// 自动登录检查（放在 #app 后面确保 DOM 已存在）
+(function(){const saved=localStorage.getItem('accounting_token');if(saved==='ade0a2b26584bbb03ba9e3b1685a5ef7196e427ad797979e2b9c0658c1693d58'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='';}else{document.getElementById('app').style.display='none';}})();
+</script>
 
 <script>
 const STORAGE_KEY = 'accounting_app_data_v2';
