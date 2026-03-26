@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-26 17:57:56",
+  "updated_at": "2026-03-26 18:00:12",
   "threshold": 10,
   "accounts": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "name": "哈基米",
-      "quota": 28468281582,
-      "balance": 284.68,
+      "quota": 28456281582,
+      "balance": 284.56,
       "low": false
     },
     {
@@ -28,8 +28,8 @@
     },
     {
       "name": "FoxCode",
-      "quota": 1799071771,
-      "balance": 420.98,
+      "quota": 1790560370,
+      "balance": 418.99,
       "low": false
     }
   ],
