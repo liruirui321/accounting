@@ -215,6 +215,9 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   .card,.section-card,.waterfall,.dist-section,.pie-wrap{box-shadow:none!important;break-inside:avoid}
   .fs-table{font-size:12px}
   .rpt-period-badge{display:inline-block!important}
+  .print-header{display:block!important;text-align:center;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #333}
+  .print-header h2{font-size:20px;margin-bottom:4px}
+  .print-header p{font-size:13px;color:#666}
 }
 @media(max-width:768px){
   .sidebar{width:60px}.sidebar-logo span,.nav-links a span,.sidebar-footer span{display:none}
@@ -512,6 +515,9 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
 
     <!-- ===== Financial Reports ===== -->
     <template v-if="tab==='reports'">
+      <div ref="printHeader" class="print-header" style="display:none">
+        <h2></h2><p></p>
+      </div>
       <div class="page-header"><h2>财务报表<span class="rpt-period-badge">{{ rptPeriodLabel }}</span></h2></div>
 
       <!-- Toolbar: period type + selector -->
@@ -533,6 +539,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           </select>
         </div>
         <button class="btn btn-ghost" @click="exportReport">导出 CSV</button>
+        <button class="btn btn-ghost" @click="printReport">打印报表</button>
       </div>
 
       <!-- Sub tabs -->
@@ -1033,6 +1040,20 @@ createApp({
     exportJSON(){const b=new Blob([JSON.stringify(this.allData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='记账数据_'+this.currentMonth+'.json';a.click();URL.revokeObjectURL(a.href);},
     importJSON(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=(ev)=>{try{this.allData=JSON.parse(ev.target.result);this.save();alert('导入成功！');}catch{alert('文件格式错误');}};r.readAsText(f);e.target.value='';},
     printPage(){window.print();},
+    printReport(){
+      const tabNames = {income:'利润表', balance_sheet:'资产负债表', cashflow:'现金流量表'};
+      const title = tabNames[this.rptTab];
+      const period = this.rptPeriodLabel;
+      // Show print header, hide non-report content, then print
+      const hdr = this.$refs.printHeader;
+      if(hdr){hdr.querySelector('h2').textContent=title;hdr.querySelector('p').textContent=period;hdr.style.display='block';}
+      // Hide all non-report tabs content for clean print
+      const otherTabs = document.querySelectorAll('[data-tab-content]');
+      otherTabs.forEach(el=>{if(el.dataset.tabContent!=='reports')el.style.display='none';});
+      window.print();
+      if(hdr)hdr.style.display='none';
+      otherTabs.forEach(el=>el.style.display='');
+    },
     exportReport() {
       const BOM = '\uFEFF';
       let csv = '';
