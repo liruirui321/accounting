@@ -712,7 +712,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           <div v-for="acc in bal.data.accounts" :key="acc.name" class="bal-card" :class="{low:acc.low}">
             <div class="bc-header">
               <span class="bc-name">{{ acc.name }}</span>
-              <span class="bc-badge" :class="acc.low?'warn':'ok'">{{ acc.low?'余额不足':'正常' }}</span>
+              <span class="bc-badge" :class="acc.low?'warn':'ok'">{{ acc.stale?'数据延迟': acc.low?'余额不足':'正常' }}</span>
             </div>
             <div class="bc-balance">{{ fmt(acc.balance) }}</div>
             <div class="bc-quota">原始额度: {{ acc.quota.toLocaleString() }}</div>
