@@ -142,6 +142,16 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .pb-table tr.highlight-green td{background:var(--green-bg)}
 .pb-table tr.highlight-red td{background:var(--red-bg)}
 
+/* Ratio sliders */
+.ratio-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ratio-row label{width:100px;font-size:14px;font-weight:500;color:var(--gray-700)}
+.ratio-row input[type=range]{flex:1;accent-color:var(--primary)}
+.ratio-row .ratio-val{min-width:50px;text-align:center;font-size:18px;font-weight:700}
+.ratio-row.rc .ratio-val{color:var(--cyan)}
+.ratio-row.rb .ratio-val{color:var(--purple)}
+.ratio-row.rs .ratio-val{color:var(--amber)}
+.ratio-warn{color:var(--red);font-size:13px;margin-bottom:8px}
+
 /* Bonus edit */
 .bonus-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
 .bonus-row input{padding:6px 8px;border:1px solid var(--gray-300);border-radius:4px;font-size:14px;outline:none}
@@ -173,10 +183,56 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   .chart-row{flex-direction:column}
   .form-row{flex-direction:column}
 }
+/* Token gate */
+.gate-mask{position:fixed;inset:0;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);display:flex;align-items:center;justify-content:center;z-index:999}
+.gate-box{background:#fff;border-radius:16px;padding:40px 36px;box-shadow:0 8px 32px rgba(0,0,0,.25);width:360px;max-width:90vw;text-align:center}
+.gate-box h2{font-size:20px;margin-bottom:6px;color:var(--gray-900)}
+.gate-box p{font-size:13px;color:var(--gray-500);margin-bottom:24px}
+.gate-input{width:100%;padding:12px 14px;border:2px solid var(--gray-200);border-radius:8px;font-size:15px;outline:none;transition:border .2s;text-align:center;letter-spacing:2px}
+.gate-input:focus{border-color:var(--primary)}
+.gate-input.shake{animation:shake .4s ease}
+.gate-btn{width:100%;padding:12px;margin-top:14px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s}
+.gate-btn:hover{background:var(--primary-dark)}
+.gate-err{color:var(--red);font-size:13px;margin-top:10px;min-height:18px}
+.gate-remember{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:13px;color:var(--gray-500)}
+.gate-remember input{accent-color:var(--primary)}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
 </style>
 </head>
 <body>
-<div id="app" class="app">
+<!-- Token Gate -->
+<div id="gate" class="gate-mask">
+  <div class="gate-box">
+    <h2>记账管理系统</h2>
+    <p>请输入访问密码</p>
+    <input id="gate-pwd" class="gate-input" type="password" placeholder="输入密码后回车" autofocus>
+    <button class="gate-btn" onclick="checkToken()">进 入</button>
+    <div id="gate-err" class="gate-err"></div>
+    <label class="gate-remember"><input type="checkbox" id="gate-remember" checked>记住密码（本浏览器）</label>
+  </div>
+</div>
+<script>
+const TOKEN_HASH='a3dd5e265a7e36aea73b766675f3365d09f936fa84d267dd7ebf804246fdeab4';
+const TOKEN_STORE_KEY='accounting_token';
+async function sha256(s){const e=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+async function checkToken(){
+  const inp=document.getElementById('gate-pwd');
+  const hash=await sha256(inp.value.trim());
+  if(hash===TOKEN_HASH){
+    if(document.getElementById('gate-remember').checked)localStorage.setItem(TOKEN_STORE_KEY,hash);
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='';
+  }else{
+    document.getElementById('gate-err').textContent='密码错误，请重试';
+    inp.classList.add('shake');setTimeout(()=>inp.classList.remove('shake'),400);
+    inp.value='';inp.focus();
+  }
+}
+document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkToken();});
+(async function(){const saved=localStorage.getItem(TOKEN_STORE_KEY);if(saved===TOKEN_HASH){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='';}else{document.getElementById('app').style.display='none';}})();
+</script>
+
+<div id="app" class="app" style="display:none">
   <aside class="sidebar">
     <div class="sidebar-logo">记账管理系统</div>
     <div class="month-nav">
@@ -207,9 +263,9 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
         <div class="card c-revenue"><div class="label">总收入</div><div class="value">{{ fmt(totalRevenue) }}</div></div>
         <div class="card c-cost"><div class="label">总成本</div><div class="value">{{ fmt(totalCost) }}</div></div>
         <div class="card c-gross"><div class="label">毛利润</div><div class="value">{{ fmt(grossProfit) }}</div></div>
-        <div class="card c-cashflow"><div class="label">现金流留存 (50%)</div><div class="value">{{ fmt(cashFlowAmt) }}</div></div>
-        <div class="card c-salary"><div class="label">人员薪资 (30%)</div><div class="value">{{ fmt(salaryTotal) }}</div></div>
-        <div class="card c-boss"><div class="label">老板分配池 (20%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
+        <div class="card c-cashflow"><div class="label">现金流留存 ({{ md.cashFlowPct }}%)</div><div class="value">{{ fmt(cashFlowAmt) }}</div></div>
+        <div class="card c-salary"><div class="label">人员薪资 ({{ salaryPct }}%)</div><div class="value">{{ fmt(salaryTotal) }}</div></div>
+        <div class="card c-boss"><div class="label">老板分配池 ({{ md.bossPoolPct }}%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
       </div>
       <div class="chart-row">
         <!-- Pie Chart -->
@@ -227,9 +283,9 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
             </div>
           </div>
           <div class="pie-legend">
-            <span><span class="dot" style="background:var(--cyan)"></span>现金流 50%</span>
-            <span><span class="dot" style="background:var(--amber)"></span>薪资 30%</span>
-            <span><span class="dot" style="background:var(--purple)"></span>分配池 20%</span>
+            <span><span class="dot" style="background:var(--cyan)"></span>现金流 {{ md.cashFlowPct }}%</span>
+            <span><span class="dot" style="background:var(--amber)"></span>薪资 {{ salaryPct }}%</span>
+            <span><span class="dot" style="background:var(--purple)"></span>分配池 {{ md.bossPoolPct }}%</span>
           </div>
         </div>
         <!-- Waterfall -->
@@ -240,7 +296,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
           <div class="wf-divider"></div>
           <div class="wf-row result"><span class="wf-label">= 毛利润</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(grossProfit)}"></div></div><span class="wf-amount">{{ fmt(grossProfit) }}</span></div>
           <div class="wf-divider"></div>
-          <div class="wf-row reserve"><span class="wf-label">现金流 (50%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(cashFlowAmt)}"></div></div><span class="wf-amount">{{ fmt(cashFlowAmt) }}</span></div>
+          <div class="wf-row reserve"><span class="wf-label">现金流 ({{ md.cashFlowPct }}%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(cashFlowAmt)}"></div></div><span class="wf-amount">{{ fmt(cashFlowAmt) }}</span></div>
           <div class="wf-row person" v-for="m in md.members" :key="m.name"><span class="wf-label">{{ m.name }} ({{ m.pct }}%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(memberAmt(m))}"></div></div><span class="wf-amount">{{ fmt(memberAmt(m)) }}</span></div>
           <div class="wf-row boss" v-for="b in md.bonuses" :key="b.name"><span class="wf-label">{{ b.name }}</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(b.amount)}"></div></div><span class="wf-amount">{{ fmt(b.amount) }}</span></div>
           <div class="wf-divider"></div>
@@ -295,17 +351,17 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
       <div class="dist-grid">
         <div class="dist-card dc-cashflow">
           <div class="dc-label">现金流留存</div>
-          <div class="dc-pct">50%</div>
+          <div class="dc-pct">{{ md.cashFlowPct }}%</div>
           <div class="dc-amount">{{ fmt(cashFlowAmt) }}</div>
         </div>
         <div class="dist-card dc-salary">
           <div class="dc-label">基本薪资</div>
-          <div class="dc-pct">30%</div>
+          <div class="dc-pct">{{ salaryPct }}%</div>
           <div class="dc-amount">{{ fmt(salaryTotal) }}</div>
         </div>
         <div class="dist-card dc-pool">
           <div class="dc-label">老板分配池</div>
-          <div class="dc-pct">20%</div>
+          <div class="dc-pct">{{ md.bossPoolPct }}%</div>
           <div class="dc-amount">{{ fmt(bossPool) }}</div>
         </div>
       </div>
@@ -320,7 +376,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
             <tr class="sub-total"><td class="pb-name">= 毛利润</td><td class="pb-pct">100%</td><td class="pb-amt" style="color:var(--primary)">{{ fmt(grossProfit) }}</td><td class="pb-note"></td></tr>
 
             <tr class="cat-header"><td colspan="4">现金流留存</td></tr>
-            <tr class="highlight-cyan"><td class="pb-name">公司现金流</td><td class="pb-pct">50%</td><td class="pb-amt" style="color:var(--cyan)">{{ fmt(cashFlowAmt) }}</td><td class="pb-note">不动</td></tr>
+            <tr class="highlight-cyan"><td class="pb-name">公司现金流</td><td class="pb-pct">{{ md.cashFlowPct }}%</td><td class="pb-amt" style="color:var(--cyan)">{{ fmt(cashFlowAmt) }}</td><td class="pb-note">不动</td></tr>
 
             <tr class="cat-header"><td colspan="4">基本薪资 (按利润比例)</td></tr>
             <tr v-for="m in md.members" :key="'s'+m.name" class="highlight-amber">
@@ -329,7 +385,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
               <td class="pb-amt" style="color:var(--amber)">{{ fmt(memberAmt(m)) }}</td>
               <td class="pb-note">{{ m.role }}</td>
             </tr>
-            <tr style="background:var(--amber-bg)"><td class="pb-name" style="font-weight:600">薪资小计</td><td class="pb-pct">30%</td><td class="pb-amt" style="color:var(--amber);font-weight:700">{{ fmt(salaryTotal) }}</td><td></td></tr>
+            <tr style="background:var(--amber-bg)"><td class="pb-name" style="font-weight:600">薪资小计</td><td class="pb-pct">{{ salaryPct }}%</td><td class="pb-amt" style="color:var(--amber);font-weight:700">{{ fmt(salaryTotal) }}</td><td></td></tr>
 
             <tr class="cat-header"><td colspan="4">老板分配池</td></tr>
             <tr v-for="b in md.bonuses" :key="'b'+b.name" class="highlight-purple">
@@ -342,6 +398,28 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
             <tr class="sub-total"><td class="pb-name">= 待分配余额</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--purple);font-size:20px">{{ fmt(poolRemaining) }}</td><td class="pb-note">老板决定</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- 比例调节 -->
+      <div class="dist-section">
+        <h3>分配比例调节</h3>
+        <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">三项比例之和须为 100%，调整现金流或分配池后，薪资比例自动计算</p>
+        <p v-if="salaryPct<0" class="ratio-warn">警告：薪资比例为负数，请调整现金流和分配池比例！</p>
+        <div class="ratio-row rc">
+          <label>现金流留存</label>
+          <input type="range" min="0" :max="100-md.bossPoolPct" v-model.number="md.cashFlowPct" @input="save">
+          <span class="ratio-val">{{ md.cashFlowPct }}%</span>
+        </div>
+        <div class="ratio-row rb">
+          <label>老板分配池</label>
+          <input type="range" min="0" :max="100-md.cashFlowPct" v-model.number="md.bossPoolPct" @input="save">
+          <span class="ratio-val">{{ md.bossPoolPct }}%</span>
+        </div>
+        <div class="ratio-row rs">
+          <label>基本薪资</label>
+          <span style="flex:1;font-size:13px;color:var(--gray-500)">= 100% - 现金流 - 分配池（自动计算）</span>
+          <span class="ratio-val">{{ salaryPct }}%</span>
+        </div>
       </div>
 
       <!-- 分配池编辑 -->
@@ -436,13 +514,13 @@ const MARCH_DATA = {
     { id: 101004, date: '2026-03-25', desc: '报销', category: '报销', amount: 265 },
   ],
   members: [
-    { name: '欧', role: '技术工', pct: 10 },
+    { name: '欧', role: '老板', pct: 10 },
     { name: '曾', role: '技术工', pct: 10 },
-    { name: '刘', role: '老板', pct: 10 },
+    { name: '刘', role: '技术工', pct: 10 },
   ],
   bonuses: [
     { name: '李', amount: 804.53, pctLabel: '5%', note: '会计' },
-    { name: '姚', amount: 200, pctLabel: '', note: '本周贡献' },
+    { name: '姚', amount: 200, pctLabel: '', note: '本月贡献' },
   ],
   cashFlowPct: 50,
   bossPoolPct: 20,
@@ -455,9 +533,9 @@ function newMonthData(month) {
   return {
     revenues: [], costs: [],
     members: [
-      { name: '欧', role: '技术工', pct: 10 },
+      { name: '欧', role: '老板', pct: 10 },
       { name: '曾', role: '技术工', pct: 10 },
-      { name: '刘', role: '老板', pct: 10 },
+      { name: '刘', role: '技术工', pct: 10 },
     ],
     bonuses: [
       { name: '李', amount: 0, pctLabel: '5%', note: '会计' },
@@ -503,12 +581,13 @@ createApp({
     cashFlowAmt() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.cashFlowPct / 100 * 100)/100 : 0; },
     salaryTotal() { return this.grossProfit > 0 ? this.md.members.reduce((s,m)=>s+Math.round(this.grossProfit*m.pct/100*100)/100,0) : 0; },
     bossPool() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.bossPoolPct / 100 * 100)/100 : 0; },
+    salaryPct() { return 100 - this.md.cashFlowPct - this.md.bossPoolPct; },
     poolUsed() { return this.md.bonuses.reduce((s,b)=>s+(b.amount||0),0); },
     poolRemaining() { return Math.round((this.bossPool - this.poolUsed)*100)/100; },
     maxBar() { return Math.max(this.totalRevenue, 1); },
     pieSegments() {
       if (this.grossProfit <= 0) return [];
-      const pcts = [this.md.cashFlowPct, this.md.members.reduce((s,m)=>s+m.pct,0), this.md.bossPoolPct];
+      const pcts = [this.md.cashFlowPct, this.salaryPct, this.md.bossPoolPct];
       let offset = 0;
       return pcts.map((p,i)=>{ const d = CIRC*p/100; const o = -offset; offset += d; return {color:PIE_COLORS[i], dash:d+' '+CIRC, offset:o}; });
     },
