@@ -212,7 +212,7 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   </div>
 </div>
 <script>
-const TOKEN_HASH='62ae7f9ec6f707cc7a5ddd949fa9e48f75b7e4d17ff6e96e3d853477b850bbf6';
+const TOKEN_HASH='ade0a2b26584bbb03ba9e3b1685a5ef7196e427ad797979e2b9c0658c1693d58';
 const TOKEN_STORE_KEY='accounting_token';
 async function sha256(s){const e=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');}
 async function checkToken(){
