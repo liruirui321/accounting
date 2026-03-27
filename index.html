@@ -223,9 +223,16 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   .print-header h2{font-size:20px;margin-bottom:4px}
   .print-header p{font-size:13px;color:#666}
 }
+/* Mobile month nav (hidden by default, shown on small screens) */
+.mobile-month-nav{display:none;align-items:center;gap:8px;margin-bottom:16px;padding:8px 12px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+.mobile-month-nav button{background:var(--primary);border:none;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:16px}
+.mobile-month-nav input[type=month]{flex:1;padding:6px 10px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;text-align:center}
+
 @media(max-width:1024px){
   .sidebar{width:60px}.sidebar-logo span,.nav-links a span:not(.icon),.sidebar-footer span{display:none}
   .nav-links a .icon{margin:0}
+  .month-nav{display:none}
+  .mobile-month-nav{display:flex}
   .main{margin-left:60px;padding:16px}
   .cards{grid-template-columns:1fr 1fr}
   .dist-grid{grid-template-columns:1fr}
@@ -352,6 +359,12 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
   </aside>
 
   <main class="main">
+    <!-- Mobile month nav (hidden on desktop) -->
+    <div class="mobile-month-nav">
+      <button @click="changeMonth(-1)">&lsaquo;</button>
+      <input type="month" v-model="currentMonth">
+      <button @click="changeMonth(1)">&rsaquo;</button>
+    </div>
 
     <!-- ===== Dashboard ===== -->
     <template v-if="tab==='dashboard'">
