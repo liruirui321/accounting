@@ -1,46 +1,46 @@
 {
-  "updated_at": "2026-03-27 12:00:05",
+  "updated_at": "2026-03-27 12:54:30",
   "threshold": 10,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 280455814,
-      "balance": 560.91,
+      "quota": 279886430,
+      "balance": 559.77,
       "low": false,
-      "daily_cost": 10.82,
-      "days_left": 51.8
+      "daily_cost": 11.34,
+      "days_left": 49.4
     },
     {
       "name": "云雾",
-      "quota": 463062047,
-      "balance": 463.06,
+      "quota": 443796647,
+      "balance": 443.8,
       "low": false,
-      "daily_cost": 44.76,
-      "days_left": 10.3
+      "daily_cost": 49.72,
+      "days_left": 8.9
     },
     {
       "name": "哈基米",
-      "quota": 73960781582,
-      "balance": 739.61,
+      "quota": 73812781582,
+      "balance": 738.13,
       "low": false,
-      "daily_cost": 51.66,
-      "days_left": 14.3
+      "daily_cost": 46.27,
+      "days_left": 16.0
     },
     {
       "name": "MNAPI",
-      "quota": 151490425,
-      "balance": 302.98,
+      "quota": 149915944,
+      "balance": 299.83,
       "low": false,
-      "daily_cost": 6.74,
-      "days_left": 45.0
+      "daily_cost": 10.58,
+      "days_left": 28.3
     },
     {
       "name": "FoxCode",
-      "quota": 2100348543,
-      "balance": 491.48,
+      "quota": 1974110834,
+      "balance": 461.94,
       "low": false,
-      "daily_cost": 151.18,
-      "days_left": 3.3
+      "daily_cost": 192.63,
+      "days_left": 2.4
     }
   ],
   "recharge": {
@@ -49,11 +49,11 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 2876.92,
+    "total": 2408.92,
     "by_account": {
       "Packy": 502.92,
       "云雾": 490,
-      "FoxCode": 1404,
+      "FoxCode": 936,
       "哈基米": 480
     },
     "records": [
@@ -86,12 +86,6 @@
         "amount": 468,
         "time": "2026-03-26 20:00:10",
         "note": "自动检测（额度增加468元）"
-      },
-      {
-        "account": "FoxCode",
-        "amount": 468,
-        "time": "2026-03-27 00:00:18",
-        "note": "自动检测（额度增加2340元）"
       }
     ]
   }
