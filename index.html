@@ -223,14 +223,27 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   .print-header h2{font-size:20px;margin-bottom:4px}
   .print-header p{font-size:13px;color:#666}
 }
-@media(max-width:768px){
-  .sidebar{width:60px}.sidebar-logo span,.nav-links a span,.sidebar-footer span{display:none}
+@media(max-width:1024px){
+  .sidebar{width:60px}.sidebar-logo span,.nav-links a span:not(.icon),.sidebar-footer span{display:none}
   .nav-links a .icon{margin:0}
   .main{margin-left:60px;padding:16px}
   .cards{grid-template-columns:1fr 1fr}
   .dist-grid{grid-template-columns:1fr}
   .chart-row{flex-direction:column}
   .form-row{flex-direction:column}
+  .bal-summary{grid-template-columns:1fr 1fr}
+  .bal-cards{grid-template-columns:1fr}
+  .rpt-toolbar{flex-direction:column;align-items:flex-start}
+  .section-card{overflow-x:auto}
+  .fs-table{min-width:400px}
+  .pb-table{min-width:500px}
+}
+@media(max-width:480px){
+  .sidebar{width:0;overflow:hidden;position:fixed}
+  .main{margin-left:0;padding:12px}
+  .cards{grid-template-columns:1fr}
+  .bal-summary{grid-template-columns:1fr}
+  .seg-ctrl button{padding:6px 10px;font-size:12px}
 }
 /* Token gate */
 .gate-mask{position:fixed;inset:0;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);display:flex;align-items:center;justify-content:center;z-index:999}
