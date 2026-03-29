@@ -1,46 +1,46 @@
 {
-  "updated_at": "2026-03-29 10:00:05",
+  "updated_at": "2026-03-29 11:00:07",
   "threshold": 10,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 257609334,
-      "balance": 515.22,
+      "quota": 257405025,
+      "balance": 514.81,
       "low": false,
-      "daily_cost": 11.86,
-      "days_left": 43.4
+      "daily_cost": 11.27,
+      "days_left": 45.7
     },
     {
       "name": "云雾",
-      "quota": 353316334,
-      "balance": 353.32,
+      "quota": 352864749,
+      "balance": 352.86,
       "low": false,
-      "daily_cost": 30.1,
-      "days_left": 11.7
+      "daily_cost": 25.56,
+      "days_left": 13.8
     },
     {
       "name": "哈基米",
-      "quota": 54991281582,
-      "balance": 549.91,
+      "quota": 54689781582,
+      "balance": 546.9,
       "low": false,
       "daily_cost": 78.03,
       "days_left": 7.0
     },
     {
       "name": "MNAPI",
-      "quota": 125237654,
-      "balance": 250.48,
+      "quota": 125198187,
+      "balance": 250.4,
       "low": false,
-      "daily_cost": 16.35,
-      "days_left": 15.3
+      "daily_cost": 15.36,
+      "days_left": 16.3
     },
     {
       "name": "FoxCode",
-      "quota": 641309102,
-      "balance": 150.07,
+      "quota": 2604238263,
+      "balance": 609.39,
       "low": false,
-      "daily_cost": 354.52,
-      "days_left": 0.4
+      "daily_cost": 345.47,
+      "days_left": 1.8
     }
   ],
   "recharge": {
@@ -49,11 +49,11 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 2876.92,
+    "total": 3344.92,
     "by_account": {
       "Packy": 502.92,
       "云雾": 490,
-      "FoxCode": 1404,
+      "FoxCode": 1872,
       "哈基米": 480
     },
     "records": [
@@ -91,6 +91,12 @@
         "account": "FoxCode",
         "amount": 468,
         "time": "2026-03-28 00:00:09",
+        "note": "自动检测（额度增加468元）"
+      },
+      {
+        "account": "FoxCode",
+        "amount": 468,
+        "time": "2026-03-29 11:00:07",
         "note": "自动检测（额度增加468元）"
       }
     ]
