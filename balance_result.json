@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-31 08:00:09",
+  "updated_at": "2026-03-31 09:00:12",
   "threshold": 50,
   "accounts": [
     {
@@ -7,56 +7,56 @@
       "quota": 241242962,
       "balance": 482.49,
       "low": false,
-      "daily_cost": 12.17,
-      "days_left": 39.6
+      "daily_cost": 11.86,
+      "days_left": 40.7
     },
     {
       "name": "云雾",
-      "quota": 265994789,
-      "balance": 265.99,
+      "quota": 265142968,
+      "balance": 265.14,
       "low": false,
       "daily_cost": 26.89,
       "days_left": 9.9
     },
     {
       "name": "哈基米",
-      "quota": 38476281582,
-      "balance": 384.76,
+      "quota": 38360281582,
+      "balance": 383.6,
       "low": false,
       "daily_cost": 78.41,
       "days_left": 4.9
     },
     {
       "name": "MNAPI",
-      "quota": 99588504,
+      "quota": 99588058,
       "balance": 199.18,
       "low": false,
-      "daily_cost": 26.89,
-      "days_left": 7.4
+      "daily_cost": 27.96,
+      "days_left": 7.1
     },
     {
       "name": "FoxCode",
-      "quota": 797368634,
-      "balance": 186.58,
+      "quota": 794938721,
+      "balance": 186.02,
       "low": false,
       "daily_cost": 420.36,
       "days_left": 0.4
     },
     {
       "name": "IkunCode",
-      "quota": 24567770,
-      "balance": 49.14,
-      "low": true,
+      "quota": 274561714,
+      "balance": 549.12,
+      "low": false,
       "daily_cost": 64.9,
-      "days_left": 0.8
+      "days_left": 8.5
     },
     {
       "name": "RightCode",
-      "quota": 36438118,
-      "balance": 72.88,
+      "quota": 136371254,
+      "balance": 272.74,
       "low": false,
       "daily_cost": 23.57,
-      "days_left": 3.1
+      "days_left": 11.6
     }
   ],
   "recharge": {
@@ -65,12 +65,13 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 4302.92,
+    "total": 4802.92,
     "by_account": {
       "Packy": 502.92,
       "云雾": 980,
       "FoxCode": 2340,
-      "哈基米": 480
+      "哈基米": 480,
+      "IkunCode": 500
     },
     "records": [
       {
@@ -126,6 +127,12 @@
         "amount": 468,
         "time": "2026-03-30 16:00:05",
         "note": "自动检测（额度增加468元）"
+      },
+      {
+        "account": "IkunCode",
+        "amount": 500,
+        "time": "2026-03-31 09:00:12",
+        "note": "自动检测（额度增加500元）"
       }
     ]
   }
