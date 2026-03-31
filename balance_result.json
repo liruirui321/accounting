@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-31 20:00:10",
+  "updated_at": "2026-03-31 20:16:36",
   "threshold": 50,
   "accounts": [
     {
@@ -12,50 +12,50 @@
     },
     {
       "name": "云雾",
-      "quota": 234914120,
-      "balance": 234.91,
+      "quota": 234240580,
+      "balance": 234.24,
       "low": false,
-      "daily_cost": 25.93,
-      "days_left": 9.1
+      "daily_cost": 26.41,
+      "days_left": 8.9
     },
     {
       "name": "哈基米",
-      "quota": 33477281582,
-      "balance": 334.77,
+      "quota": 33269281582,
+      "balance": 332.69,
       "low": false,
-      "daily_cost": 83.45,
-      "days_left": 4.0
+      "daily_cost": 84.45,
+      "days_left": 3.9
     },
     {
       "name": "MNAPI",
-      "quota": 91663208,
-      "balance": 183.33,
+      "quota": 91647082,
+      "balance": 183.29,
       "low": false,
-      "daily_cost": 29.03,
-      "days_left": 6.3
+      "daily_cost": 24.96,
+      "days_left": 7.3
     },
     {
       "name": "FoxCode",
-      "quota": 2086087239,
-      "balance": 488.14,
+      "quota": 2079746947,
+      "balance": 486.66,
       "low": false,
-      "daily_cost": 342.65,
+      "daily_cost": 341.94,
       "days_left": 1.4
     },
     {
       "name": "IkunCode",
-      "quota": 252529266,
-      "balance": 505.06,
+      "quota": 252021443,
+      "balance": 504.04,
       "low": false,
-      "daily_cost": 78.22,
-      "days_left": 6.5
+      "daily_cost": 78.83,
+      "days_left": 6.4
     },
     {
       "name": "RightCode",
-      "quota": 109826236,
-      "balance": 219.65,
+      "quota": 109515243,
+      "balance": 219.03,
       "low": false,
-      "daily_cost": 74.98,
+      "daily_cost": 74.89,
       "days_left": 2.9
     }
   ],
@@ -65,14 +65,14 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 5770.92,
+    "total": 5470.92,
     "by_account": {
       "Packy": 502.92,
       "云雾": 980,
       "FoxCode": 2808,
       "哈基米": 480,
       "IkunCode": 500,
-      "RightCode": 500
+      "RightCode": 200
     },
     "records": [
       {
@@ -137,9 +137,9 @@
       },
       {
         "account": "RightCode",
-        "amount": 500,
+        "amount": 200,
         "time": "2026-03-31 09:00:12",
-        "note": "手动补录（余额跳涨 72→272）"
+        "note": "自动检测-余额跳涨（+200元）"
       },
       {
         "account": "FoxCode",
