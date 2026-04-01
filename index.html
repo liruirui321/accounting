@@ -25,7 +25,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .app{display:flex;min-height:100vh}
 
 /* Sidebar */
-.sidebar{width:220px;background:var(--sidebar-bg);color:var(--sidebar-text);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:10}
+.sidebar{width:220px;background:var(--sidebar-bg);color:var(--sidebar-text);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:10;overflow-y:auto}
 .sidebar-logo{padding:20px;font-size:18px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.1);text-align:center;letter-spacing:2px}
 .month-nav{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:4px}
 .month-nav button{background:rgba(255,255,255,.1);border:none;color:#fff;width:28px;height:28px;border-radius:4px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
@@ -228,6 +228,10 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
 .mobile-month-nav button{background:var(--primary);border:none;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:16px}
 .mobile-month-nav input[type=month]{flex:1;padding:6px 10px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;text-align:center}
 
+/* Mobile hamburger */
+.menu-toggle{display:none;position:fixed;top:12px;left:12px;z-index:20;background:var(--sidebar-bg);border:none;color:#fff;width:40px;height:40px;border-radius:8px;font-size:22px;cursor:pointer;box-shadow:var(--shadow-lg);align-items:center;justify-content:center}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9}
+
 @media(max-width:1024px){
   .sidebar{width:60px}.sidebar-logo span,.nav-links a span:not(.icon),.sidebar-footer span{display:none}
   .nav-links a .icon{margin:0}
@@ -246,8 +250,15 @@ tfoot td{border-top:2px solid var(--gray-200);font-weight:600;background:var(--g
   .pb-table{min-width:500px}
 }
 @media(max-width:480px){
-  .sidebar{width:0;overflow:hidden;position:fixed}
-  .main{margin-left:0;padding:12px}
+  .menu-toggle{display:flex}
+  .sidebar{width:220px;transform:translateX(-100%);transition:transform .25s ease;z-index:11}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay.open{display:block}
+  .sidebar .nav-links a span{display:inline}
+  .sidebar .sidebar-logo span{display:inline}
+  .sidebar .month-nav{display:flex}
+  .mobile-month-nav{display:none}
+  .main{margin-left:0;padding:12px;padding-top:56px}
   .cards{grid-template-columns:1fr}
   .bal-summary{grid-template-columns:1fr}
   .seg-ctrl button{padding:6px 10px;font-size:12px}
@@ -335,7 +346,9 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
 </script>
 
 <div id="app" class="app" style="display:none">
-  <aside class="sidebar">
+  <button class="menu-toggle" @click="menuOpen=!menuOpen">&#9776;</button>
+  <div class="sidebar-overlay" :class="{open:menuOpen}" @click="menuOpen=false"></div>
+  <aside class="sidebar" :class="{open:menuOpen}">
     <div class="sidebar-logo">记账管理系统</div>
     <div class="month-nav">
       <button @click="changeMonth(-1)" title="上个月">&lsaquo;</button>
@@ -343,12 +356,12 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <button @click="changeMonth(1)" title="下个月">&rsaquo;</button>
     </div>
     <nav class="nav-links">
-      <a :class="{active:tab==='dashboard'}" @click="tab='dashboard'"><span class="icon">&#9632;</span><span>总 览</span></a>
-      <a :class="{active:tab==='revenue'}" @click="tab='revenue'"><span class="icon">&#9650;</span><span>收 入</span></a>
-      <a :class="{active:tab==='cost'}" @click="tab='cost'"><span class="icon">&#9660;</span><span>成 本</span></a>
-      <a :class="{active:tab==='dist'}" @click="tab='dist'"><span class="icon">&#9733;</span><span>利润分配</span></a>
-      <a :class="{active:tab==='reports'}" @click="tab='reports'"><span class="icon">&#9776;</span><span>财 报</span></a>
-      <a :class="{active:tab==='balance'}" @click="tab='balance';loadBalance()"><span class="icon">&#9670;</span><span>API余额</span></a>
+      <a :class="{active:tab==='dashboard'}" @click="tab='dashboard';menuOpen=false"><span class="icon">&#9632;</span><span>总 览</span></a>
+      <a :class="{active:tab==='revenue'}" @click="tab='revenue';menuOpen=false"><span class="icon">&#9650;</span><span>收 入</span></a>
+      <a :class="{active:tab==='cost'}" @click="tab='cost';menuOpen=false"><span class="icon">&#9660;</span><span>成 本</span></a>
+      <a :class="{active:tab==='dist'}" @click="tab='dist';menuOpen=false"><span class="icon">&#9733;</span><span>利润分配</span></a>
+      <a :class="{active:tab==='reports'}" @click="tab='reports';menuOpen=false"><span class="icon">&#9776;</span><span>财 报</span></a>
+      <a :class="{active:tab==='balance'}" @click="tab='balance';loadBalance();menuOpen=false"><span class="icon">&#9670;</span><span>API余额</span></a>
     </nav>
     <div class="sidebar-footer">
       <button @click="printPage"><span>打印月报</span></button>
@@ -905,7 +918,7 @@ createApp({
     const now = new Date();
     const cm = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
     return {
-      tab: 'dashboard', currentMonth: cm, allData: loadAll(),
+      tab: 'dashboard', currentMonth: cm, allData: loadAll(), menuOpen: false,
       rptTab: 'income', rptPeriodType: 'month', rptMonth: cm, rptQuarter: '2026-Q1', rptYear: 2026,
       modal: { show:false, type:'revenue', editing:null, form:{date:'',desc:'',category:'',amount:0} },
       delConfirm: { show:false, type:'', id:null },
