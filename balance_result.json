@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-02 12:00:13",
+  "updated_at": "2026-04-02 13:00:12",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 197559629,
-      "balance": 395.12,
+      "quota": 195624659,
+      "balance": 391.25,
       "low": false,
-      "daily_cost": 29.74,
-      "days_left": 13.3
+      "daily_cost": 35.3,
+      "days_left": 11.1
     },
     {
       "name": "云雾",
-      "quota": 112786723,
-      "balance": 112.79,
+      "quota": 104141524,
+      "balance": 104.14,
       "low": false,
-      "daily_cost": 63.08,
-      "days_left": 1.8
+      "daily_cost": 66.33,
+      "days_left": 1.6
     },
     {
       "name": "哈基米",
-      "quota": 22918281582,
-      "balance": 229.18,
+      "quota": 22542281582,
+      "balance": 225.42,
       "low": false,
       "daily_cost": 76.82,
-      "days_left": 3.0
+      "days_left": 2.9
     },
     {
       "name": "MNAPI",
-      "quota": 81041371,
-      "balance": 162.08,
+      "quota": 81012127,
+      "balance": 162.02,
       "low": false,
-      "daily_cost": 11.88,
-      "days_left": 13.6
+      "daily_cost": 10.11,
+      "days_left": 16.0
     },
     {
       "name": "FoxCode",
-      "quota": 1493982334,
-      "balance": 349.59,
+      "quota": 1470143383,
+      "balance": 344.01,
       "low": false,
-      "daily_cost": 238.45,
+      "daily_cost": 234.89,
       "days_left": 1.5
     },
     {
       "name": "IkunCode",
-      "quota": 238961149,
-      "balance": 477.92,
+      "quota": 238870148,
+      "balance": 477.74,
       "low": false,
-      "daily_cost": 42.83,
-      "days_left": 11.2
+      "daily_cost": 38.41,
+      "days_left": 12.4
     },
     {
       "name": "RightCode",
-      "quota": 44537479,
-      "balance": 89.07,
+      "quota": 41458935,
+      "balance": 82.92,
       "low": false,
       "daily_cost": 59.93,
-      "days_left": 1.5
+      "days_left": 1.4
     },
     {
       "name": "AI派",
-      "quota": 189641466,
-      "balance": 75.86,
+      "quota": 189360911,
+      "balance": 75.74,
       "low": false,
-      "daily_cost": 33.61,
-      "days_left": 2.3
+      "daily_cost": 32.16,
+      "days_left": 2.4
     }
   ],
   "recharge": {
