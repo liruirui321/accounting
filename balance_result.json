@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-02 11:00:09",
+  "updated_at": "2026-04-02 12:00:13",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 197605586,
-      "balance": 395.21,
+      "quota": 197559629,
+      "balance": 395.12,
       "low": false,
-      "daily_cost": 31.68,
-      "days_left": 12.5
+      "daily_cost": 29.74,
+      "days_left": 13.3
     },
     {
       "name": "云雾",
-      "quota": 113745666,
-      "balance": 113.75,
+      "quota": 112786723,
+      "balance": 112.79,
       "low": false,
       "daily_cost": 63.08,
       "days_left": 1.8
     },
     {
       "name": "哈基米",
-      "quota": 23062281582,
-      "balance": 230.62,
+      "quota": 22918281582,
+      "balance": 229.18,
       "low": false,
-      "daily_cost": 77.52,
+      "daily_cost": 76.82,
       "days_left": 3.0
     },
     {
       "name": "MNAPI",
-      "quota": 81354888,
-      "balance": 162.71,
+      "quota": 81041371,
+      "balance": 162.08,
       "low": false,
       "daily_cost": 11.88,
-      "days_left": 13.7
+      "days_left": 13.6
     },
     {
       "name": "FoxCode",
-      "quota": 1635588622,
-      "balance": 382.73,
+      "quota": 1493982334,
+      "balance": 349.59,
       "low": false,
-      "daily_cost": 237.95,
-      "days_left": 1.6
+      "daily_cost": 238.45,
+      "days_left": 1.5
     },
     {
       "name": "IkunCode",
-      "quota": 240368688,
-      "balance": 480.74,
+      "quota": 238961149,
+      "balance": 477.92,
       "low": false,
       "daily_cost": 42.83,
       "days_left": 11.2
     },
     {
       "name": "RightCode",
-      "quota": 48005702,
-      "balance": 96.01,
+      "quota": 44537479,
+      "balance": 89.07,
       "low": false,
       "daily_cost": 59.93,
-      "days_left": 1.6
+      "days_left": 1.5
     },
     {
       "name": "AI派",
-      "quota": 190965154,
-      "balance": 76.39,
+      "quota": 189641466,
+      "balance": 75.86,
       "low": false,
-      "daily_cost": 35.06,
-      "days_left": 2.2
+      "daily_cost": 33.61,
+      "days_left": 2.3
     }
   ],
   "recharge": {
