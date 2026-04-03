@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-03 12:00:08",
+  "updated_at": "2026-04-03 13:00:10",
   "threshold": 50,
   "accounts": [
     {
@@ -7,64 +7,64 @@
       "quota": 190823804,
       "balance": 381.65,
       "low": false,
-      "daily_cost": 27.81,
-      "days_left": 13.7
+      "daily_cost": 27.2,
+      "days_left": 14.0
     },
     {
       "name": "云雾",
-      "quota": 536285087,
-      "balance": 536.29,
+      "quota": 525450291,
+      "balance": 525.45,
       "low": false,
       "daily_cost": 52.53,
-      "days_left": 10.2
+      "days_left": 10.0
     },
     {
       "name": "哈基米",
-      "quota": 66464281582,
-      "balance": 664.64,
+      "quota": 66209281582,
+      "balance": 662.09,
       "low": false,
       "daily_cost": 55.67,
       "days_left": 11.9
     },
     {
       "name": "MNAPI",
-      "quota": 63536461,
-      "balance": 127.07,
+      "quota": 63345833,
+      "balance": 126.69,
       "low": false,
-      "daily_cost": 8.71,
-      "days_left": 14.6
+      "daily_cost": 9.11,
+      "days_left": 13.9
     },
     {
       "name": "FoxCode",
-      "quota": 1869595321,
-      "balance": 437.49,
+      "quota": 1800554270,
+      "balance": 421.33,
       "low": false,
       "daily_cost": 259.14,
-      "days_left": 1.7
+      "days_left": 1.6
     },
     {
       "name": "IkunCode",
-      "quota": 198446720,
-      "balance": 396.89,
+      "quota": 198261214,
+      "balance": 396.52,
       "low": false,
       "daily_cost": 69.16,
       "days_left": 5.7
     },
     {
       "name": "RightCode",
-      "quota": 178608188,
-      "balance": 357.22,
+      "quota": 176376372,
+      "balance": 352.75,
       "low": false,
-      "daily_cost": 115.2,
-      "days_left": 3.1
+      "daily_cost": 110.22,
+      "days_left": 3.2
     },
     {
       "name": "AI派",
-      "quota": 1478382909,
+      "quota": 1478377459,
       "balance": 591.35,
       "low": false,
-      "daily_cost": 33.61,
-      "days_left": 17.6
+      "daily_cost": 35.06,
+      "days_left": 16.9
     }
   ],
   "recharge": {
