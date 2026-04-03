@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-04 03:00:12",
+  "updated_at": "2026-04-04 04:00:06",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 185918610,
+      "quota": 185918584,
       "balance": 371.84,
       "low": false,
       "daily_cost": 19.04,
@@ -12,55 +12,55 @@
     },
     {
       "name": "云雾",
-      "quota": 450556660,
-      "balance": 450.56,
+      "quota": 442290140,
+      "balance": 442.29,
       "low": false,
-      "daily_cost": 86.77,
-      "days_left": 5.2
+      "daily_cost": 87.93,
+      "days_left": 5.0
     },
     {
       "name": "哈基米",
-      "quota": 59648781582,
-      "balance": 596.49,
+      "quota": 59034781582,
+      "balance": 590.35,
       "low": false,
-      "daily_cost": 59.66,
-      "days_left": 10.0
+      "daily_cost": 61.17,
+      "days_left": 9.7
     },
     {
       "name": "MNAPI",
-      "quota": 61302569,
-      "balance": 122.61,
+      "quota": 61086327,
+      "balance": 122.17,
       "low": false,
-      "daily_cost": 6.24,
-      "days_left": 19.6
+      "daily_cost": 6.83,
+      "days_left": 17.9
     },
     {
       "name": "FoxCode",
-      "quota": 1768606655,
-      "balance": 413.85,
+      "quota": 1757661119,
+      "balance": 411.29,
       "low": false,
-      "daily_cost": 376.97,
+      "daily_cost": 359.39,
       "days_left": 1.1
     },
     {
       "name": "IkunCode",
-      "quota": 174315876,
-      "balance": 348.63,
+      "quota": 172716773,
+      "balance": 345.43,
       "low": false,
-      "daily_cost": 81.07,
-      "days_left": 4.3
+      "daily_cost": 79.0,
+      "days_left": 4.4
     },
     {
       "name": "RightCode",
-      "quota": 120945377,
-      "balance": 241.89,
+      "quota": 120072311,
+      "balance": 240.14,
       "low": false,
-      "daily_cost": 130.97,
+      "daily_cost": 130.13,
       "days_left": 1.8
     },
     {
       "name": "AI派",
-      "quota": 1432674341,
+      "quota": 1432668891,
       "balance": 573.07,
       "low": false,
       "daily_cost": 12.23,
