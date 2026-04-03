@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-03 08:00:08",
+  "updated_at": "2026-04-03 09:00:08",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 190824486,
+      "quota": 190823804,
       "balance": 381.65,
       "low": false,
       "daily_cost": 32.66,
@@ -12,55 +12,55 @@
     },
     {
       "name": "云雾",
-      "quota": 545583008,
-      "balance": 545.58,
+      "quota": 538157926,
+      "balance": 538.16,
       "low": false,
-      "daily_cost": 49.61,
-      "days_left": 11.0
+      "daily_cost": 52.53,
+      "days_left": 10.2
     },
     {
       "name": "哈基米",
-      "quota": 66816281582,
-      "balance": 668.16,
+      "quota": 66744281582,
+      "balance": 667.44,
       "low": false,
-      "daily_cost": 53.19,
-      "days_left": 12.6
+      "daily_cost": 55.67,
+      "days_left": 12.0
     },
     {
       "name": "MNAPI",
-      "quota": 65752780,
-      "balance": 131.51,
+      "quota": 65738144,
+      "balance": 131.48,
       "low": false,
-      "daily_cost": 10.11,
-      "days_left": 13.0
+      "daily_cost": 11.51,
+      "days_left": 11.4
     },
     {
       "name": "FoxCode",
-      "quota": 2252551474,
-      "balance": 527.1,
+      "quota": 2234838788,
+      "balance": 522.95,
       "low": false,
-      "daily_cost": 247.96,
-      "days_left": 2.1
+      "daily_cost": 259.14,
+      "days_left": 2.0
     },
     {
       "name": "IkunCode",
       "quota": 199668448,
       "balance": 399.34,
       "low": false,
-      "daily_cost": 62.45,
-      "days_left": 6.4
+      "daily_cost": 67.6,
+      "days_left": 5.9
     },
     {
       "name": "RightCode",
-      "quota": 191076903,
-      "balance": 382.15,
+      "quota": 190664579,
+      "balance": 381.33,
       "low": false,
-      "daily_cost": 93.47,
-      "days_left": 4.1
+      "daily_cost": 95.91,
+      "days_left": 4.0
     },
     {
       "name": "AI派",
-      "quota": 1478478847,
+      "quota": 1478473397,
       "balance": 591.39,
       "low": false,
       "daily_cost": 42.12,
