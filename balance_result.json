@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-04 05:00:36",
+  "updated_at": "2026-04-04 06:00:09",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 185917978,
+      "quota": 185917952,
       "balance": 371.84,
       "low": false,
-      "daily_cost": 19.04,
-      "days_left": 19.5
+      "daily_cost": 19.48,
+      "days_left": 19.1
     },
     {
       "name": "云雾",
-      "quota": 442289038,
+      "quota": 442287936,
       "balance": 442.29,
       "low": false,
-      "daily_cost": 87.93,
+      "daily_cost": 88.28,
       "days_left": 5.0
     },
     {
       "name": "哈基米",
-      "quota": 58682781582,
-      "balance": 586.83,
+      "quota": 58322781582,
+      "balance": 583.23,
       "low": false,
-      "daily_cost": 71.02,
-      "days_left": 8.3
+      "daily_cost": 74.25,
+      "days_left": 7.9
     },
     {
       "name": "MNAPI",
-      "quota": 61077299,
-      "balance": 122.15,
+      "quota": 61069080,
+      "balance": 122.14,
       "low": false,
       "daily_cost": 7.41,
       "days_left": 16.5
     },
     {
       "name": "FoxCode",
-      "quota": 1691963622,
-      "balance": 395.92,
+      "quota": 1691676017,
+      "balance": 395.85,
       "low": false,
       "daily_cost": 376.97,
       "days_left": 1.1
     },
     {
       "name": "IkunCode",
-      "quota": 170879332,
-      "balance": 341.76,
+      "quota": 169248880,
+      "balance": 338.5,
       "low": false,
-      "daily_cost": 81.07,
+      "daily_cost": 79.95,
       "days_left": 4.2
     },
     {
       "name": "RightCode",
-      "quota": 120005805,
-      "balance": 240.01,
+      "quota": 119946954,
+      "balance": 239.89,
       "low": false,
       "daily_cost": 130.97,
       "days_left": 1.8
     },
     {
       "name": "AI派",
-      "quota": 1432660716,
+      "quota": 1432652541,
       "balance": 573.06,
       "low": false,
-      "daily_cost": 6.72,
-      "days_left": 85.3
+      "daily_cost": 9.47,
+      "days_left": 60.5
     }
   ],
   "recharge": {
