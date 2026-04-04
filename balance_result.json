@@ -1,70 +1,71 @@
 {
-  "updated_at": "2026-04-04 15:00:09",
+  "updated_at": "2026-04-04 16:00:40",
   "threshold": 50,
   "accounts": [
     {
-      "name": "Packy",
-      "quota": 182992757,
-      "balance": 365.99,
-      "low": false,
-      "daily_cost": 19.04,
-      "days_left": 19.2
-    },
-    {
       "name": "云雾",
-      "quota": 435125083,
-      "balance": 435.13,
+      "quota": 434433965,
+      "balance": 434.43,
       "low": false,
-      "daily_cost": 84.8,
-      "days_left": 5.1
+      "daily_cost": 73.16,
+      "days_left": 5.9
     },
     {
       "name": "哈基米",
-      "quota": 56133281582,
-      "balance": 561.33,
+      "quota": 55826281582,
+      "balance": 558.26,
       "low": false,
-      "daily_cost": 73.92,
+      "daily_cost": 73.05,
       "days_left": 7.6
     },
     {
       "name": "MNAPI",
-      "quota": 60323067,
-      "balance": 120.65,
+      "quota": 60315422,
+      "balance": 120.63,
       "low": false,
-      "daily_cost": 6.0,
-      "days_left": 20.1
+      "daily_cost": 5.88,
+      "days_left": 20.5
     },
     {
       "name": "FoxCode",
-      "quota": 1048430260,
-      "balance": 245.33,
+      "quota": 910921333,
+      "balance": 213.16,
       "low": false,
       "daily_cost": 394.81,
-      "days_left": 0.6
+      "days_left": 0.5
     },
     {
       "name": "IkunCode",
-      "quota": 160259173,
-      "balance": 320.52,
+      "quota": 159116358,
+      "balance": 318.23,
       "low": false,
       "daily_cost": 77.88,
       "days_left": 4.1
     },
     {
       "name": "RightCode",
-      "quota": 113520786,
-      "balance": 227.04,
+      "quota": 113517456,
+      "balance": 227.03,
       "low": false,
-      "daily_cost": 107.22,
-      "days_left": 2.1
+      "daily_cost": 92.05,
+      "days_left": 2.5
     },
     {
       "name": "AI派",
-      "quota": 1427323214,
+      "quota": 1427315039,
       "balance": 570.93,
       "low": false,
-      "daily_cost": 7.67,
-      "days_left": 74.4
+      "daily_cost": 3.12,
+      "days_left": 183.0
+    },
+    {
+      "name": "Packy",
+      "quota": 182992757,
+      "balance": 365.99,
+      "low": false,
+      "daily_cost": 18.96,
+      "days_left": 19.3,
+      "stale": true
     }
   ],
   "recharge": {
