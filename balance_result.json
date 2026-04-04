@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-04 07:00:09",
+  "updated_at": "2026-04-04 08:00:07",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 185910849,
-      "balance": 371.82,
+      "quota": 185829918,
+      "balance": 371.66,
       "low": false,
-      "daily_cost": 19.04,
-      "days_left": 19.5
+      "daily_cost": 18.96,
+      "days_left": 19.6
     },
     {
       "name": "云雾",
-      "quota": 442287046,
-      "balance": 442.29,
+      "quota": 442208598,
+      "balance": 442.21,
       "low": false,
       "daily_cost": 88.28,
       "days_left": 5.0
     },
     {
       "name": "哈基米",
-      "quota": 58038781582,
-      "balance": 580.39,
+      "quota": 57970781582,
+      "balance": 579.71,
       "low": false,
       "daily_cost": 73.92,
-      "days_left": 7.9
+      "days_left": 7.8
     },
     {
       "name": "MNAPI",
-      "quota": 61061755,
-      "balance": 122.12,
+      "quota": 60978645,
+      "balance": 121.96,
       "low": false,
       "daily_cost": 6.83,
       "days_left": 17.9
     },
     {
       "name": "FoxCode",
-      "quota": 1688454993,
-      "balance": 395.1,
+      "quota": 1626527804,
+      "balance": 380.61,
       "low": false,
       "daily_cost": 371.4,
-      "days_left": 1.1
+      "days_left": 1.0
     },
     {
       "name": "IkunCode",
-      "quota": 168704624,
-      "balance": 337.41,
+      "quota": 168419154,
+      "balance": 336.84,
       "low": false,
-      "daily_cost": 78.83,
+      "daily_cost": 77.88,
       "days_left": 4.3
     },
     {
       "name": "RightCode",
-      "quota": 119925918,
-      "balance": 239.85,
+      "quota": 119044869,
+      "balance": 238.09,
       "low": false,
-      "daily_cost": 130.13,
+      "daily_cost": 129.29,
       "days_left": 1.8
     },
     {
       "name": "AI派",
-      "quota": 1432646503,
+      "quota": 1432638328,
       "balance": 573.06,
       "low": false,
-      "daily_cost": 9.47,
-      "days_left": 60.5
+      "daily_cost": 12.23,
+      "days_left": 46.9
     }
   ],
   "recharge": {
