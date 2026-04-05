@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-05 17:00:11",
+  "updated_at": "2026-04-05 18:00:09",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 173008249,
-      "balance": 346.02,
+      "quota": 171380616,
+      "balance": 342.76,
       "low": false,
       "daily_cost": 20.4,
-      "days_left": 17.0
+      "days_left": 16.8
     },
     {
       "name": "云雾",
-      "quota": 399302850,
-      "balance": 399.3,
+      "quota": 398519012,
+      "balance": 398.52,
       "low": false,
       "daily_cost": 43.9,
       "days_left": 9.1
     },
     {
       "name": "哈基米",
-      "quota": 46518281582,
-      "balance": 465.18,
+      "quota": 45851781582,
+      "balance": 458.52,
       "low": false,
-      "daily_cost": 91.53,
-      "days_left": 5.1
+      "daily_cost": 96.21,
+      "days_left": 4.8
     },
     {
       "name": "MNAPI",
-      "quota": 57904446,
-      "balance": 115.81,
+      "quota": 57892853,
+      "balance": 115.79,
       "low": false,
       "daily_cost": 4.64,
       "days_left": 25.0
     },
     {
       "name": "FoxCode",
-      "quota": 736604672,
-      "balance": 172.37,
+      "quota": 620261442,
+      "balance": 145.14,
       "low": false,
       "daily_cost": 508.14,
       "days_left": 0.3
     },
     {
       "name": "IkunCode",
-      "quota": 355631302,
-      "balance": 711.26,
+      "quota": 353994840,
+      "balance": 707.99,
       "low": false,
       "daily_cost": 59.74,
       "days_left": 11.9
     },
     {
       "name": "RightCode",
-      "quota": 288389954,
-      "balance": 576.78,
+      "quota": 284428203,
+      "balance": 568.86,
       "low": false,
       "daily_cost": 30.78,
-      "days_left": 18.7
+      "days_left": 18.5
     },
     {
       "name": "AI派",
-      "quota": 1335219897,
-      "balance": 534.09,
+      "quota": 1323087526,
+      "balance": 529.24,
       "low": false,
-      "daily_cost": 12.23,
-      "days_left": 43.7
+      "daily_cost": 13.57,
+      "days_left": 39.0
     }
   ],
   "recharge": {
