@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-08 03:00:28",
+  "updated_at": "2026-04-08 04:00:09",
   "threshold": 50,
   "accounts": [
     {
@@ -12,59 +12,59 @@
     },
     {
       "name": "云雾",
-      "quota": 324749338,
-      "balance": 324.75,
+      "quota": 324740123,
+      "balance": 324.74,
       "low": false,
-      "daily_cost": 13.19,
-      "days_left": 24.6
+      "daily_cost": 12.47,
+      "days_left": 26.0
     },
     {
       "name": "哈基米",
-      "quota": 72969781582,
-      "balance": 729.7,
+      "quota": 72893781582,
+      "balance": 728.94,
       "low": false,
-      "daily_cost": 87.38,
-      "days_left": 8.4
+      "daily_cost": 87.36,
+      "days_left": 8.3
     },
     {
       "name": "MNAPI",
-      "quota": 245876261,
-      "balance": 491.75,
+      "quota": 244952513,
+      "balance": 489.91,
       "low": false,
-      "daily_cost": 2.64,
-      "days_left": 186.3
+      "daily_cost": 2.65,
+      "days_left": 184.9
     },
     {
       "name": "FoxCode",
-      "quota": 1951543170,
-      "balance": 456.66,
+      "quota": 1920238382,
+      "balance": 449.34,
       "low": false,
-      "daily_cost": 878.91,
+      "daily_cost": 856.12,
       "days_left": 0.5
     },
     {
       "name": "IkunCode",
-      "quota": 208759968,
-      "balance": 417.52,
+      "quota": 208594790,
+      "balance": 417.19,
       "low": false,
-      "daily_cost": 89.84,
-      "days_left": 4.6
+      "daily_cost": 78.46,
+      "days_left": 5.3
     },
     {
       "name": "RightCode",
-      "quota": 131000320,
-      "balance": 262.0,
+      "quota": 130056210,
+      "balance": 260.11,
       "low": false,
-      "daily_cost": 138.28,
+      "daily_cost": 136.08,
       "days_left": 1.9
     },
     {
       "name": "AI派",
-      "quota": 1000915867,
-      "balance": 400.37,
+      "quota": 1000907692,
+      "balance": 400.36,
       "low": false,
-      "daily_cost": 32.08,
-      "days_left": 12.5
+      "daily_cost": 31.64,
+      "days_left": 12.7
     }
   ],
   "recharge": {
