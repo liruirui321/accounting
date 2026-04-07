@@ -1,62 +1,62 @@
 {
-  "updated_at": "2026-04-07 13:00:10",
+  "updated_at": "2026-04-07 14:00:10",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 155857302,
-      "balance": 311.71,
+      "quota": 154690556,
+      "balance": 309.38,
       "low": false,
-      "daily_cost": 14.64,
-      "days_left": 21.3
+      "daily_cost": 15.24,
+      "days_left": 20.3
     },
     {
       "name": "云雾",
-      "quota": 354769601,
-      "balance": 354.77,
+      "quota": 354678943,
+      "balance": 354.68,
       "low": false,
-      "daily_cost": 12.47,
-      "days_left": 28.4
+      "daily_cost": 11.87,
+      "days_left": 29.9
     },
     {
       "name": "哈基米",
-      "quota": 29932781582,
-      "balance": 299.33,
+      "quota": 29493281582,
+      "balance": 294.93,
       "low": false,
-      "daily_cost": 91.42,
-      "days_left": 3.3
+      "daily_cost": 95.79,
+      "days_left": 3.1
     },
     {
       "name": "MNAPI",
-      "quota": 51615745,
-      "balance": 103.23,
+      "quota": 51534363,
+      "balance": 103.07,
       "low": false,
-      "daily_cost": 0.48,
-      "days_left": 215.1
+      "daily_cost": 0.6,
+      "days_left": 171.8
     },
     {
       "name": "IkunCode",
-      "quota": 275584968,
-      "balance": 551.17,
+      "quota": 269662685,
+      "balance": 539.33,
       "low": false,
-      "daily_cost": 68.14,
-      "days_left": 8.1
+      "daily_cost": 69.84,
+      "days_left": 7.7
     },
     {
       "name": "RightCode",
-      "quota": 202422327,
-      "balance": 404.84,
+      "quota": 199586093,
+      "balance": 399.17,
       "low": false,
-      "daily_cost": 74.5,
-      "days_left": 5.4
+      "daily_cost": 75.86,
+      "days_left": 5.3
     },
     {
       "name": "AI派",
-      "quota": 1177414476,
-      "balance": 470.97,
+      "quota": 1172275474,
+      "balance": 468.91,
       "low": false,
-      "daily_cost": 40.05,
-      "days_left": 11.8
+      "daily_cost": 43.85,
+      "days_left": 10.7
     },
     {
       "name": "FoxCode",
