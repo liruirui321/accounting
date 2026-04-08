@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-08 23:00:19",
+  "updated_at": "2026-04-09 00:00:46",
   "threshold": 50,
   "accounts": [
     {
@@ -7,55 +7,55 @@
       "quota": 146497770,
       "balance": 293.0,
       "low": false,
-      "daily_cost": 33.72,
+      "daily_cost": 33.62,
       "days_left": 8.7
     },
     {
       "name": "云雾",
-      "quota": 271973971,
-      "balance": 271.97,
+      "quota": 271845887,
+      "balance": 271.85,
       "low": false,
-      "daily_cost": 25.64,
-      "days_left": 10.6
+      "daily_cost": 20.65,
+      "days_left": 13.2
     },
     {
       "name": "哈基米",
-      "quota": 68573781582,
-      "balance": 685.74,
+      "quota": 68102781582,
+      "balance": 681.03,
       "low": false,
       "daily_cost": 65.23,
-      "days_left": 10.5
+      "days_left": 10.4
     },
     {
       "name": "MNAPI",
-      "quota": 232492091,
-      "balance": 464.98,
+      "quota": 231221753,
+      "balance": 462.44,
       "low": false,
-      "daily_cost": 13.19,
-      "days_left": 35.3
+      "daily_cost": 13.92,
+      "days_left": 33.2
     },
     {
       "name": "FoxCode",
-      "quota": 6116327015,
-      "balance": 1431.22,
+      "quota": 5874526732,
+      "balance": 1374.64,
       "low": false,
-      "daily_cost": 812.33,
-      "days_left": 1.8
+      "daily_cost": 829.58,
+      "days_left": 1.7
     },
     {
       "name": "IkunCode",
-      "quota": 344132554,
-      "balance": 688.27,
+      "quota": 342201046,
+      "balance": 684.4,
       "low": false,
       "daily_cost": 157.2,
       "days_left": 4.4
     },
     {
       "name": "RightCode",
-      "quota": 294191076,
-      "balance": 588.38,
+      "quota": 292617211,
+      "balance": 585.23,
       "low": false,
-      "daily_cost": 136.08,
+      "daily_cost": 135.79,
       "days_left": 4.3
     },
     {
@@ -63,8 +63,9 @@
       "quota": 912861438,
       "balance": 365.14,
       "low": false,
-      "daily_cost": 20.3,
-      "days_left": 18.0
+      "daily_cost": 20.67,
+      "days_left": 17.7,
+      "stale": true
     }
   ],
   "recharge": {
