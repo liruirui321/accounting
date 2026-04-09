@@ -1,78 +1,79 @@
 {
-  "updated_at": "2026-04-09 14:25:02",
+  "updated_at": "2026-04-09 15:00:18",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 143881478,
-      "balance": 287.76,
+      "quota": 143870644,
+      "balance": 287.74,
       "low": false,
-      "daily_cost": 33.62,
-      "days_left": 8.6
-    },
-    {
-      "name": "云雾",
-      "quota": 228239994,
-      "balance": 228.24,
-      "low": false,
-      "daily_cost": 26.53,
-      "days_left": 8.6
+      "daily_cost": 21.35,
+      "days_left": 13.5
     },
     {
       "name": "哈基米",
-      "quota": 64741781582,
-      "balance": 647.42,
+      "quota": 64605781582,
+      "balance": 646.06,
       "low": false,
-      "daily_cost": 63.5,
-      "days_left": 10.2
+      "daily_cost": 60.79,
+      "days_left": 10.6
     },
     {
       "name": "MNAPI",
-      "quota": 220058671,
-      "balance": 440.12,
+      "quota": 220024614,
+      "balance": 440.05,
       "low": false,
       "daily_cost": 21.4,
       "days_left": 20.6
     },
     {
       "name": "FoxCode",
-      "quota": 4331444209,
-      "balance": 1013.56,
+      "quota": 4302078484,
+      "balance": 1006.69,
       "low": false,
-      "daily_cost": 675.28,
+      "daily_cost": 660.89,
       "days_left": 1.5
     },
     {
       "name": "IkunCode",
-      "quota": 306352828,
-      "balance": 612.71,
+      "quota": 298370001,
+      "balance": 596.74,
       "low": false,
       "daily_cost": 166.48,
-      "days_left": 3.7
+      "days_left": 3.6
     },
     {
       "name": "RightCode",
-      "quota": 272404008,
-      "balance": 544.81,
+      "quota": 270931912,
+      "balance": 541.86,
       "low": false,
       "daily_cost": 97.24,
       "days_left": 5.6
     },
     {
       "name": "AI派",
-      "quota": 884189632,
-      "balance": 353.68,
+      "quota": 883090575,
+      "balance": 353.24,
       "low": false,
       "daily_cost": 21.6,
       "days_left": 16.4
     },
     {
       "name": "FoxCode-2",
-      "quota": 3991621776,
-      "balance": 934.04,
+      "quota": 3955200532,
+      "balance": 925.52,
       "low": false,
       "daily_cost": 0,
       "days_left": -1
+    },
+    {
+      "name": "云雾",
+      "quota": 228239994,
+      "balance": 228.24,
+      "low": false,
+      "daily_cost": 29.5,
+      "days_left": 7.7,
+      "stale": true
     }
   ],
   "recharge": {
