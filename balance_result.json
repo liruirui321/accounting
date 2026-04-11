@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-12 05:00:12",
+  "updated_at": "2026-04-12 06:00:08",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 138296136,
+      "quota": 138296112,
       "balance": 276.59,
       "low": false,
       "daily_cost": 1.68,
@@ -15,38 +15,38 @@
       "quota": 583523850,
       "balance": 583.52,
       "low": false,
-      "daily_cost": 8.61,
-      "days_left": 67.8
+      "daily_cost": 8.88,
+      "days_left": 65.7
     },
     {
       "name": "哈基米",
-      "quota": 49604781582,
-      "balance": 496.05,
+      "quota": 49560781582,
+      "balance": 495.61,
       "low": false,
-      "daily_cost": 68.7,
-      "days_left": 7.2
+      "daily_cost": 68.26,
+      "days_left": 7.3
     },
     {
       "name": "MNAPI",
-      "quota": 123437912,
-      "balance": 246.88,
+      "quota": 123425502,
+      "balance": 246.85,
       "low": false,
       "daily_cost": 64.12,
-      "days_left": 3.9
+      "days_left": 3.8
     },
     {
       "name": "FoxCode",
-      "quota": 2225118584,
+      "quota": 2225112411,
       "balance": 520.68,
       "low": false,
-      "daily_cost": 53.75,
-      "days_left": 9.7
+      "daily_cost": 53.04,
+      "days_left": 9.8
     },
     {
       "name": "IkunCode",
-      "quota": 25480360,
-      "balance": 50.96,
-      "low": false,
+      "quota": 23720313,
+      "balance": 47.44,
+      "low": true,
       "daily_cost": 1272.93,
       "days_left": 0.0
     },
@@ -60,19 +60,19 @@
     },
     {
       "name": "AI派",
-      "quota": 744571494,
+      "quota": 744565277,
       "balance": 297.83,
       "low": false,
-      "daily_cost": 5.01,
-      "days_left": 59.4
+      "daily_cost": 5.49,
+      "days_left": 54.2
     },
     {
       "name": "FoxCode-2",
-      "quota": 4381560928,
-      "balance": 1025.29,
+      "quota": 4381523428,
+      "balance": 1025.28,
       "low": false,
-      "daily_cost": 31.54,
-      "days_left": 32.5
+      "daily_cost": 30.62,
+      "days_left": 33.5
     }
   ],
   "recharge": {
