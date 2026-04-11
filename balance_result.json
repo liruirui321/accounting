@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-11 10:00:11",
+  "updated_at": "2026-04-11 11:00:10",
   "threshold": 50,
   "accounts": [
     {
@@ -12,43 +12,43 @@
     },
     {
       "name": "云雾",
-      "quota": 597846810,
-      "balance": 597.85,
+      "quota": 597635504,
+      "balance": 597.64,
       "low": false,
-      "daily_cost": 57.93,
-      "days_left": 10.3
+      "daily_cost": 54.81,
+      "days_left": 10.9
     },
     {
       "name": "哈基米",
-      "quota": 59318781582,
-      "balance": 593.19,
+      "quota": 59030781582,
+      "balance": 590.31,
       "low": false,
-      "daily_cost": 35.29,
-      "days_left": 16.8
+      "daily_cost": 35.54,
+      "days_left": 16.6
     },
     {
       "name": "MNAPI",
-      "quota": 150256707,
-      "balance": 300.51,
+      "quota": 149439558,
+      "balance": 298.88,
       "low": false,
-      "daily_cost": 63.04,
+      "daily_cost": 62.22,
       "days_left": 4.8
     },
     {
       "name": "FoxCode",
-      "quota": 2367281141,
-      "balance": 553.94,
+      "quota": 2357950500,
+      "balance": 551.76,
       "low": false,
-      "daily_cost": 169.61,
+      "daily_cost": 168.63,
       "days_left": 3.3
     },
     {
       "name": "IkunCode",
-      "quota": 495089691,
-      "balance": 990.18,
+      "quota": 471925737,
+      "balance": 943.85,
       "low": false,
-      "daily_cost": 897.1,
-      "days_left": 1.1
+      "daily_cost": 906.26,
+      "days_left": 1.0
     },
     {
       "name": "RightCode",
@@ -60,19 +60,19 @@
     },
     {
       "name": "AI派",
-      "quota": 766692842,
-      "balance": 306.68,
+      "quota": 766124902,
+      "balance": 306.45,
       "low": false,
-      "daily_cost": 12.72,
-      "days_left": 24.1
+      "daily_cost": 11.77,
+      "days_left": 26.0
     },
     {
       "name": "FoxCode-2",
-      "quota": 4530975202,
-      "balance": 1060.25,
+      "quota": 4527388848,
+      "balance": 1059.41,
       "low": false,
-      "daily_cost": 114.27,
-      "days_left": 9.3
+      "daily_cost": 106.75,
+      "days_left": 9.9
     }
   ],
   "recharge": {
