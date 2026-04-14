@@ -1,75 +1,75 @@
 {
-  "updated_at": "2026-04-15 02:00:10",
+  "updated_at": "2026-04-15 03:00:10",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 130539185,
-      "balance": 261.08,
+      "quota": 130300316,
+      "balance": 260.6,
       "low": false,
-      "daily_cost": 1.2,
-      "days_left": 217.6
+      "daily_cost": 1.67,
+      "days_left": 156.0
     },
     {
       "name": "云雾",
-      "quota": 556728064,
-      "balance": 556.73,
+      "quota": 556709278,
+      "balance": 556.71,
       "low": false,
-      "daily_cost": 1.41,
-      "days_left": 394.8
+      "daily_cost": 1.32,
+      "days_left": 421.8
     },
     {
       "name": "哈基米",
-      "quota": 77391281582,
-      "balance": 773.91,
+      "quota": 77201781582,
+      "balance": 772.02,
       "low": false,
       "daily_cost": 60.84,
       "days_left": 12.7
     },
     {
       "name": "MNAPI",
-      "quota": 255189500,
-      "balance": 510.38,
+      "quota": 254542209,
+      "balance": 509.08,
       "low": false,
-      "daily_cost": 34.91,
-      "days_left": 14.6
+      "daily_cost": 32.75,
+      "days_left": 15.5
     },
     {
       "name": "FoxCode",
-      "quota": 632378576,
-      "balance": 147.98,
+      "quota": 573622013,
+      "balance": 134.23,
       "low": false,
-      "daily_cost": 114.96,
-      "days_left": 1.3
+      "daily_cost": 128.61,
+      "days_left": 1.0
     },
     {
       "name": "IkunCode",
       "quota": 809503877,
       "balance": 1619.01,
       "low": false,
-      "daily_cost": 553.92,
-      "days_left": 2.9
+      "daily_cost": 542.79,
+      "days_left": 3.0
     },
     {
       "name": "RightCode",
-      "quota": 543640631,
-      "balance": 1087.28,
+      "quota": 534566371,
+      "balance": 1069.13,
       "low": false,
-      "daily_cost": 99.57,
-      "days_left": 10.9
+      "daily_cost": 103.92,
+      "days_left": 10.3
     },
     {
       "name": "AI派",
-      "quota": 510011353,
-      "balance": 204.0,
+      "quota": 509057282,
+      "balance": 203.62,
       "low": false,
-      "daily_cost": 11.04,
-      "days_left": 18.5
+      "daily_cost": 11.28,
+      "days_left": 18.1
     },
     {
       "name": "FoxCode-2",
-      "quota": 3311861534,
-      "balance": 774.98,
+      "quota": 3311792526,
+      "balance": 774.96,
       "low": false,
       "daily_cost": 48.48,
       "days_left": 16.0
