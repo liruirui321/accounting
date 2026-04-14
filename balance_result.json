@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-15 04:00:09",
+  "updated_at": "2026-04-15 05:00:08",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 130300316,
+      "quota": 130300194,
       "balance": 260.6,
       "low": false,
       "daily_cost": 2.14,
@@ -12,7 +12,7 @@
     },
     {
       "name": "云雾",
-      "quota": 556707646,
+      "quota": 556707566,
       "balance": 556.71,
       "low": false,
       "daily_cost": 1.41,
@@ -20,26 +20,26 @@
     },
     {
       "name": "哈基米",
-      "quota": 76977781582,
-      "balance": 769.78,
+      "quota": 76857781582,
+      "balance": 768.58,
       "low": false,
       "daily_cost": 60.84,
-      "days_left": 12.7
+      "days_left": 12.6
     },
     {
       "name": "MNAPI",
-      "quota": 254538261,
-      "balance": 509.08,
+      "quota": 254535536,
+      "balance": 509.07,
       "low": false,
       "daily_cost": 31.2,
       "days_left": 16.3
     },
     {
       "name": "FoxCode",
-      "quota": 551273742,
-      "balance": 129.0,
+      "quota": 548257076,
+      "balance": 128.29,
       "low": false,
-      "daily_cost": 126.7,
+      "daily_cost": 126.13,
       "days_left": 1.0
     },
     {
@@ -47,20 +47,20 @@
       "quota": 809503877,
       "balance": 1619.01,
       "low": false,
-      "daily_cost": 524.21,
-      "days_left": 3.1
+      "daily_cost": 565.04,
+      "days_left": 2.9
     },
     {
       "name": "RightCode",
-      "quota": 530105371,
-      "balance": 1060.21,
+      "quota": 526626998,
+      "balance": 1053.25,
       "low": false,
-      "daily_cost": 112.83,
-      "days_left": 9.4
+      "daily_cost": 119.58,
+      "days_left": 8.8
     },
     {
       "name": "AI派",
-      "quota": 509052285,
+      "quota": 509044995,
       "balance": 203.62,
       "low": false,
       "daily_cost": 13.44,
@@ -68,7 +68,7 @@
     },
     {
       "name": "FoxCode-2",
-      "quota": 3311745365,
+      "quota": 3311742587,
       "balance": 774.95,
       "low": false,
       "daily_cost": 48.24,
