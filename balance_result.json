@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-15 05:00:08",
+  "updated_at": "2026-04-15 06:00:09",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 130300194,
+      "quota": 130300058,
       "balance": 260.6,
       "low": false,
-      "daily_cost": 2.14,
-      "days_left": 121.8
+      "daily_cost": 2.27,
+      "days_left": 114.8
     },
     {
       "name": "云雾",
-      "quota": 556707566,
+      "quota": 556707486,
       "balance": 556.71,
       "low": false,
       "daily_cost": 1.41,
@@ -20,24 +20,24 @@
     },
     {
       "name": "哈基米",
-      "quota": 76857781582,
-      "balance": 768.58,
+      "quota": 76810781582,
+      "balance": 768.11,
       "low": false,
       "daily_cost": 60.84,
       "days_left": 12.6
     },
     {
       "name": "MNAPI",
-      "quota": 254535536,
-      "balance": 509.07,
+      "quota": 254470508,
+      "balance": 508.94,
       "low": false,
-      "daily_cost": 31.2,
-      "days_left": 16.3
+      "daily_cost": 28.66,
+      "days_left": 17.8
     },
     {
       "name": "FoxCode",
-      "quota": 548257076,
-      "balance": 128.29,
+      "quota": 542997802,
+      "balance": 127.06,
       "low": false,
       "daily_cost": 126.13,
       "days_left": 1.0
@@ -47,31 +47,31 @@
       "quota": 809503877,
       "balance": 1619.01,
       "low": false,
-      "daily_cost": 565.04,
-      "days_left": 2.9
+      "daily_cost": 577.92,
+      "days_left": 2.8
     },
     {
       "name": "RightCode",
-      "quota": 526626998,
-      "balance": 1053.25,
+      "quota": 525475394,
+      "balance": 1050.95,
       "low": false,
       "daily_cost": 119.58,
       "days_left": 8.8
     },
     {
       "name": "AI派",
-      "quota": 509044995,
-      "balance": 203.62,
+      "quota": 509035776,
+      "balance": 203.61,
       "low": false,
       "daily_cost": 13.44,
-      "days_left": 15.2
+      "days_left": 15.1
     },
     {
       "name": "FoxCode-2",
-      "quota": 3311742587,
-      "balance": 774.95,
+      "quota": 3311705989,
+      "balance": 774.94,
       "low": false,
-      "daily_cost": 48.24,
+      "daily_cost": 48.0,
       "days_left": 16.1
     }
   ],
