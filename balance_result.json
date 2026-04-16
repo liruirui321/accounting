@@ -1,78 +1,78 @@
 {
-  "updated_at": "2026-04-16 15:00:28",
+  "updated_at": "2026-04-16 16:00:11",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 117445094,
-      "balance": 234.89,
+      "quota": 115933869,
+      "balance": 231.87,
       "low": false,
-      "daily_cost": 4.96,
-      "days_left": 47.4
+      "daily_cost": 5.38,
+      "days_left": 43.1
     },
     {
       "name": "云雾",
-      "quota": 546110305,
-      "balance": 546.11,
+      "quota": 538590830,
+      "balance": 538.59,
       "low": false,
-      "daily_cost": 1.19,
-      "days_left": 458.9
+      "daily_cost": 1.2,
+      "days_left": 448.8
     },
     {
       "name": "哈基米",
-      "quota": 64685781582,
-      "balance": 646.86,
+      "quota": 64139781582,
+      "balance": 641.4,
       "low": false,
-      "daily_cost": 80.52,
-      "days_left": 8.0
+      "daily_cost": 81.38,
+      "days_left": 7.9
     },
     {
       "name": "MNAPI",
-      "quota": 243424164,
-      "balance": 486.85,
+      "quota": 243386993,
+      "balance": 486.77,
       "low": false,
-      "daily_cost": 10.04,
-      "days_left": 48.5
+      "daily_cost": 8.89,
+      "days_left": 54.8
     },
     {
       "name": "FoxCode",
-      "quota": 1708810454,
-      "balance": 399.86,
+      "quota": 1529915185,
+      "balance": 358.0,
       "low": false,
-      "daily_cost": 901.8,
+      "daily_cost": 912.94,
       "days_left": 0.4
     },
     {
       "name": "IkunCode",
-      "quota": 805836313,
-      "balance": 1611.67,
+      "quota": 805200636,
+      "balance": 1610.4,
       "low": false,
-      "daily_cost": 4.66,
-      "days_left": 345.9
+      "daily_cost": 4.8,
+      "days_left": 335.5
     },
     {
       "name": "RightCode",
-      "quota": 588634028,
-      "balance": 1177.27,
+      "quota": 534208728,
+      "balance": 1068.42,
       "low": false,
-      "daily_cost": 1165.03,
-      "days_left": 1.0
+      "daily_cost": 1171.09,
+      "days_left": 0.9
     },
     {
       "name": "AI派",
-      "quota": 1188946933,
-      "balance": 475.58,
+      "quota": 1171815019,
+      "balance": 468.73,
       "low": false,
-      "daily_cost": 63.38,
-      "days_left": 7.5
+      "daily_cost": 63.48,
+      "days_left": 7.4
     },
     {
       "name": "FoxCode-2",
-      "quota": 3761799046,
-      "balance": 880.26,
+      "quota": 3562065572,
+      "balance": 833.52,
       "low": false,
-      "daily_cost": 173.33,
-      "days_left": 5.1
+      "daily_cost": 181.59,
+      "days_left": 4.6
     }
   ],
   "recharge": {
