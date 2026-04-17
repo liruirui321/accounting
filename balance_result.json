@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-18 04:00:10",
+  "updated_at": "2026-04-18 05:00:10",
   "threshold": 50,
   "accounts": [
     {
@@ -12,64 +12,64 @@
     },
     {
       "name": "云雾",
-      "quota": 345273767,
-      "balance": 345.27,
+      "quota": 325664170,
+      "balance": 325.66,
       "low": false,
-      "daily_cost": 59.04,
-      "days_left": 5.8
+      "daily_cost": 63.73,
+      "days_left": 5.1
     },
     {
       "name": "哈基米",
-      "quota": 53192188732,
-      "balance": 531.92,
+      "quota": 52980188732,
+      "balance": 529.8,
       "low": false,
-      "daily_cost": 65.39,
+      "daily_cost": 65.23,
       "days_left": 8.1
     },
     {
       "name": "MNAPI",
-      "quota": 231339669,
-      "balance": 462.68,
+      "quota": 231259784,
+      "balance": 462.52,
       "low": false,
       "daily_cost": 5.0,
       "days_left": 92.5
     },
     {
       "name": "FoxCode",
-      "quota": 4037025957,
-      "balance": 944.67,
+      "quota": 4034807237,
+      "balance": 944.15,
       "low": false,
       "daily_cost": 387.1,
       "days_left": 2.4
     },
     {
       "name": "IkunCode",
-      "quota": 685884139,
-      "balance": 1371.77,
+      "quota": 685855296,
+      "balance": 1371.71,
       "low": false,
-      "daily_cost": 64.12,
-      "days_left": 21.4
+      "daily_cost": 61.45,
+      "days_left": 22.3
     },
     {
       "name": "RightCode",
-      "quota": 559653653,
-      "balance": 1119.31,
+      "quota": 559273517,
+      "balance": 1118.55,
       "low": false,
       "daily_cost": 944.7,
       "days_left": 1.2
     },
     {
       "name": "AI派",
-      "quota": 843088461,
-      "balance": 337.24,
+      "quota": 843085284,
+      "balance": 337.23,
       "low": false,
       "daily_cost": 89.42,
       "days_left": 3.8
     },
     {
       "name": "FoxCode-2",
-      "quota": 2303525465,
-      "balance": 539.03,
+      "quota": 2296381937,
+      "balance": 537.35,
       "low": false,
       "daily_cost": 362.13,
       "days_left": 1.5
