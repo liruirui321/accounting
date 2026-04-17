@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-17 21:00:54",
+  "updated_at": "2026-04-17 22:01:00",
   "threshold": 50,
   "accounts": [
     {
@@ -7,72 +7,73 @@
       "quota": 104134389,
       "balance": 208.27,
       "low": false,
-      "daily_cost": 26.31,
-      "days_left": 7.9
+      "daily_cost": 27.38,
+      "days_left": 7.6
     },
     {
       "name": "云雾",
-      "quota": 371044576,
-      "balance": 371.04,
+      "quota": 369604141,
+      "balance": 369.6,
       "low": false,
       "daily_cost": 58.62,
       "days_left": 6.3
     },
     {
-      "name": "哈基米",
-      "quota": 55697188732,
-      "balance": 556.97,
-      "low": false,
-      "daily_cost": 69.89,
-      "days_left": 8.0
-    },
-    {
       "name": "MNAPI",
-      "quota": 233162595,
-      "balance": 466.33,
+      "quota": 233103491,
+      "balance": 466.21,
       "low": false,
       "daily_cost": 2.69,
-      "days_left": 173.4
+      "days_left": 173.3
     },
     {
       "name": "FoxCode",
-      "quota": 4349122219,
-      "balance": 1017.7,
+      "quota": 4284199589,
+      "balance": 1002.5,
       "low": false,
-      "daily_cost": 474.46,
+      "daily_cost": 472.56,
       "days_left": 2.1
     },
     {
       "name": "IkunCode",
-      "quota": 704107975,
-      "balance": 1408.22,
+      "quota": 700233983,
+      "balance": 1400.47,
       "low": false,
-      "daily_cost": 46.55,
-      "days_left": 30.3
+      "daily_cost": 47.02,
+      "days_left": 29.8
     },
     {
       "name": "RightCode",
-      "quota": 415532826,
-      "balance": 831.07,
+      "quota": 388614179,
+      "balance": 777.23,
       "low": false,
       "daily_cost": 866.64,
-      "days_left": 1.0
+      "days_left": 0.9
     },
     {
       "name": "AI派",
-      "quota": 856669045,
-      "balance": 342.67,
+      "quota": 855490507,
+      "balance": 342.2,
       "low": false,
       "daily_cost": 88.15,
       "days_left": 3.9
     },
     {
       "name": "FoxCode-2",
-      "quota": 2575544698,
-      "balance": 602.68,
+      "quota": 2530632500,
+      "balance": 592.17,
       "low": false,
-      "daily_cost": 593.52,
-      "days_left": 1.0
+      "daily_cost": 524.27,
+      "days_left": 1.1
+    },
+    {
+      "name": "哈基米",
+      "quota": 55697188732,
+      "balance": 556.97,
+      "low": false,
+      "daily_cost": 67.72,
+      "days_left": 8.2,
+      "stale": true
     }
   ],
   "recharge": {
