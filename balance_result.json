@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-19 04:00:09",
+  "updated_at": "2026-04-19 05:00:09",
   "threshold": 50,
   "accounts": [
     {
@@ -12,64 +12,64 @@
     },
     {
       "name": "云雾",
-      "quota": 161146485,
-      "balance": 161.15,
+      "quota": 138497480,
+      "balance": 138.5,
       "low": false,
-      "daily_cost": 73.2,
-      "days_left": 2.2
+      "daily_cost": 88.4,
+      "days_left": 1.6
     },
     {
       "name": "哈基米",
       "quota": 49882688732,
       "balance": 498.83,
       "low": false,
-      "daily_cost": 43.47,
-      "days_left": 11.5
+      "daily_cost": 44.19,
+      "days_left": 11.3
     },
     {
       "name": "MNAPI",
-      "quota": 224895244,
-      "balance": 449.79,
+      "quota": 224890369,
+      "balance": 449.78,
       "low": false,
-      "daily_cost": 4.59,
-      "days_left": 98.0
+      "daily_cost": 4.21,
+      "days_left": 106.8
     },
     {
       "name": "FoxCode",
-      "quota": 3298893121,
-      "balance": 771.94,
+      "quota": 3288670251,
+      "balance": 769.55,
       "low": false,
-      "daily_cost": 253.69,
+      "daily_cost": 252.66,
       "days_left": 3.0
     },
     {
       "name": "IkunCode",
-      "quota": 556435813,
-      "balance": 1112.87,
+      "quota": 556345524,
+      "balance": 1112.69,
       "low": false,
       "daily_cost": 191.48,
       "days_left": 5.8
     },
     {
       "name": "RightCode",
-      "quota": 293177467,
-      "balance": 586.35,
+      "quota": 291086766,
+      "balance": 582.17,
       "low": false,
-      "daily_cost": 681.88,
+      "daily_cost": 676.03,
       "days_left": 0.9
     },
     {
       "name": "AI派",
-      "quota": 673263190,
-      "balance": 269.31,
+      "quota": 673260144,
+      "balance": 269.3,
       "low": false,
       "daily_cost": 83.49,
       "days_left": 3.2
     },
     {
       "name": "FoxCode-2",
-      "quota": 3534432470,
-      "balance": 827.06,
+      "quota": 3524883089,
+      "balance": 824.82,
       "low": false,
       "daily_cost": 254.56,
       "days_left": 3.2
