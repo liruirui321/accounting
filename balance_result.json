@@ -1,79 +1,78 @@
 {
-  "updated_at": "2026-04-19 17:01:11",
+  "updated_at": "2026-04-19 18:00:10",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 103747659,
-      "balance": 207.5,
+      "quota": 103701200,
+      "balance": 207.4,
       "low": false,
-      "daily_cost": 1.18,
-      "days_left": 175.8
+      "daily_cost": 1.81,
+      "days_left": 114.6
     },
     {
       "name": "云雾",
-      "quota": 599487416,
-      "balance": 599.49,
+      "quota": 598354262,
+      "balance": 598.35,
       "low": false,
-      "daily_cost": 72.38,
-      "days_left": 8.3
+      "daily_cost": 71.56,
+      "days_left": 8.4
     },
     {
       "name": "哈基米",
-      "quota": 47960188732,
-      "balance": 479.6,
+      "quota": 47590688732,
+      "balance": 475.91,
       "low": false,
-      "daily_cost": 48.12,
-      "days_left": 10.0
+      "daily_cost": 48.59,
+      "days_left": 9.8
     },
     {
       "name": "MNAPI",
-      "quota": 224514098,
-      "balance": 449.03,
+      "quota": 224494374,
+      "balance": 448.99,
       "low": false,
-      "daily_cost": 2.17,
-      "days_left": 206.9
+      "daily_cost": 2.16,
+      "days_left": 207.9
     },
     {
       "name": "FoxCode",
-      "quota": 2820743171,
-      "balance": 660.05,
+      "quota": 2785018810,
+      "balance": 651.7,
       "low": false,
-      "daily_cost": 195.25,
-      "days_left": 3.4
+      "daily_cost": 198.43,
+      "days_left": 3.3
     },
     {
       "name": "IkunCode",
-      "quota": 505014225,
-      "balance": 1010.03,
+      "quota": 503602411,
+      "balance": 1007.2,
       "low": false,
-      "daily_cost": 183.63,
+      "daily_cost": 181.57,
       "days_left": 5.5
     },
     {
       "name": "RightCode",
-      "quota": 95589889,
-      "balance": 191.18,
+      "quota": 67463895,
+      "balance": 134.93,
       "low": false,
-      "daily_cost": 676.03,
-      "days_left": 0.3
-    },
-    {
-      "name": "FoxCode-2",
-      "quota": 3105272615,
-      "balance": 726.63,
-      "low": false,
-      "daily_cost": 206.39,
-      "days_left": 3.5
+      "daily_cost": 678.95,
+      "days_left": 0.2
     },
     {
       "name": "AI派",
-      "quota": 643224349,
-      "balance": 257.29,
+      "quota": 634633289,
+      "balance": 253.85,
       "low": false,
-      "daily_cost": 55.13,
-      "days_left": 4.7,
-      "stale": true
+      "daily_cost": 76.65,
+      "days_left": 3.3
+    },
+    {
+      "name": "FoxCode-2",
+      "quota": 3032386736,
+      "balance": 709.58,
+      "low": false,
+      "daily_cost": 206.64,
+      "days_left": 3.4
     }
   ],
   "recharge": {
