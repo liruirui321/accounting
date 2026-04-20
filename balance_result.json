@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-20 14:01:10",
+  "updated_at": "2026-04-20 15:00:11",
   "threshold": 50,
   "accounts": [
     {
@@ -12,69 +12,67 @@
     },
     {
       "name": "云雾",
-      "quota": 402808193,
-      "balance": 402.81,
+      "quota": 902435703,
+      "balance": 902.44,
       "low": false,
-      "daily_cost": 92.06,
-      "days_left": 4.4
-    },
-    {
-      "name": "MNAPI",
-      "quota": 222446629,
-      "balance": 444.89,
-      "low": false,
-      "daily_cost": 1.18,
-      "days_left": 377.0
-    },
-    {
-      "name": "FoxCode",
-      "quota": 1806653786,
-      "balance": 422.76,
-      "low": false,
-      "daily_cost": 209.51,
-      "days_left": 2.0
-    },
-    {
-      "name": "IkunCode",
-      "quota": 491840130,
-      "balance": 983.68,
-      "low": false,
-      "daily_cost": 69.11,
-      "days_left": 14.2
-    },
-    {
-      "name": "RightCode",
-      "quota": 205826062,
-      "balance": 411.65,
-      "low": false,
-      "daily_cost": 682.47,
-      "days_left": 0.6
-    },
-    {
-      "name": "AI派",
-      "quota": 571199653,
-      "balance": 228.48,
-      "low": false,
-      "daily_cost": 76.65,
-      "days_left": 3.0
+      "daily_cost": 88.79,
+      "days_left": 10.2
     },
     {
       "name": "哈基米",
-      "quota": 41511688732,
-      "balance": 415.12,
+      "quota": 50666688732,
+      "balance": 506.67,
       "low": false,
-      "daily_cost": 55.37,
-      "days_left": 7.5,
-      "stale": true
+      "daily_cost": 55.94,
+      "days_left": 9.1
+    },
+    {
+      "name": "MNAPI",
+      "quota": 221959773,
+      "balance": 443.92,
+      "low": false,
+      "daily_cost": 1.19,
+      "days_left": 373.0
+    },
+    {
+      "name": "FoxCode",
+      "quota": 3710214732,
+      "balance": 868.19,
+      "low": false,
+      "daily_cost": 209.51,
+      "days_left": 4.1
+    },
+    {
+      "name": "IkunCode",
+      "quota": 489945909,
+      "balance": 979.89,
+      "low": false,
+      "daily_cost": 66.23,
+      "days_left": 14.8
+    },
+    {
+      "name": "RightCode",
+      "quota": 586425349,
+      "balance": 1172.85,
+      "low": false,
+      "daily_cost": 680.49,
+      "days_left": 1.7
+    },
+    {
+      "name": "AI派",
+      "quota": 1564630733,
+      "balance": 625.85,
+      "low": false,
+      "daily_cost": 77.17,
+      "days_left": 8.1
     },
     {
       "name": "FoxCode-2",
-      "quota": 2130273498,
-      "balance": 498.48,
+      "quota": 3963532652,
+      "balance": 927.47,
       "low": false,
-      "daily_cost": 206.89,
-      "days_left": 2.4,
-      "stale": true
+      "daily_cost": 206.39,
+      "days_left": 4.5
     }
   ],
   "recharge": {
@@ -83,17 +81,17 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 27192.37,
+    "total": 29724.99,
     "by_account": {
       "Packy": 502.92,
-      "云雾": 2459.41,
-      "FoxCode": 9213.09,
+      "云雾": 2959.04,
+      "FoxCode": 9658.52,
       "哈基米": 1920,
       "IkunCode": 4000,
-      "RightCode": 4141.72,
-      "AI派": 952.48,
+      "RightCode": 4902.92,
+      "AI派": 1349.85,
       "MNAPI": 800,
-      "FoxCode-2": 3202.75
+      "FoxCode-2": 3631.74
     },
     "records": [
       {
@@ -443,6 +441,36 @@
         "amount": 263.95,
         "time": "2026-04-19 20:00:11",
         "note": "自动检测-余额跳涨（135→399，+264元）"
+      },
+      {
+        "account": "云雾",
+        "amount": 499.63,
+        "time": "2026-04-20 15:00:11",
+        "note": "自动检测-余额跳涨（403→902，+500元）"
+      },
+      {
+        "account": "FoxCode",
+        "amount": 445.43,
+        "time": "2026-04-20 15:00:11",
+        "note": "自动检测-余额跳涨（423→868，+445元）"
+      },
+      {
+        "account": "RightCode",
+        "amount": 761.2,
+        "time": "2026-04-20 15:00:11",
+        "note": "自动检测-余额跳涨（412→1173，+761元）"
+      },
+      {
+        "account": "AI派",
+        "amount": 397.37,
+        "time": "2026-04-20 15:00:11",
+        "note": "自动检测-余额跳涨（228→626，+397元）"
+      },
+      {
+        "account": "FoxCode-2",
+        "amount": 428.99,
+        "time": "2026-04-20 15:00:11",
+        "note": "自动检测-余额跳涨（498→927，+429元）"
       }
     ]
   }
