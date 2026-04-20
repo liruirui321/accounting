@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-21 02:00:09",
+  "updated_at": "2026-04-21 03:00:09",
   "threshold": 50,
   "accounts": [
     {
@@ -7,69 +7,69 @@
       "quota": 103328320,
       "balance": 206.66,
       "low": false,
-      "daily_cost": 1.07,
-      "days_left": 193.1
+      "daily_cost": 1.2,
+      "days_left": 172.2
     },
     {
       "name": "云雾",
-      "quota": 852653694,
-      "balance": 852.65,
+      "quota": 836450646,
+      "balance": 836.45,
       "low": false,
       "daily_cost": 60.97,
-      "days_left": 14.0
+      "days_left": 13.7
     },
     {
       "name": "哈基米",
-      "quota": 46983188732,
-      "balance": 469.83,
+      "quota": 46899188732,
+      "balance": 468.99,
       "low": false,
-      "daily_cost": 69.79,
+      "daily_cost": 69.71,
       "days_left": 6.7
     },
     {
       "name": "MNAPI",
-      "quota": 218303590,
-      "balance": 436.61,
+      "quota": 218298629,
+      "balance": 436.6,
       "low": false,
       "daily_cost": 1.68,
       "days_left": 259.9
     },
     {
       "name": "FoxCode",
-      "quota": 4628518684,
-      "balance": 1083.07,
+      "quota": 4616941550,
+      "balance": 1080.37,
       "low": false,
       "daily_cost": 304.08,
       "days_left": 3.6
     },
     {
       "name": "IkunCode",
-      "quota": 477640247,
-      "balance": 955.28,
+      "quota": 477634461,
+      "balance": 955.27,
       "low": false,
-      "daily_cost": 42.77,
-      "days_left": 22.3
+      "daily_cost": 35.29,
+      "days_left": 27.1
     },
     {
       "name": "RightCode",
-      "quota": 529322833,
-      "balance": 1058.65,
+      "quota": 521319200,
+      "balance": 1042.64,
       "low": false,
       "daily_cost": 750.54,
       "days_left": 1.4
     },
     {
       "name": "AI派",
-      "quota": 1422177118,
+      "quota": 1422173093,
       "balance": 568.87,
       "low": false,
-      "daily_cost": 63.38,
-      "days_left": 9.0
+      "daily_cost": 71.24,
+      "days_left": 8.0
     },
     {
       "name": "FoxCode-2",
-      "quota": 3006145532,
-      "balance": 703.44,
+      "quota": 2980209887,
+      "balance": 697.37,
       "low": false,
       "daily_cost": 291.08,
       "days_left": 2.4
