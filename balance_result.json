@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-22 21:00:13",
+  "updated_at": "2026-04-22 22:00:14",
   "threshold": 50,
   "accounts": [
     {
@@ -12,51 +12,51 @@
     },
     {
       "name": "云雾",
-      "quota": 652150403,
-      "balance": 652.15,
+      "quota": 651387206,
+      "balance": 651.39,
       "low": false,
-      "daily_cost": 60.14,
-      "days_left": 10.8
+      "daily_cost": 58.58,
+      "days_left": 11.1
     },
     {
       "name": "哈基米",
-      "quota": 36947688732,
-      "balance": 369.48,
+      "quota": 36525688732,
+      "balance": 365.26,
       "low": false,
       "daily_cost": 53.77,
-      "days_left": 6.9
+      "days_left": 6.8
     },
     {
       "name": "MNAPI",
-      "quota": 202741093,
-      "balance": 405.48,
+      "quota": 202602752,
+      "balance": 405.21,
       "low": false,
       "daily_cost": 6.03,
       "days_left": 67.2
     },
     {
       "name": "IkunCode",
-      "quota": 435863514,
-      "balance": 871.73,
+      "quota": 435153610,
+      "balance": 870.31,
       "low": false,
       "daily_cost": 42.95,
       "days_left": 20.3
     },
     {
       "name": "RightCode",
-      "quota": 1147305282,
-      "balance": 2294.61,
+      "quota": 1113668866,
+      "balance": 2227.34,
       "low": false,
       "daily_cost": 1096.26,
-      "days_left": 2.1
+      "days_left": 2.0
     },
     {
       "name": "AI派",
-      "quota": 953057032,
-      "balance": 381.22,
+      "quota": 953011260,
+      "balance": 381.2,
       "low": false,
-      "daily_cost": 72.46,
-      "days_left": 5.3
+      "daily_cost": 64.78,
+      "days_left": 5.9
     },
     {
       "name": "Ekan8",
@@ -71,8 +71,8 @@
       "quota": 4764517696,
       "balance": 1114.9,
       "low": false,
-      "daily_cost": 267.97,
-      "days_left": 4.2,
+      "daily_cost": 259.54,
+      "days_left": 4.3,
       "stale": true
     },
     {
@@ -80,7 +80,7 @@
       "quota": 5035863198,
       "balance": 1178.39,
       "low": false,
-      "daily_cost": 309.29,
+      "daily_cost": 307.89,
       "days_left": 3.8,
       "stale": true
     }
