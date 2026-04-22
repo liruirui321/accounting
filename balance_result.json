@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-23 06:00:11",
+  "updated_at": "2026-04-23 07:00:11",
   "threshold": 50,
   "accounts": [
     {
@@ -12,51 +12,51 @@
     },
     {
       "name": "云雾",
-      "quota": 640317860,
-      "balance": 640.32,
+      "quota": 640293048,
+      "balance": 640.29,
       "low": false,
       "daily_cost": 40.33,
       "days_left": 15.9
     },
     {
       "name": "哈基米",
-      "quota": 34696688732,
-      "balance": 346.97,
+      "quota": 34616688732,
+      "balance": 346.17,
       "low": false,
       "daily_cost": 53.77,
-      "days_left": 6.5
+      "days_left": 6.4
     },
     {
       "name": "MNAPI",
-      "quota": 202420769,
-      "balance": 404.84,
+      "quota": 202416302,
+      "balance": 404.83,
       "low": false,
       "daily_cost": 3.48,
       "days_left": 116.3
     },
     {
       "name": "IkunCode",
-      "quota": 431835454,
+      "quota": 431835209,
       "balance": 863.67,
       "low": false,
-      "daily_cost": 42.95,
+      "daily_cost": 43.05,
       "days_left": 20.1
     },
     {
       "name": "RightCode",
-      "quota": 1011515099,
-      "balance": 2023.03,
+      "quota": 1010602438,
+      "balance": 2021.2,
       "low": false,
       "daily_cost": 1012.72,
       "days_left": 2.0
     },
     {
       "name": "AI派",
-      "quota": 950342950,
-      "balance": 380.14,
+      "quota": 950308863,
+      "balance": 380.12,
       "low": false,
-      "daily_cost": 34.8,
-      "days_left": 10.9
+      "daily_cost": 32.05,
+      "days_left": 11.9
     },
     {
       "name": "Ekan8",
@@ -71,8 +71,8 @@
       "quota": 4764517696,
       "balance": 1114.9,
       "low": false,
-      "daily_cost": 276.4,
-      "days_left": 4.0,
+      "daily_cost": 323.19,
+      "days_left": 3.4,
       "stale": true
     },
     {
@@ -80,8 +80,8 @@
       "quota": 5035863198,
       "balance": 1178.39,
       "low": false,
-      "daily_cost": 319.84,
-      "days_left": 3.7,
+      "daily_cost": 330.39,
+      "days_left": 3.6,
       "stale": true
     }
   ],
