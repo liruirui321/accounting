@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-22 08:00:11",
+  "updated_at": "2026-04-22 09:00:10",
   "threshold": 50,
   "accounts": [
     {
@@ -12,64 +12,64 @@
     },
     {
       "name": "云雾",
-      "quota": 679189663,
-      "balance": 679.19,
+      "quota": 679126045,
+      "balance": 679.13,
       "low": false,
       "daily_cost": 59.41,
       "days_left": 11.4
     },
     {
       "name": "哈基米",
-      "quota": 40606188732,
-      "balance": 406.06,
+      "quota": 40522188732,
+      "balance": 405.22,
       "low": false,
       "daily_cost": 57.46,
       "days_left": 7.1
     },
     {
       "name": "MNAPI",
-      "quota": 205601268,
-      "balance": 411.2,
+      "quota": 205596616,
+      "balance": 411.19,
       "low": false,
       "daily_cost": 4.11,
       "days_left": 100.0
     },
     {
       "name": "FoxCode",
-      "quota": 4919480151,
-      "balance": 1151.16,
+      "quota": 4884745876,
+      "balance": 1143.03,
       "low": false,
       "daily_cost": 431.88,
-      "days_left": 2.7
+      "days_left": 2.6
     },
     {
       "name": "IkunCode",
-      "quota": 454903634,
-      "balance": 909.81,
+      "quota": 454432815,
+      "balance": 908.87,
       "low": false,
-      "daily_cost": 35.29,
-      "days_left": 25.8
+      "daily_cost": 34.68,
+      "days_left": 26.2
     },
     {
       "name": "RightCode",
-      "quota": 793907546,
-      "balance": 1587.82,
+      "quota": 789550850,
+      "balance": 1579.1,
       "low": false,
       "daily_cost": 872.35,
       "days_left": 1.8
     },
     {
       "name": "AI派",
-      "quota": 1174058169,
-      "balance": 469.62,
+      "quota": 1157473969,
+      "balance": 462.99,
       "low": false,
-      "daily_cost": 72.46,
-      "days_left": 6.5
+      "daily_cost": 81.38,
+      "days_left": 5.7
     },
     {
       "name": "FoxCode-2",
-      "quota": 5167070217,
-      "balance": 1209.1,
+      "quota": 5160366439,
+      "balance": 1207.53,
       "low": false,
       "daily_cost": 422.51,
       "days_left": 2.9
