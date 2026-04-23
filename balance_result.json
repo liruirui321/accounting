@@ -1,62 +1,62 @@
 {
-  "updated_at": "2026-04-23 21:00:13",
+  "updated_at": "2026-04-23 22:00:16",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 87013581,
-      "balance": 174.03,
+      "quota": 86999443,
+      "balance": 174.0,
       "low": false,
-      "daily_cost": 2.05,
-      "days_left": 84.9
+      "daily_cost": 1.68,
+      "days_left": 103.6
     },
     {
       "name": "云雾",
-      "quota": 589268004,
-      "balance": 589.27,
+      "quota": 588599890,
+      "balance": 588.6,
       "low": false,
-      "daily_cost": 43.2,
-      "days_left": 13.6
+      "daily_cost": 40.33,
+      "days_left": 14.6
     },
     {
       "name": "哈基米",
-      "quota": 30578688732,
-      "balance": 305.79,
+      "quota": 30198688732,
+      "balance": 301.99,
       "low": false,
       "daily_cost": 48.53,
-      "days_left": 6.3
+      "days_left": 6.2
     },
     {
       "name": "MNAPI",
-      "quota": 200737614,
-      "balance": 401.48,
+      "quota": 200367914,
+      "balance": 400.74,
       "low": false,
       "daily_cost": 2.16,
-      "days_left": 185.9
+      "days_left": 185.5
     },
     {
       "name": "IkunCode",
-      "quota": 419849342,
-      "balance": 839.7,
+      "quota": 419443701,
+      "balance": 838.89,
       "low": false,
-      "daily_cost": 38.95,
-      "days_left": 21.6
+      "daily_cost": 38.42,
+      "days_left": 21.8
     },
     {
       "name": "RightCode",
-      "quota": 678332857,
-      "balance": 1356.67,
+      "quota": 653098665,
+      "balance": 1306.2,
       "low": false,
       "daily_cost": 938.68,
       "days_left": 1.4
     },
     {
       "name": "AI派",
-      "quota": 854447670,
-      "balance": 341.78,
+      "quota": 853952618,
+      "balance": 341.58,
       "low": false,
-      "daily_cost": 21.52,
-      "days_left": 15.9
+      "daily_cost": 17.69,
+      "days_left": 19.3
     },
     {
       "name": "Ekan8",
@@ -71,8 +71,8 @@
       "quota": 4764517696,
       "balance": 1114.9,
       "low": false,
-      "daily_cost": 102.24,
-      "days_left": 10.9,
+      "daily_cost": 96.95,
+      "days_left": 11.5,
       "stale": true
     },
     {
@@ -80,8 +80,8 @@
       "quota": 5035863198,
       "balance": 1178.39,
       "low": false,
-      "daily_cost": 84.0,
-      "days_left": 14.0,
+      "daily_cost": 77.64,
+      "days_left": 15.2,
       "stale": true
     }
   ],
