@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-25 06:00:09",
+  "updated_at": "2026-04-25 07:00:11",
   "threshold": 50,
   "accounts": [
     {
@@ -12,39 +12,39 @@
     },
     {
       "name": "云雾",
-      "quota": 500303084,
+      "quota": 500296114,
       "balance": 500.3,
       "low": false,
-      "daily_cost": 48.66,
-      "days_left": 10.3
+      "daily_cost": 49.2,
+      "days_left": 10.2
     },
     {
       "name": "哈基米",
-      "quota": 22200188732,
-      "balance": 222.0,
+      "quota": 22096188732,
+      "balance": 220.96,
       "low": false,
       "daily_cost": 44.76,
-      "days_left": 5.0
+      "days_left": 4.9
     },
     {
       "name": "MNAPI",
-      "quota": 198884815,
-      "balance": 397.77,
+      "quota": 198881474,
+      "balance": 397.76,
       "low": false,
       "daily_cost": 1.68,
       "days_left": 236.8
     },
     {
       "name": "FoxCode",
-      "quota": 5591720882,
-      "balance": 1308.46,
+      "quota": 5582868542,
+      "balance": 1306.39,
       "low": false,
-      "daily_cost": 384.88,
-      "days_left": 3.4
+      "daily_cost": 355.39,
+      "days_left": 3.7
     },
     {
       "name": "IkunCode",
-      "quota": 397510292,
+      "quota": 397508846,
       "balance": 795.02,
       "low": false,
       "daily_cost": 23.51,
@@ -52,27 +52,27 @@
     },
     {
       "name": "RightCode",
-      "quota": 889521064,
-      "balance": 1779.04,
+      "quota": 889003999,
+      "balance": 1778.01,
       "low": false,
       "daily_cost": 1033.63,
       "days_left": 1.7
     },
     {
       "name": "AI派",
-      "quota": 762523279,
-      "balance": 305.01,
+      "quota": 762509956,
+      "balance": 305.0,
       "low": false,
       "daily_cost": 19.54,
       "days_left": 15.6
     },
     {
       "name": "FoxCode-2",
-      "quota": 6483504675,
-      "balance": 1517.14,
+      "quota": 6481358330,
+      "balance": 1516.64,
       "low": false,
-      "daily_cost": 408.43,
-      "days_left": 3.7
+      "daily_cost": 339.58,
+      "days_left": 4.5
     },
     {
       "name": "Ekan8",
