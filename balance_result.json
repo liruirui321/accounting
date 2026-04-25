@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-25 14:01:41",
+  "updated_at": "2026-04-25 15:01:46",
   "threshold": 50,
   "accounts": [
     {
@@ -12,67 +12,59 @@
     },
     {
       "name": "云雾",
-      "quota": 496832666,
-      "balance": 496.83,
+      "quota": 496478323,
+      "balance": 496.48,
       "low": false,
-      "daily_cost": 20.88,
-      "days_left": 23.8
+      "daily_cost": 20.77,
+      "days_left": 23.9
     },
     {
       "name": "哈基米",
-      "quota": 21128688732,
-      "balance": 211.29,
+      "quota": 20794688732,
+      "balance": 207.95,
       "low": false,
       "daily_cost": 42.88,
-      "days_left": 4.9
-    },
-    {
-      "name": "MNAPI",
-      "quota": 198711052,
-      "balance": 397.42,
-      "low": false,
-      "daily_cost": 1.68,
-      "days_left": 236.6
+      "days_left": 4.8
     },
     {
       "name": "FoxCode",
-      "quota": 5252726931,
-      "balance": 1229.14,
+      "quota": 5149055769,
+      "balance": 1204.88,
       "low": false,
-      "daily_cost": 312.49,
-      "days_left": 3.9
+      "daily_cost": 319.2,
+      "days_left": 3.8
     },
     {
       "name": "IkunCode",
-      "quota": 393734312,
-      "balance": 787.47,
+      "quota": 392806777,
+      "balance": 785.61,
       "low": false,
-      "daily_cost": 23.28,
-      "days_left": 33.8
+      "daily_cost": 25.8,
+      "days_left": 30.4
     },
     {
       "name": "RightCode",
-      "quota": 827001592,
-      "balance": 1654.0,
+      "quota": 818787140,
+      "balance": 1637.57,
       "low": false,
-      "daily_cost": 697.12,
-      "days_left": 2.4
+      "daily_cost": 647.41,
+      "days_left": 2.5
     },
     {
       "name": "AI派",
-      "quota": 761730473,
-      "balance": 304.69,
+      "quota": 761450511,
+      "balance": 304.58,
       "low": false,
-      "daily_cost": 11.28,
-      "days_left": 27.0
+      "daily_cost": 10.9,
+      "days_left": 27.9
     },
     {
       "name": "FoxCode-2",
-      "quota": 6224185572,
-      "balance": 1456.46,
+      "quota": 6187680486,
+      "balance": 1447.92,
       "low": false,
-      "daily_cost": 261.17,
-      "days_left": 5.6
+      "daily_cost": 236.28,
+      "days_left": 6.1
     },
     {
       "name": "Ekan8",
@@ -80,7 +72,15 @@
       "balance": 91.09,
       "low": false,
       "daily_cost": 50.41,
-      "days_left": 1.8,
+      "days_left": 1.8
+    },
+    {
+      "name": "MNAPI",
+      "quota": 198711052,
+      "balance": 397.42,
+      "low": false,
+      "daily_cost": 1.68,
+      "days_left": 236.6,
       "stale": true
     }
   ],
