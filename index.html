@@ -421,7 +421,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           <div class="wf-divider"></div>
           <div class="wf-row reserve"><span class="wf-label">现金流 ({{ md.cashFlowPct }}%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(cashFlowAmt)}"></div></div><span class="wf-amount">{{ fmt(cashFlowAmt) }}</span></div>
           <div class="wf-row person" v-for="m in md.members" :key="m.name"><span class="wf-label">{{ m.name }} ({{ m.pct }}%)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(memberAmt(m))}"></div></div><span class="wf-amount">{{ fmt(memberAmt(m)) }}</span></div>
-          <div class="wf-row person" v-for="e in (md.employees||[])" :key="'e'+e.name"><span class="wf-label">{{ e.name }} (员工)</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(e.amount)}"></div></div><span class="wf-amount">{{ fmt(e.amount) }}</span></div>
+          <div class="wf-row person" v-for="e in (md.employees||[])" :key="'e'+e.name"><span class="wf-label">{{ e.name }} ({{ e.pct !== undefined ? e.pct + '%' : '员工' }})</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(employeeAmt(e))}"></div></div><span class="wf-amount">{{ fmt(employeeAmt(e)) }}</span></div>
           <div class="wf-row boss" v-for="b in md.bonuses" :key="b.name"><span class="wf-label">{{ b.name }}</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(b.amount)}"></div></div><span class="wf-amount">{{ fmt(b.amount) }}</span></div>
           <div class="wf-divider"></div>
           <div class="wf-row boss"><span class="wf-label">= 待分配余额</span><div class="wf-bar-wrap"><div class="wf-bar" :style="{width:barW(poolRemaining)}"></div></div><span class="wf-amount">{{ fmt(poolRemaining) }}</span></div>
@@ -514,8 +514,8 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
             <tr class="cat-header"><td colspan="4">员工薪资 (固定)</td></tr>
             <tr v-for="e in (md.employees||[])" :key="'e'+e.name" class="highlight-amber">
               <td class="pb-name">{{ e.name }}</td>
-              <td class="pb-pct">{{ e.pctLabel || '' }}</td>
-              <td class="pb-amt" style="color:var(--amber)">{{ fmt(e.amount) }}</td>
+              <td class="pb-pct">{{ e.pct !== undefined ? e.pct + '%' : (e.pctLabel || '') }}</td>
+              <td class="pb-amt" style="color:var(--amber)">{{ fmt(employeeAmt(e)) }}</td>
               <td class="pb-note">{{ e.note || '' }}</td>
             </tr>
             <tr style="background:var(--amber-bg)"><td class="pb-name" style="font-weight:600">员工小计</td><td class="pb-pct"></td><td class="pb-amt" style="color:var(--amber);font-weight:700">{{ fmt(employeeTotal) }}</td><td></td></tr>
@@ -562,10 +562,15 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <div class="dist-section" :class="{locked:monthLocked}">
         <div class="lock-overlay"></div>
         <h3>员工薪资 - 编辑<span v-if="monthLocked" class="locked-badge">已锁定</span></h3>
-        <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">员工固定薪资，从董事长分配池中支出</p>
+        <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">员工可按利润比例或固定金额发放，从董事长分配池中支出</p>
         <div v-for="(e,i) in (md.employees||[])" :key="'emp'+i" class="bonus-row">
           <input class="bn" v-model="e.name" placeholder="姓名" @change="save">
-          <input class="ba" type="number" v-model.number="e.amount" placeholder="金额" @change="save">
+          <select v-model="e.type" @change="toggleEmployeeType(e);save()" style="width:80px;padding:6px;border:1px solid var(--gray-300);border-radius:4px;font-size:13px">
+            <option value="pct">比例%</option>
+            <option value="amount">固定</option>
+          </select>
+          <input v-if="e.type==='pct'||e.pct!==undefined" class="ba" type="number" v-model.number="e.pct" placeholder="比例%" @change="save" step="0.1">
+          <input v-else class="ba" type="number" v-model.number="e.amount" placeholder="金额" @change="save">
           <input class="bm" v-model="e.note" placeholder="备注" @change="save">
           <button class="btn btn-danger btn-sm" @click="removeEmployee(i)">删除</button>
         </div>
@@ -879,7 +884,7 @@ const MARCH_DATA = {
     { name: '刘', role: '董事会成员', pct: 10 },
   ],
   employees: [
-    { name: '李', amount: 804.53, pctLabel: '5%', note: '会计' },
+    { name: '李', pct: 5, note: '会计' },
     { name: '姚', amount: 200, pctLabel: '', note: '本月贡献' },
   ],
   bonuses: [],
@@ -899,7 +904,7 @@ function newMonthData(month) {
       { name: '刘', role: '董事会成员', pct: 10 },
     ],
     employees: [
-      { name: '李', amount: 0, pctLabel: '5%', note: '会计' },
+      { name: '李', pct: 5, note: '会计' },
     ],
     bonuses: [],
     cashFlowPct: 50,
@@ -937,7 +942,16 @@ createApp({
         }
         this.allData[this.currentMonth] = d;
       }
-      return this.allData[this.currentMonth];
+      const data = this.allData[this.currentMonth];
+      // 初始化员工 type 字段
+      if (data.employees) {
+        data.employees.forEach(e => {
+          if (e.type === undefined) {
+            e.type = e.pct !== undefined ? 'pct' : 'amount';
+          }
+        });
+      }
+      return data;
     },
     monthLabel() { const [y,m]=this.currentMonth.split('-'); return y+'年'+parseInt(m)+'月'; },
     monthLocked() {
@@ -953,7 +967,20 @@ createApp({
     salaryTotal() { return this.grossProfit > 0 ? this.md.members.reduce((s,m)=>s+Math.round(this.grossProfit*m.pct/100*100)/100,0) : 0; },
     bossPool() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.bossPoolPct / 100 * 100)/100 : 0; },
     salaryPct() { return 100 - this.md.cashFlowPct - this.md.bossPoolPct; },
-    employeeTotal() { return (this.md.employees||[]).reduce((s,e)=>s+(e.amount||0),0); },
+    employeeTotal() {
+      return (this.md.employees||[]).reduce((s,e)=> {
+        if (e.pct !== undefined && this.grossProfit > 0) {
+          return s + Math.round(this.grossProfit * e.pct / 100 * 100) / 100;
+        }
+        return s + (e.amount || 0);
+      }, 0);
+    },
+    employeeAmt(e) {
+      if (e.pct !== undefined && this.grossProfit > 0) {
+        return Math.round(this.grossProfit * e.pct / 100 * 100) / 100;
+      }
+      return e.amount || 0;
+    },
     poolUsed() { return this.md.bonuses.reduce((s,b)=>s+(b.amount||0),0); },
     poolRemaining() { return Math.round((this.bossPool - this.employeeTotal - this.poolUsed)*100)/100; },
     maxBar() { return Math.max(this.totalRevenue, 1); },
@@ -1128,8 +1155,18 @@ createApp({
     save() { saveAll(this.allData); },
     addBonus() { this.md.bonuses.push({name:'',amount:0,pctLabel:'',note:''}); this.save(); },
     removeBonus(i) { this.md.bonuses.splice(i,1); this.save(); },
-    addEmployee() { if(!this.md.employees)this.md.employees=[]; this.md.employees.push({name:'',amount:0,pctLabel:'',note:''}); this.save(); },
+    addEmployee() { if(!this.md.employees)this.md.employees=[]; this.md.employees.push({name:'',type:'amount',amount:0,note:''}); this.save(); },
     removeEmployee(i) { this.md.employees.splice(i,1); this.save(); },
+    toggleEmployeeType(e) {
+      if (e.type === 'pct' || e.pct !== undefined) {
+        if (e.pct === undefined) e.pct = 0;
+        delete e.amount;
+        delete e.pctLabel;
+      } else {
+        if (e.amount === undefined) e.amount = 0;
+        delete e.pct;
+      }
+    },
     openModal(type, item) {
       this.modal.type=type;
       if(item){this.modal.editing=item.id;this.modal.form={date:item.date,desc:item.desc,category:item.category,amount:item.amount};}
