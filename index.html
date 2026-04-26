@@ -385,10 +385,10 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <div class="cards">
         <div class="card c-revenue"><div class="label">总收入</div><div class="value">{{ fmt(totalRevenue) }}</div></div>
         <div class="card c-cost"><div class="label">总成本</div><div class="value">{{ fmt(totalCost) }}</div></div>
-        <div class="card c-gross"><div class="label">毛利润</div><div class="value">{{ fmt(grossProfit) }}</div></div>
+        <div class="card c-gross"><div class="label">毛利润 (利润率 {{ profitMargin }}%)</div><div class="value">{{ fmt(grossProfit) }}</div></div>
         <div class="card c-cashflow"><div class="label">现金流留存 ({{ md.cashFlowPct }}%)</div><div class="value">{{ fmt(cashFlowAmt) }}</div></div>
         <div class="card c-salary"><div class="label">人员薪资 ({{ salaryPct }}%)</div><div class="value">{{ fmt(salaryTotal) }}</div></div>
-        <div class="card c-boss"><div class="label">董事长分配池 ({{ md.bossPoolPct }}%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
+        <div class="card c-boss"><div class="label">董事长分配池 ({{ bossPoolPct }}%)</div><div class="value">{{ fmt(bossPool) }}</div></div>
       </div>
       <div class="chart-row">
         <!-- Pie Chart -->
@@ -408,7 +408,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
           <div class="pie-legend">
             <span><span class="dot" style="background:var(--cyan)"></span>现金流 {{ md.cashFlowPct }}%</span>
             <span><span class="dot" style="background:var(--amber)"></span>薪资 {{ salaryPct }}%</span>
-            <span><span class="dot" style="background:var(--purple)"></span>分配池 {{ md.bossPoolPct }}%</span>
+            <span><span class="dot" style="background:var(--purple)"></span>分配池 {{ bossPoolPct }}%</span>
           </div>
         </div>
         <!-- Waterfall -->
@@ -485,7 +485,7 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
         </div>
         <div class="dist-card dc-pool">
           <div class="dc-label">董事长分配池</div>
-          <div class="dc-pct">{{ md.bossPoolPct }}%</div>
+          <div class="dc-pct">{{ bossPoolPct }}%</div>
           <div class="dc-amount">{{ fmt(bossPool) }}</div>
         </div>
       </div>
@@ -538,23 +538,23 @@ document.getElementById('gate-pwd').addEventListener('keydown',e=>{if(e.key==='E
       <div class="dist-section" :class="{locked:monthLocked}">
         <div class="lock-overlay"></div>
         <h3>分配比例调节<span v-if="monthLocked" class="locked-badge">已锁定</span></h3>
-        <p v-if="!monthLocked" style="font-size:13px;color:var(--gray-500);margin-bottom:12px">三项比例之和须为 100%，调整现金流或分配池后，薪资比例自动计算</p>
+        <p v-if="!monthLocked" style="font-size:13px;color:var(--gray-500);margin-bottom:12px">调整现金流比例，基本薪资由董事会成员和员工比例决定，董事长分配池自动计算剩余部分</p>
         <p v-else style="font-size:13px;color:var(--gray-500);margin-bottom:12px">本月已过结算日（次月1号），分配比例已锁定，仅供查看</p>
-        <p v-if="salaryPct<0" class="ratio-warn">警告：薪资比例为负数，请调整现金流和分配池比例！</p>
         <div class="ratio-row rc">
           <label>现金流留存</label>
-          <input type="range" min="0" :max="100-md.bossPoolPct" v-model.number="md.cashFlowPct" @input="save">
+          <input type="range" min="0" max="100" v-model.number="md.cashFlowPct" @input="save">
           <span class="ratio-val">{{ md.cashFlowPct }}%</span>
-        </div>
-        <div class="ratio-row rb">
-          <label>董事长分配池</label>
-          <input type="range" min="0" :max="100-md.cashFlowPct" v-model.number="md.bossPoolPct" @input="save">
-          <span class="ratio-val">{{ md.bossPoolPct }}%</span>
         </div>
         <div class="ratio-row rs">
           <label>基本薪资</label>
-          <span style="flex:1;font-size:13px;color:var(--gray-500)">= 100% - 现金流 - 分配池（自动计算）</span>
+          <span style="flex:1;font-size:13px;color:var(--gray-500)">= 董事会成员 + 员工比例（自动计算）</span>
           <span class="ratio-val">{{ salaryPct }}%</span>
+        </div>
+        <div class="ratio-row rb">
+          <label>董事长分配池</label>
+          <span style="flex:1;font-size:13px;color:var(--gray-500)">= 100% - 现金流 - 基本薪资（自动计算）</span>
+          <span class="ratio-val">{{ bossPoolPct }}%</span>
+        </div>
         </div>
       </div>
 
@@ -963,16 +963,43 @@ createApp({
     totalRevenue() { return this.md.revenues.reduce((s,r)=>s+(r.amount||0),0); },
     totalCost() { return this.md.costs.reduce((s,c)=>s+(c.amount||0),0); },
     grossProfit() { return this.totalRevenue - this.totalCost; },
+    profitMargin() { return this.totalRevenue > 0 ? Math.round(this.grossProfit / this.totalRevenue * 10000) / 100 : 0; },
     cashFlowAmt() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.cashFlowPct / 100 * 100)/100 : 0; },
-    salaryTotal() { return this.grossProfit > 0 ? this.md.members.reduce((s,m)=>s+Math.round(this.grossProfit*m.pct/100*100)/100,0) : 0; },
-    bossPool() { return this.grossProfit > 0 ? Math.round(this.grossProfit * this.md.bossPoolPct / 100 * 100)/100 : 0; },
-    salaryPct() { return 100 - this.md.cashFlowPct - this.md.bossPoolPct; },
-    employeeTotal() {
-      return (this.md.employees||[]).reduce((s,e)=> {
-        if (e.pct !== undefined && this.grossProfit > 0) {
+    salaryTotal() {
+      if (this.grossProfit <= 0) return 0;
+      // 董事会成员薪资
+      const memberTotal = this.md.members.reduce((s,m)=>s+Math.round(this.grossProfit*m.pct/100*100)/100,0);
+      // 员工按比例的薪资
+      const employeePctTotal = (this.md.employees||[]).reduce((s,e)=> {
+        if (e.pct !== undefined) {
           return s + Math.round(this.grossProfit * e.pct / 100 * 100) / 100;
         }
-        return s + (e.amount || 0);
+        return s;
+      }, 0);
+      return memberTotal + employeePctTotal;
+    },
+    bossPool() {
+      // 董事长分配池 = 毛利润 - 现金流 - 基本薪资
+      if (this.grossProfit <= 0) return 0;
+      return Math.round((this.grossProfit - this.cashFlowAmt - this.salaryTotal) * 100) / 100;
+    },
+    bossPoolPct() {
+      // 董事长分配池比例 = 100% - 现金流% - 基本薪资%
+      return Math.round((100 - this.md.cashFlowPct - this.salaryPct) * 100) / 100;
+    },
+    salaryPct() {
+      // 基本薪资比例 = 董事会成员比例 + 员工按比例的
+      const memberPct = this.md.members.reduce((s,m)=>s+(m.pct||0),0);
+      const employeePct = (this.md.employees||[]).reduce((s,e)=>s+(e.pct||0),0);
+      return memberPct + employeePct;
+    },
+    employeeTotal() {
+      // 只计算固定金额的员工
+      return (this.md.employees||[]).reduce((s,e)=> {
+        if (e.pct === undefined && e.amount !== undefined) {
+          return s + e.amount;
+        }
+        return s;
       }, 0);
     },
     poolUsed() { return this.md.bonuses.reduce((s,b)=>s+(b.amount||0),0); },
@@ -980,7 +1007,7 @@ createApp({
     maxBar() { return Math.max(this.totalRevenue, 1); },
     pieSegments() {
       if (this.grossProfit <= 0) return [];
-      const pcts = [this.md.cashFlowPct, this.salaryPct, this.md.bossPoolPct];
+      const pcts = [this.md.cashFlowPct, this.salaryPct, this.bossPoolPct];
       let offset = 0;
       return pcts.map((p,i)=>{ const d = CIRC*p/100; const o = -offset; offset += d; return {color:PIE_COLORS[i], dash:d+' '+CIRC, offset:o}; });
     },
