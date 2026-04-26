@@ -975,12 +975,6 @@ createApp({
         return s + (e.amount || 0);
       }, 0);
     },
-    employeeAmt(e) {
-      if (e.pct !== undefined && this.grossProfit > 0) {
-        return Math.round(this.grossProfit * e.pct / 100 * 100) / 100;
-      }
-      return e.amount || 0;
-    },
     poolUsed() { return this.md.bonuses.reduce((s,b)=>s+(b.amount||0),0); },
     poolRemaining() { return Math.round((this.bossPool - this.employeeTotal - this.poolUsed)*100)/100; },
     maxBar() { return Math.max(this.totalRevenue, 1); },
@@ -1151,6 +1145,12 @@ createApp({
     fmt(n) { if(n==null||isNaN(n))return'¥0.00'; return'¥'+Number(n).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); },
     barW(v) { return Math.max(0,Math.min(100,Math.abs(v)/this.maxBar*100))+'%'; },
     memberAmt(m) { return this.grossProfit>0?Math.round(this.grossProfit*m.pct/100*100)/100:0; },
+    employeeAmt(e) {
+      if (e.pct !== undefined && this.grossProfit > 0) {
+        return Math.round(this.grossProfit * e.pct / 100 * 100) / 100;
+      }
+      return e.amount || 0;
+    },
     changeMonth(dir) { const[y,m]=this.currentMonth.split('-').map(Number); const d=new Date(y,m-1+dir,1); this.currentMonth=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); },
     save() { saveAll(this.allData); },
     addBonus() { this.md.bonuses.push({name:'',amount:0,pctLabel:'',note:''}); this.save(); },
