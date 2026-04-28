@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-29 02:00:25",
+  "updated_at": "2026-04-29 03:00:11",
   "threshold": 50,
   "accounts": [
     {
@@ -12,64 +12,64 @@
     },
     {
       "name": "云雾",
-      "quota": 285733138,
-      "balance": 285.73,
+      "quota": 285052752,
+      "balance": 285.05,
       "low": false,
-      "daily_cost": 31.37,
-      "days_left": 9.1
+      "daily_cost": 27.76,
+      "days_left": 10.3
     },
     {
       "name": "哈基米",
-      "quota": 84130188732,
-      "balance": 841.3,
+      "quota": 83998188732,
+      "balance": 839.98,
       "low": false,
       "daily_cost": 114.27,
       "days_left": 7.4
     },
     {
       "name": "MNAPI",
-      "quota": 106031765,
+      "quota": 106029620,
       "balance": 212.06,
       "low": false,
-      "daily_cost": 22.33,
-      "days_left": 9.5
+      "daily_cost": 26.63,
+      "days_left": 8.0
     },
     {
       "name": "FoxCode",
-      "quota": 4556071908,
-      "balance": 1066.12,
+      "quota": 4518693082,
+      "balance": 1057.38,
       "low": false,
       "daily_cost": 314.66,
       "days_left": 3.4
     },
     {
       "name": "IkunCode",
-      "quota": 546485872,
-      "balance": 1092.97,
+      "quota": 545566285,
+      "balance": 1091.13,
       "low": false,
       "daily_cost": 187.13,
       "days_left": 5.8
     },
     {
       "name": "RightCode",
-      "quota": 747240627,
-      "balance": 1494.48,
+      "quota": 742982967,
+      "balance": 1485.97,
       "low": false,
       "daily_cost": 857.08,
       "days_left": 1.7
     },
     {
       "name": "AI派",
-      "quota": 715840090,
-      "balance": 286.34,
+      "quota": 715836418,
+      "balance": 286.33,
       "low": false,
-      "daily_cost": 1.67,
-      "days_left": 171.5
+      "daily_cost": 1.43,
+      "days_left": 200.2
     },
     {
       "name": "FoxCode-2",
-      "quota": 5596794952,
-      "balance": 1309.65,
+      "quota": 5583506504,
+      "balance": 1306.54,
       "low": false,
       "daily_cost": 326.11,
       "days_left": 4.0
