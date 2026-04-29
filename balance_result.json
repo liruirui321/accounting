@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-30 03:00:11",
+  "updated_at": "2026-04-30 04:00:56",
   "threshold": 50,
   "accounts": [
     {
@@ -12,47 +12,47 @@
     },
     {
       "name": "云雾",
-      "quota": 257988846,
-      "balance": 257.99,
+      "quota": 253741119,
+      "balance": 253.74,
       "low": false,
-      "daily_cost": 17.49,
-      "days_left": 14.8
+      "daily_cost": 26.75,
+      "days_left": 9.5
     },
     {
       "name": "哈基米",
-      "quota": 76115188732,
-      "balance": 761.15,
+      "quota": 75971188732,
+      "balance": 759.71,
       "low": false,
-      "daily_cost": 83.53,
-      "days_left": 9.1
+      "daily_cost": 81.36,
+      "days_left": 9.3
     },
     {
       "name": "MNAPI",
-      "quota": 103279611,
+      "quota": 103279537,
       "balance": 206.56,
       "low": false,
-      "daily_cost": 7.86,
-      "days_left": 26.3
+      "daily_cost": 6.96,
+      "days_left": 29.7
     },
     {
       "name": "IkunCode",
-      "quota": 448090859,
-      "balance": 896.18,
+      "quota": 447886841,
+      "balance": 895.77,
       "low": false,
-      "daily_cost": 122.88,
-      "days_left": 7.3
+      "daily_cost": 132.2,
+      "days_left": 6.8
     },
     {
       "name": "RightCode",
-      "quota": 889941801,
-      "balance": 1779.88,
+      "quota": 888617754,
+      "balance": 1777.24,
       "low": false,
-      "daily_cost": 751.69,
-      "days_left": 2.4
+      "daily_cost": 762.51,
+      "days_left": 2.3
     },
     {
       "name": "AI派",
-      "quota": 690576892,
+      "quota": 690572292,
       "balance": 276.23,
       "low": false,
       "daily_cost": 4.43,
@@ -60,10 +60,10 @@
     },
     {
       "name": "FoxCode-2",
-      "quota": 8003011368,
-      "balance": 1872.71,
+      "quota": 7992864443,
+      "balance": 1870.33,
       "low": false,
-      "daily_cost": 322.86,
+      "daily_cost": 324.48,
       "days_left": 5.8
     },
     {
@@ -79,8 +79,8 @@
       "quota": 3560474904,
       "balance": 833.15,
       "low": false,
-      "daily_cost": 313.92,
-      "days_left": 2.7,
+      "daily_cost": 321.67,
+      "days_left": 2.6,
       "stale": true
     }
   ],
