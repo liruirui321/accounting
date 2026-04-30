@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-01 06:00:11",
+  "updated_at": "2026-05-01 07:00:12",
   "threshold": 50,
   "accounts": [
     {
@@ -12,47 +12,47 @@
     },
     {
       "name": "云雾",
-      "quota": 180526599,
-      "balance": 180.53,
+      "quota": 173452420,
+      "balance": 173.45,
       "low": false,
-      "daily_cost": 20.45,
-      "days_left": 8.8
+      "daily_cost": 26.37,
+      "days_left": 6.6
     },
     {
       "name": "哈基米",
-      "quota": 70197188732,
-      "balance": 701.97,
+      "quota": 70185188732,
+      "balance": 701.85,
       "low": false,
       "daily_cost": 71.3,
       "days_left": 9.8
     },
     {
       "name": "MNAPI",
-      "quota": 91216916,
+      "quota": 91216861,
       "balance": 182.43,
       "low": false,
-      "daily_cost": 9.01,
-      "days_left": 20.2
+      "daily_cost": 9.95,
+      "days_left": 18.3
     },
     {
       "name": "IkunCode",
-      "quota": 267082492,
+      "quota": 267082278,
       "balance": 534.16,
       "low": false,
-      "daily_cost": 170.84,
-      "days_left": 3.1
+      "daily_cost": 181.15,
+      "days_left": 2.9
     },
     {
       "name": "RightCode",
-      "quota": 612498848,
+      "quota": 612497704,
       "balance": 1225.0,
       "low": false,
-      "daily_cost": 665.12,
+      "daily_cost": 688.08,
       "days_left": 1.8
     },
     {
       "name": "AI派",
-      "quota": 680020449,
+      "quota": 680017443,
       "balance": 272.01,
       "low": false,
       "daily_cost": 11.84,
@@ -60,11 +60,11 @@
     },
     {
       "name": "FoxCode-2",
-      "quota": 7147701205,
+      "quota": 7147667178,
       "balance": 1672.56,
       "low": false,
-      "daily_cost": 246.89,
-      "days_left": 6.8
+      "daily_cost": 257.04,
+      "days_left": 6.5
     },
     {
       "name": "Ekan8",
@@ -79,8 +79,8 @@
       "quota": 3560474904,
       "balance": 833.15,
       "low": false,
-      "daily_cost": 365.92,
-      "days_left": 2.3,
+      "daily_cost": 375.21,
+      "days_left": 2.2,
       "stale": true
     }
   ],
