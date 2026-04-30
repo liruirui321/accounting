@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-04-30 10:00:10",
+  "updated_at": "2026-04-30 11:00:11",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 71863707,
-      "balance": 143.73,
+      "quota": 71427525,
+      "balance": 142.86,
       "low": false,
-      "daily_cost": 3.86,
-      "days_left": 37.2
+      "daily_cost": 4.21,
+      "days_left": 33.9
     },
     {
       "name": "云雾",
-      "quota": 253601378,
-      "balance": 253.6,
+      "quota": 252672539,
+      "balance": 252.67,
       "low": false,
       "daily_cost": 16.38,
-      "days_left": 15.5
+      "days_left": 15.4
     },
     {
       "name": "哈基米",
-      "quota": 74765188732,
-      "balance": 747.65,
+      "quota": 74394688732,
+      "balance": 743.95,
       "low": false,
       "daily_cost": 78.37,
       "days_left": 9.5
     },
     {
       "name": "MNAPI",
-      "quota": 103219133,
-      "balance": 206.44,
+      "quota": 103068043,
+      "balance": 206.14,
       "low": false,
       "daily_cost": 5.85,
-      "days_left": 35.3
+      "days_left": 35.2
     },
     {
       "name": "IkunCode",
-      "quota": 440719595,
-      "balance": 881.44,
+      "quota": 436945442,
+      "balance": 873.89,
       "low": false,
       "daily_cost": 141.52,
       "days_left": 6.2
     },
     {
       "name": "RightCode",
-      "quota": 867797032,
-      "balance": 1735.59,
+      "quota": 851758681,
+      "balance": 1703.52,
       "low": false,
       "daily_cost": 751.69,
       "days_left": 2.3
     },
     {
       "name": "AI派",
-      "quota": 690549514,
+      "quota": 690548939,
       "balance": 276.22,
       "low": false,
-      "daily_cost": 4.43,
-      "days_left": 62.4
+      "daily_cost": 5.52,
+      "days_left": 50.0
     },
     {
       "name": "FoxCode-2",
-      "quota": 7926886010,
-      "balance": 1854.89,
+      "quota": 7871036386,
+      "balance": 1841.82,
       "low": false,
-      "daily_cost": 322.86,
-      "days_left": 5.7
+      "daily_cost": 317.94,
+      "days_left": 5.8
     },
     {
       "name": "Ekan8",
@@ -79,7 +79,7 @@
       "quota": 3560474904,
       "balance": 833.15,
       "low": false,
-      "daily_cost": 345.94,
+      "daily_cost": 345.89,
       "days_left": 2.4,
       "stale": true
     }
