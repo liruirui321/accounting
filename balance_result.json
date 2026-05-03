@@ -1,62 +1,62 @@
 {
-  "updated_at": "2026-05-04 00:00:16",
+  "updated_at": "2026-05-04 01:00:15",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 36177918,
-      "balance": 72.36,
+      "quota": 32506742,
+      "balance": 65.01,
       "low": false,
-      "daily_cost": 22.78,
-      "days_left": 3.2
+      "daily_cost": 22.99,
+      "days_left": 2.8
     },
     {
       "name": "云雾",
-      "quota": 1393701084,
-      "balance": 1393.7,
+      "quota": 1390734906,
+      "balance": 1390.73,
       "low": false,
-      "daily_cost": 77.85,
-      "days_left": 17.9
+      "daily_cost": 71.3,
+      "days_left": 19.5
     },
     {
       "name": "哈基米",
-      "quota": 53329688732,
-      "balance": 533.3,
+      "quota": 53101688732,
+      "balance": 531.02,
       "low": false,
-      "daily_cost": 45.12,
-      "days_left": 11.8
+      "daily_cost": 49.95,
+      "days_left": 10.6
     },
     {
       "name": "MNAPI",
-      "quota": 86637708,
-      "balance": 173.28,
+      "quota": 86622502,
+      "balance": 173.25,
       "low": false,
-      "daily_cost": 2.16,
-      "days_left": 80.2
+      "daily_cost": 2.04,
+      "days_left": 84.9
     },
     {
       "name": "IkunCode",
-      "quota": 337936137,
-      "balance": 675.87,
+      "quota": 334046168,
+      "balance": 668.09,
       "low": false,
       "daily_cost": 262.95,
-      "days_left": 2.6
+      "days_left": 2.5
     },
     {
       "name": "RightCode",
-      "quota": 650047578,
-      "balance": 1300.1,
+      "quota": 638434176,
+      "balance": 1276.87,
       "low": false,
-      "daily_cost": 332.07,
-      "days_left": 3.9
+      "daily_cost": 339.31,
+      "days_left": 3.8
     },
     {
       "name": "AI派",
-      "quota": 1802775535,
-      "balance": 721.11,
+      "quota": 1782310089,
+      "balance": 712.92,
       "low": false,
-      "daily_cost": 161.08,
-      "days_left": 4.5
+      "daily_cost": 178.01,
+      "days_left": 4.0
     },
     {
       "name": "Ekan8",
