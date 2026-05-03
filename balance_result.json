@@ -1,54 +1,62 @@
 {
-  "updated_at": "2026-05-03 16:00:45",
+  "updated_at": "2026-05-03 17:00:43",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 48547760,
-      "balance": 97.1,
+      "quota": 46754859,
+      "balance": 93.51,
       "low": false,
-      "daily_cost": 14.72,
-      "days_left": 6.6
+      "daily_cost": 14.58,
+      "days_left": 6.4
     },
     {
       "name": "云雾",
-      "quota": 1409563635,
-      "balance": 1409.56,
+      "quota": 1403351074,
+      "balance": 1403.35,
       "low": false,
-      "daily_cost": 107.06,
-      "days_left": 13.2
+      "daily_cost": 106.94,
+      "days_left": 13.1
     },
     {
       "name": "哈基米",
-      "quota": 56448188732,
-      "balance": 564.48,
+      "quota": 56312188732,
+      "balance": 563.12,
       "low": false,
-      "daily_cost": 48.63,
-      "days_left": 11.6
+      "daily_cost": 45.12,
+      "days_left": 12.5
     },
     {
       "name": "MNAPI",
-      "quota": 88281282,
+      "quota": 88280618,
       "balance": 176.56,
       "low": false,
-      "daily_cost": 2.54,
-      "days_left": 69.5
+      "daily_cost": 2.18,
+      "days_left": 81.0
+    },
+    {
+      "name": "IkunCode",
+      "quota": 435658899,
+      "balance": 871.32,
+      "low": false,
+      "daily_cost": 255.43,
+      "days_left": 3.4
     },
     {
       "name": "RightCode",
-      "quota": 717934721,
-      "balance": 1435.87,
+      "quota": 710870623,
+      "balance": 1421.74,
       "low": false,
-      "daily_cost": 332.07,
-      "days_left": 4.3
+      "daily_cost": 325.88,
+      "days_left": 4.4
     },
     {
       "name": "AI派",
-      "quota": 205159566,
-      "balance": 82.06,
+      "quota": 177303798,
+      "balance": 70.92,
       "low": false,
-      "daily_cost": 115.98,
-      "days_left": 0.7
+      "daily_cost": 124.74,
+      "days_left": 0.6
     },
     {
       "name": "Ekan8",
@@ -65,15 +73,6 @@
       "low": false,
       "daily_cost": 0,
       "days_left": -1,
-      "stale": true
-    },
-    {
-      "name": "IkunCode",
-      "quota": 451362556,
-      "balance": 902.73,
-      "low": false,
-      "daily_cost": 251.07,
-      "days_left": 3.6,
       "stale": true
     },
     {
