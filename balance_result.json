@@ -1,61 +1,61 @@
 {
-  "updated_at": "2026-05-03 12:00:10",
+  "updated_at": "2026-05-03 13:00:11",
   "threshold": 50,
   "accounts": [
     {
       "name": "Packy",
-      "quota": 51728678,
-      "balance": 103.46,
+      "quota": 50851315,
+      "balance": 101.7,
       "low": false,
       "daily_cost": 14.49,
-      "days_left": 7.1
+      "days_left": 7.0
     },
     {
       "name": "云雾",
-      "quota": 1415871781,
-      "balance": 1415.87,
+      "quota": 1411530879,
+      "balance": 1411.53,
       "low": false,
       "daily_cost": 116.4,
-      "days_left": 12.2
+      "days_left": 12.1
     },
     {
       "name": "哈基米",
-      "quota": 57111688732,
-      "balance": 571.12,
+      "quota": 56951688732,
+      "balance": 569.52,
       "low": false,
       "daily_cost": 50.77,
       "days_left": 11.2
     },
     {
       "name": "MNAPI",
-      "quota": 88317846,
-      "balance": 176.64,
+      "quota": 88304231,
+      "balance": 176.61,
       "low": false,
-      "daily_cost": 3.0,
-      "days_left": 58.9
+      "daily_cost": 2.88,
+      "days_left": 61.3
     },
     {
       "name": "IkunCode",
-      "quota": 474747964,
-      "balance": 949.5,
+      "quota": 467158222,
+      "balance": 934.32,
       "low": false,
       "daily_cost": 253.1,
-      "days_left": 3.8
+      "days_left": 3.7
     },
     {
       "name": "RightCode",
-      "quota": 754120344,
-      "balance": 1508.24,
+      "quota": 747199439,
+      "balance": 1494.4,
       "low": false,
       "daily_cost": 296.68,
-      "days_left": 5.1
+      "days_left": 5.0
     },
     {
       "name": "AI派",
-      "quota": 290732336,
-      "balance": 116.29,
+      "quota": 280380776,
+      "balance": 112.15,
       "low": false,
-      "daily_cost": 105.78,
+      "daily_cost": 104.34,
       "days_left": 1.1
     },
     {
@@ -80,8 +80,8 @@
       "quota": 6892821835,
       "balance": 1612.92,
       "low": false,
-      "daily_cost": 149.64,
-      "days_left": 10.8,
+      "daily_cost": 168.91,
+      "days_left": 9.5,
       "stale": true
     }
   ],
