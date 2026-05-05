@@ -1,54 +1,46 @@
 {
-  "updated_at": "2026-05-05 20:01:20",
+  "updated_at": "2026-05-05 21:01:44",
   "threshold": 50,
   "accounts": [
     {
       "name": "云雾",
-      "quota": 1180145546,
-      "balance": 1180.15,
+      "quota": 1173964243,
+      "balance": 1173.96,
       "low": false,
-      "daily_cost": 124.32,
-      "days_left": 9.5
+      "daily_cost": 125.55,
+      "days_left": 9.4
     },
     {
       "name": "哈基米",
-      "quota": 44690688732,
-      "balance": 446.91,
+      "quota": 44329188732,
+      "balance": 443.29,
       "low": false,
-      "daily_cost": 43.68,
+      "daily_cost": 43.67,
       "days_left": 10.2
     },
     {
       "name": "MNAPI",
-      "quota": 81024170,
-      "balance": 162.05,
+      "quota": 80966175,
+      "balance": 161.93,
       "low": false,
       "daily_cost": 5.38,
       "days_left": 30.1
     },
     {
       "name": "IkunCode",
-      "quota": 254861801,
-      "balance": 509.72,
+      "quota": 241751854,
+      "balance": 483.5,
       "low": false,
-      "daily_cost": 298.15,
+      "daily_cost": 286.62,
       "days_left": 1.7
-    },
-    {
-      "name": "RightCode",
-      "quota": 179661980,
-      "balance": 359.32,
-      "low": false,
-      "daily_cost": 401.15,
-      "days_left": 0.9
     },
     {
       "name": "AI派",
       "quota": 1314228607,
       "balance": 525.69,
       "low": false,
-      "daily_cost": 368.79,
-      "days_left": 1.4
+      "daily_cost": 355.21,
+      "days_left": 1.5
     },
     {
       "name": "Ekan8",
@@ -63,8 +55,8 @@
       "quota": 31490206,
       "balance": 62.98,
       "low": false,
-      "daily_cost": 111.84,
-      "days_left": 0.6,
+      "daily_cost": 142.75,
+      "days_left": 0.4,
       "stale": true
     },
     {
@@ -74,6 +66,15 @@
       "low": false,
       "daily_cost": 0,
       "days_left": -1,
+      "stale": true
+    },
+    {
+      "name": "RightCode",
+      "quota": 179661980,
+      "balance": 359.32,
+      "low": false,
+      "daily_cost": 398.88,
+      "days_left": 0.9,
       "stale": true
     },
     {
