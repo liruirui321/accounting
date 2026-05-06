@@ -1,46 +1,46 @@
 {
-  "updated_at": "2026-05-06 10:00:13",
+  "updated_at": "2026-05-06 11:00:11",
   "threshold": 50,
   "accounts": [
     {
       "name": "云雾",
-      "quota": 1128628507,
-      "balance": 1128.63,
+      "quota": 1124435861,
+      "balance": 1124.44,
       "low": false,
-      "daily_cost": 112.95,
-      "days_left": 10.0
+      "daily_cost": 106.78,
+      "days_left": 10.5
     },
     {
       "name": "哈基米",
-      "quota": 40178688732,
-      "balance": 401.79,
+      "quota": 39612688732,
+      "balance": 396.13,
       "low": false,
-      "daily_cost": 56.35,
-      "days_left": 7.1
+      "daily_cost": 57.69,
+      "days_left": 6.9
     },
     {
       "name": "MNAPI",
-      "quota": 77782920,
-      "balance": 155.57,
+      "quota": 77653354,
+      "balance": 155.31,
       "low": false,
-      "daily_cost": 8.45,
-      "days_left": 18.4
+      "daily_cost": 8.16,
+      "days_left": 19.0
     },
     {
       "name": "IkunCode",
-      "quota": 83496105,
-      "balance": 166.99,
+      "quota": 1066960974,
+      "balance": 2133.92,
       "low": false,
       "daily_cost": 436.97,
-      "days_left": 0.4
+      "days_left": 4.9
     },
     {
       "name": "RightCode",
-      "quota": 25604384,
-      "balance": 51.21,
+      "quota": 503267097,
+      "balance": 1006.53,
       "low": false,
       "daily_cost": 473.04,
-      "days_left": 0.1
+      "days_left": 2.1
     },
     {
       "name": "AI派",
@@ -92,14 +92,14 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 48051.93,
+    "total": 50974.18,
     "by_account": {
       "Packy": 502.92,
       "云雾": 4432.82,
       "FoxCode": 11925.63,
       "哈基米": 2917.32,
-      "IkunCode": 6444.87,
-      "RightCode": 12370.6,
+      "IkunCode": 8411.8,
+      "RightCode": 13325.92,
       "AI派": 2137.99,
       "MNAPI": 800,
       "FoxCode-2": 6419.78,
@@ -627,6 +627,18 @@
         "amount": 487.31,
         "time": "2026-05-05 19:00:50",
         "note": "自动检测-余额跳涨（44→531，+487元）"
+      },
+      {
+        "account": "IkunCode",
+        "amount": 1966.93,
+        "time": "2026-05-06 11:00:11",
+        "note": "自动检测-余额跳涨（167→2134，+1967元）"
+      },
+      {
+        "account": "RightCode",
+        "amount": 955.32,
+        "time": "2026-05-06 11:00:11",
+        "note": "自动检测-余额跳涨（51→1007，+955元）"
       }
     ]
   }
