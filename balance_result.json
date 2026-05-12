@@ -1,43 +1,43 @@
 {
-  "updated_at": "2026-05-12 18:17:50",
+  "updated_at": "2026-05-12 19:16:42",
   "threshold": 50,
   "accounts": [
     {
       "name": "云雾",
-      "quota": 675249789,
-      "balance": 675.25,
+      "quota": 674914468,
+      "balance": 674.91,
       "low": false,
       "daily_cost": 35.84,
       "days_left": 18.8
     },
     {
       "name": "哈基米",
-      "quota": 35696188732,
-      "balance": 356.96,
+      "quota": 35211188732,
+      "balance": 352.11,
       "low": false,
-      "daily_cost": 85.2,
-      "days_left": 4.2
+      "daily_cost": 91.68,
+      "days_left": 3.8
     },
     {
       "name": "MNAPI",
-      "quota": 161000450,
-      "balance": 322.0,
+      "quota": 160859322,
+      "balance": 321.72,
       "low": false,
-      "daily_cost": 13.81,
-      "days_left": 23.3
+      "daily_cost": 10.22,
+      "days_left": 31.5
     },
     {
       "name": "IkunCode",
-      "quota": 247841860,
-      "balance": 495.68,
+      "quota": 1220634406,
+      "balance": 2441.27,
       "low": false,
-      "daily_cost": 1323.82,
-      "days_left": 0.4
+      "daily_cost": 1356.2,
+      "days_left": 1.8
     },
     {
       "name": "RightCode",
-      "quota": 95184894,
-      "balance": 190.37,
+      "quota": 94786254,
+      "balance": 189.57,
       "low": false,
       "daily_cost": 37.98,
       "days_left": 5.0
@@ -93,13 +93,13 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 56594.57,
+    "total": 58540.16,
     "by_account": {
       "Packy": 502.92,
       "云雾": 4432.82,
       "FoxCode": 11925.63,
       "哈基米": 3415.51,
-      "IkunCode": 12598.91,
+      "IkunCode": 14544.5,
       "RightCode": 14261.01,
       "AI派": 2137.99,
       "MNAPI": 800,
@@ -676,6 +676,12 @@
         "amount": 1336.73,
         "time": "2026-05-11 18:00:12",
         "note": "自动检测-余额跳涨（809→2146，+1337元）"
+      },
+      {
+        "account": "IkunCode",
+        "amount": 1945.59,
+        "time": "2026-05-12 19:16:42",
+        "note": "自动检测-余额跳涨（496→2441，+1946元）"
       }
     ]
   }
