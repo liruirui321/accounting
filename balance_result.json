@@ -1,54 +1,54 @@
 {
-  "updated_at": "2026-05-14 17:00:14",
+  "updated_at": "2026-05-14 18:16:24",
   "threshold": 50,
   "accounts": [
     {
       "name": "云雾",
-      "quota": 308566110,
-      "balance": 308.57,
+      "quota": 678209186,
+      "balance": 678.21,
       "low": false,
-      "daily_cost": 69.37,
-      "days_left": 4.4
+      "daily_cost": 73.12,
+      "days_left": 9.3
     },
     {
       "name": "哈基米",
-      "quota": 72035688732,
-      "balance": 720.36,
+      "quota": 71679188732,
+      "balance": 716.79,
       "low": false,
       "daily_cost": 53.83,
-      "days_left": 13.4
+      "days_left": 13.3
     },
     {
       "name": "MNAPI",
-      "quota": 144033379,
-      "balance": 288.07,
+      "quota": 141896000,
+      "balance": 283.79,
       "low": false,
       "daily_cost": 13.97,
-      "days_left": 20.6
+      "days_left": 20.3
     },
     {
       "name": "IkunCode",
-      "quota": 1347542645,
-      "balance": 2695.09,
+      "quota": 1339101067,
+      "balance": 2678.2,
       "low": false,
-      "daily_cost": 1237.38,
-      "days_left": 2.2
+      "daily_cost": 1188.31,
+      "days_left": 2.3
     },
     {
       "name": "RightCode",
-      "quota": 118010777,
-      "balance": 236.02,
+      "quota": 116409069,
+      "balance": 232.82,
       "low": false,
       "daily_cost": 19.39,
-      "days_left": 12.2
+      "days_left": 12.0
     },
     {
       "name": "AI派",
-      "quota": 1123488363,
-      "balance": 449.4,
+      "quota": 1113929209,
+      "balance": 445.57,
       "low": false,
-      "daily_cost": 10.36,
-      "days_left": 43.4
+      "daily_cost": 11.12,
+      "days_left": 40.1
     },
     {
       "name": "Ekan8",
@@ -92,10 +92,10 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 62350.29,
+    "total": 62719.93,
     "by_account": {
       "Packy": 502.92,
-      "云雾": 4432.82,
+      "云雾": 4802.46,
       "FoxCode": 11925.63,
       "哈基米": 3912.91,
       "IkunCode": 17857.23,
@@ -699,6 +699,12 @@
         "amount": 1984.03,
         "time": "2026-05-14 17:00:14",
         "note": "自动检测-余额跳涨（711→2695，+1984元）"
+      },
+      {
+        "account": "云雾",
+        "amount": 369.64,
+        "time": "2026-05-14 18:16:24",
+        "note": "自动检测-余额跳涨（309→678，+370元）"
       }
     ]
   }
