@@ -1,51 +1,51 @@
 {
-  "updated_at": "2026-05-21 11:00:16",
+  "updated_at": "2026-05-21 12:00:15",
   "threshold": 50,
   "accounts": [
     {
       "name": "云雾",
-      "quota": 281550467,
-      "balance": 281.55,
+      "quota": 280755871,
+      "balance": 280.76,
       "low": false,
-      "daily_cost": 39.51,
-      "days_left": 7.1
+      "daily_cost": 34.16,
+      "days_left": 8.2
     },
     {
       "name": "哈基米",
-      "quota": 31897188732,
-      "balance": 318.97,
+      "quota": 30800188732,
+      "balance": 308.0,
       "low": false,
-      "daily_cost": 55.21,
-      "days_left": 5.8
+      "daily_cost": 55.85,
+      "days_left": 5.5
     },
     {
       "name": "MNAPI",
-      "quota": 92305142,
-      "balance": 184.61,
+      "quota": 92257656,
+      "balance": 184.52,
       "low": false,
-      "daily_cost": 4.69,
-      "days_left": 39.4
+      "daily_cost": 4.53,
+      "days_left": 40.7
     },
     {
       "name": "IkunCode",
-      "quota": 330154295,
-      "balance": 660.31,
+      "quota": 783599264,
+      "balance": 1567.2,
       "low": false,
-      "daily_cost": 1206.44,
-      "days_left": 0.5
+      "daily_cost": 1203.32,
+      "days_left": 1.3
     },
     {
       "name": "RightCode",
-      "quota": 76683464,
-      "balance": 153.37,
+      "quota": 75833681,
+      "balance": 151.67,
       "low": false,
-      "daily_cost": 20.97,
-      "days_left": 7.3
+      "daily_cost": 23.13,
+      "days_left": 6.6
     },
     {
       "name": "AI派",
-      "quota": 789297201,
-      "balance": 315.72,
+      "quota": 788426911,
+      "balance": 315.37,
       "low": false,
       "daily_cost": 24.69,
       "days_left": 12.8
@@ -92,13 +92,13 @@
       "end": "2026-04-25",
       "label": "2026年4月账单"
     },
-    "total": 68419.79,
+    "total": 69326.68,
     "by_account": {
       "Packy": 502.92,
       "云雾": 5050.55,
       "FoxCode": 11925.63,
       "哈基米": 3912.91,
-      "IkunCode": 23309.0,
+      "IkunCode": 24215.89,
       "RightCode": 14261.01,
       "AI派": 2137.99,
       "MNAPI": 800,
@@ -747,6 +747,12 @@
         "amount": 938.74,
         "time": "2026-05-20 14:01:22",
         "note": "自动检测-余额跳涨（289→1228，+939元）"
+      },
+      {
+        "account": "IkunCode",
+        "amount": 906.89,
+        "time": "2026-05-21 12:00:15",
+        "note": "自动检测-余额跳涨（660→1567，+907元）"
       }
     ]
   }
